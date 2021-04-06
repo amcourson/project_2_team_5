@@ -1,7 +1,7 @@
 PROJECT TITLE: Event Planning 
 
 PROJECT DESCRIPTION:
-This app is an event planning app 
+This app is an event planning app that allows users to login and create and rsvp to events they have been invited to.
 
 USER STORY:
 We want users to create a login/ signup 
@@ -12,6 +12,7 @@ As a host I want to be able to add comments
 As a user I want to be able to add a picture for the event
 
 WIREFRAME SKETCH: - Brandon
+
 
 APIS: -Arti & Angelica
 For this project we will be utilizing attendify api
