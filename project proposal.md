@@ -3,44 +3,44 @@ PROJECT TITLE: Event Planning
 PROJECT DESCRIPTION:
 This app is an event planning app 
 
-USER STORY:
-Login As A Host: 
-GIVEN a site
-WHEN I visit the site for the first time
-THEN I am presented with the login/sign-up page 
-WHEN I click on Login/Sign-up page
-THEN ASK for username , password , submit button
-WHEN I click on Submit button
-THEN we can view events in which invited along with Create New Event button
-When I click on any event in 'View Event'
-THEN Event page is open with Event Title, Date, Description, RSVP , comments
-WHEN I click on 'New Event'
-THEN New Event page is open ask for Event Title, Date, Description, invite people link, potluck, gift, registry, Event type, Event address
-WHEN i click on Potluck,
-I can add Food items with head count 
-WHEN i click on Gift registry,
-I can add gift items,
-WHEN I save event, 
-THEN gets Saved in 'My Events' and people get invited
-WHEN Guest, RSVP with potluck items,
-THEN items get updated accordingly
-WHEN Guest, RSVP with gift registry,
-THEN gift items get updated accordingly
-WHEN I click on any PAST Event,
-I can send 'Thank You' Note to all Guests.
+USER STORY: <br>
+Login As A Host: <br>
+GIVEN a site <br>
+WHEN I visit the site for the first time <br>
+THEN I am presented with the login/sign-up page  <br>
+WHEN I click on Login/Sign-up page <br>
+THEN ASK for username , password , submit button <br>
+WHEN I click on Submit button <br>
+THEN we can view events in which invited along with Create New Event button <br>
+When I click on any event in 'View Event' <br>
+THEN Event page is open with Event Title, Date, Description, RSVP , comments <br>
+WHEN I click on 'New Event' <br>
+THEN New Event page is open ask for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address
+WHEN i click on Potluck,<br>
+THEN I can add Food items with head count <br>
+WHEN i click on Gift registry, <br>
+I can add gift items, <br>
+WHEN I save event,  <br>
+THEN gets Saved in 'My Events' and people get invited <br>
+WHEN Guest, RSVP with potluck items, <br>
+THEN items get updated accordingly <br>
+WHEN Guest, RSVP with gift registry, <br>
+THEN gift items get updated accordingly <br>
+WHEN I click on any PAST Event, <br>
+I can send 'Thank You' Note to all Guests. <br>
 
-Login As a Guest User: 
-WHEN login as a guest user, 
-THEN My Profile shows - invitation list 
-WHEN clicked on any event, 
+Login As a Guest User: <br>
+WHEN login as a guest user,  <br>
+THEN My Profile shows - invitation list  <br>
+WHEN clicked on any event, <br>
 THEN
 1. Guest can add comments, RSVP with YES/No/May Be
 2. Guest can update Gift registry, potluck items and list gets updated accordingly
-
-WHEN clicked on My Profile, 
-Calendar shows Event scheduled with RSVP response
-WHEN i clicked on PAST Events, 
-I can upload Photo, Add comments
+<br>
+WHEN clicked on My Profile,  <br>
+Calendar shows Event scheduled with RSVP response <br>
+WHEN i clicked on PAST Events,  <br>
+I can upload Photo, Add comments <br>
 
 
 
