@@ -123,6 +123,7 @@ PotluckName: STRING, NOT NULL  <br>
 PotluckDescription: STRING, NOT NULL  <br>
 headCount: INT, NOT NULL  <br>
 EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
+UserID: FOREIGN KEY (Table: USER, KEY: USERID) <br>
 
 9. GIFTREGISTRY <br>
 GiftID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
@@ -130,5 +131,7 @@ GiftName: STRING, NOT NULL  <br>
 GiftDescription: STRING, NOT NULL  <br>
 GiftURL: STRING, NOT NULL  <br>
 EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
+UserID: FOREIGN KEY (Table: USER, KEY: USERID) <br>
+
 
 
