@@ -56,18 +56,65 @@ We want the user to be able to choose what gift they are bringing that is on the
 As a host I want to be able to add comments
 As a user I want to be able to add a picture for the event
 
-WIREFRAME SKETCH: 
+WIREFRAME SKETCH: - Brandon
 
-
-APIS: 
-1. Attendify: https://developers.attendify.com/
-
-NPM LIBRARIES: 
+APIS: -Arti & Angelica
+For this project we will be utilizing attendify api
+npm libraries: 
 1. Calendar API : https://www.npmjs.com/package/calendar-link
 2. Upload image : https://www.npmjs.com/package/file-upload-with-preview
 
 
+NPM PACKAGES: - Brodie & Arti
 
 
 ROUGH BREAKDOWN OF TASKS:
+
+
+Table Structure: 
+1. USER <br>
+userID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
+userName: STRING, NOT NULL  <br>
+FirstName: STRING, NOT NULL <br> 
+LastName: STRING, NOT NULL <br>
+Address: STRING, NOT NULL <br>
+PhoneNo: STRING, NOT NULL <br>
+ProfileImage: STRING, ALLOW NULL <br>
+
+2. EVENT <br>
+EventID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
+EventTitle: STRING, NOT NULL <br>
+EventDescription: STRING, NOT NULL <br>
+EventDate: DATE, NOT NULL <br>
+TypeID: (Table: TYPE, KEY: TypeID)<br>
+CategoryID: (Table: CATEGORY, KEY: CategoryID)<br>
+
+3. TYPE:<br>
+TypeID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
+TypeName:  STRING, NOT NULL<br> 
+
+4. CATEGORY:<br>
+CategoryID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
+CategoryName: STRING, NOT NULL <br>
+
+5. COMMENT<br>
+CommentID:  Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
+CommentDescription: STRING, NOT NULL <br>
+CommentDate: DATE, NOT NULL <br>
+EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID )<br>
+UserID: FOREIGN KEY (Table: USER, KEY: USERID)<br>
+
+6. GUEST<br>
+GuestID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
+GuestName: STRING, NOT NULL <br> 
+UserId: FOREIGN KEY (Table: USER, KEY: USERID) <br>
+EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
+RSVP:  STRING, ALLOW NULL <br>
+
+7. PHOTOS <br>
+PhotoID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
+EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
+PhotoURL:  STRING, NOT NULL  <br>
+PhotoDescription: STRING, ALLOW NULL <br>
+
 
