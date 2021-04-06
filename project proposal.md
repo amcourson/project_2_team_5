@@ -22,7 +22,7 @@ THEN user is logged in and can view events for which user is invited along with 
 When I click on any event in 'View Event' <br>
 THEN Event page is open with Event Title, Date, Description, RSVP , comments <br>
 WHEN I click on 'New Event' <br>
-THEN New Event page is open , it asks for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address <br>
+THEN New Event page is open , it asks for Event Title, Date, Description, invite people (add guest email),add potluck items, add gift items, Event type, Event address <br>
 WHEN i click on Potluck,<br>
 THEN I can add Food items with head count <br>
 WHEN i click on Gift registry, <br>
@@ -100,6 +100,7 @@ FirstName: STRING, NOT NULL <br>
 LastName: STRING, NOT NULL <br>
 Address: STRING, NOT NULL <br>
 PhoneNo: STRING, NOT NULL <br>
+Email: STRING, NOT NULL <br>
 ProfileImage: STRING, ALLOW NULL <br>
 
 2. EVENT <br>
