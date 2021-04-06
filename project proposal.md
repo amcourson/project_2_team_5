@@ -67,35 +67,35 @@ NPM PACKAGES: (Brodie & Arti) <br>
 3. Date format: https://www.npmjs.com/package/date-format 
 
 ROUGH BREAKDOWN OF TASKS:
-1. Front- End UI: (Brandon / Angelica / Arti)
-HTML , CSS, javascript, Bootstrap: (Brandon / Angelica)
-Handlerbars:  (Angelica / Arti)
-Session, cookies: Arti 
+1. Front- End UI: (Brandon / Angelica / Arti) <br>
+HTML , CSS, javascript, Bootstrap: (Brandon / Angelica) <br>
+Handlerbars:  (Angelica / Arti) <br>
+Session, cookies: Arti  <br>
 
-2. Back-END
-create database: (Brodie)  
-creating routes: (Arti) 
-SEED database - (Angelica / Arti)
-Creating API - CRUD routes (GET, POST, PUT, DELETE) - Arti
-connect db - env, sequilize, mysql, protect env - Angelica
+2. Back-END <br>
+create database: (Brodie)  <br> 
+creating routes: (Arti) <br> 
+SEED database - (Angelica / Arti) <br>
+Creating API - CRUD routes (GET, POST, PUT, DELETE) - Arti <br>
+connect db - env, sequilize, mysql, protect env - Angelica <br>
 
-3. Package: (Angelica) 
-Install Express, Node, handlebars, npm packages (date, calendar, photo)
+3. Package: (Angelica)  <br>
+Install Express, Node, handlebars, npm packages (date, calendar, photo) <br>
 
-4. ESLINT - checking for errors - (Brodie)
+4. ESLINT - checking for errors - (Brodie) <br>
 
-5. Tests ?? - If needed
+5. Tests ?? - If needed <br>
 
-6. Upload Heroku: check for live version - (Arti)
+6. Upload Heroku: check for live version - (Arti) <br>
 
-7. Unit Testing - ALL
+7. Unit Testing - ALL <br>
 
-7. ReadME -
-
-
+7. ReadME - <br>
 
 
-Table Structure: 
+
+
+Table Structure:  <br>
 1. USER <br>
 userID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
 userName: STRING, NOT NULL  <br>
