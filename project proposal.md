@@ -61,12 +61,12 @@ WIREFRAME SKETCH: - Brandon
 APIS: -Arti & Angelica
 For this project we will be utilizing attendify api
 npm libraries: 
-1. Calendar API : https://www.npmjs.com/package/calendar-link
-2. Upload image : https://www.npmjs.com/package/file-upload-with-preview
 
 
 NPM PACKAGES: - Brodie & Arti
-
+1. Calendar API: https://www.npmjs.com/package/calendar-link
+2. Upload image: https://www.npmjs.com/package/file-upload-with-preview
+3. Date format: https://www.npmjs.com/package/date-format 
 
 ROUGH BREAKDOWN OF TASKS:
 
@@ -85,6 +85,7 @@ ProfileImage: STRING, ALLOW NULL <br>
 EventID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
 EventTitle: STRING, NOT NULL <br>
 EventDescription: STRING, NOT NULL <br>
+EventImage: STRING, ALLOW NULL <br>
 EventDate: DATE, NOT NULL <br>
 TypeID: (Table: TYPE, KEY: TypeID)<br>
 CategoryID: (Table: CATEGORY, KEY: CategoryID)<br>
