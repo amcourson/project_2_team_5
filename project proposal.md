@@ -52,7 +52,7 @@ I can upload Photo, Add comments <br>
 
 WIREFRAME SKETCH: Project 2 Wireframe.pdf (Brandon)
 
-APIS: - Arti & Angelica
+APIS: (Arti & Angelica) <br>
 For this project we will be utilizing attendify api
 npm libraries: 
 1. Attendify
@@ -61,32 +61,32 @@ https://developers.attendify.com/
 2. Four Square API: to get venue details
 https://developer.foursquare.com/
 
-NPM PACKAGES: - Brodie & Arti
+NPM PACKAGES: (Brodie & Arti) <br>
 1. Calendar API: https://www.npmjs.com/package/calendar-link
 2. Upload image: https://www.npmjs.com/package/file-upload-with-preview
 3. Date format: https://www.npmjs.com/package/date-format 
 
 ROUGH BREAKDOWN OF TASKS:
-1. Front- End UI: Brandon / Angelica / Arti 
-HTML , CSS, javascript
-Handlerbars:  Arti
-Session, cookies 
+1. Front- End UI: (Brandon / Angelica / Arti)
+HTML , CSS, javascript, Bootstrap: (Brandon / Angelica)
+Handlerbars:  (Angelica / Arti)
+Session, cookies: Arti 
 
 2. Back-END
-create database: Brodie  
-creating routes: Arti 
-SEED database - Angelica / Arti
-Creating API - CRUD routes (GET, POST, PUT, DELETE)
+create database: (Brodie)  
+creating routes: (Arti) 
+SEED database - (Angelica / Arti)
+Creating API - CRUD routes (GET, POST, PUT, DELETE) - Arti
 connect db - env, sequilize, mysql, protect env - Angelica
 
-3. Package: Angelica 
+3. Package: (Angelica) 
 Install Express, Node, handlebars, npm packages (date, calendar, photo)
 
-4. ESLINT - checking for errors - Brodie
+4. ESLINT - checking for errors - (Brodie)
 
 5. Tests ?? - If needed
 
-6. Upload Heroku: check for live version - Arti 
+6. Upload Heroku: check for live version - (Arti)
 
 7. Unit Testing - ALL
 
