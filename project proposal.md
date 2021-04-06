@@ -1,13 +1,13 @@
 <strong>PROJECT TITLE:</strong> Event Planning 
 
 <strong> PROJECT DESCRIPTION:</strong> <br>
-This app is an event planning app.
-We want users to create a login/ signup 
-We want the be able to create an event and add people to the event
-We want the user to be able to RSVP for the event and choose an item from the menu
-We want the user to be able to choose what gift they are bringing that is on the registery
-As a host I want to be able to add comments
-As a user I want to be able to add a picture for the event
+This app is an event planning app. <br>
+We want users to login/ signup for creating an event <br>
+We want the be able to create an event and add people to the event <br>
+We want the user to be able to RSVP for the event and choose an item from the menu <br>
+We want the user to be able to choose what gift they are bringing that is on the registery <br>
+As a host I want to be able to add comments <br>
+As a user I want to be able to add a picture for the event <br>
 
 
 USER STORY: <br>
