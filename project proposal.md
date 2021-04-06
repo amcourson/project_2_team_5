@@ -14,8 +14,9 @@ As a user I want to be able to add a picture for the event
 WIREFRAME SKETCH: - Brandon
 
 APIS: -Arti & Angelica
+For this project we will be utilizing attendify api
 
-NPM PACKAGES: - Brodie
+NPM PACKAGES: - Brodie & Arti
 
 
 ROUGH BREAKDOWN OF TASKS:
