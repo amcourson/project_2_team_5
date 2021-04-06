@@ -11,7 +11,7 @@ As a user I want to be able to add a picture for the event
 
 
 USER STORY: <br>
-Login As A Host: <br>
+<strong>Login As A Host: </strong><br>
 GIVEN a site <br>
 WHEN I visit the site for the first time <br>
 THEN I am presented with the login/sign-up page  <br>
@@ -22,11 +22,11 @@ THEN we can view events in which invited along with Create New Event button <br>
 When I click on any event in 'View Event' <br>
 THEN Event page is open with Event Title, Date, Description, RSVP , comments <br>
 WHEN I click on 'New Event' <br>
-THEN New Event page is open ask for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address
+THEN New Event page is open ask for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address <br>
 WHEN i click on Potluck,<br>
 THEN I can add Food items with head count <br>
 WHEN i click on Gift registry, <br>
-I can add gift items, <br>
+THEN I can add gift items, <br>
 WHEN I save event,  <br>
 THEN gets Saved in 'My Events' and people get invited <br>
 WHEN Guest, RSVP with potluck items, <br>
@@ -36,7 +36,7 @@ THEN gift items get updated accordingly <br>
 WHEN I click on any PAST Event, <br>
 I can send 'Thank You' Note to all Guests. <br>
 
-Login As a Guest User: <br>
+<strong> Login As a Guest User:</strong> <br>
 WHEN login as a guest user,  <br>
 THEN My Profile shows - invitation list  <br>
 WHEN clicked on any event, <br>
@@ -44,15 +44,16 @@ THEN
 1. Guest can add comments, RSVP with YES/No/May Be
 2. Guest can update Gift registry, potluck items and list gets updated accordingly
 <br>
+
 WHEN clicked on My Profile,  <br>
 Calendar shows Event scheduled with RSVP response <br>
 WHEN i clicked on PAST Events,  <br>
 I can upload Photo, Add comments <br>
 
 
-WIREFRAME SKETCH: Project 2 Wireframe.pdf (Brandon)
+<strong> WIREFRAME SKETCH: </strong> Project 2 Wireframe.pdf (Brandon)
 
-APIS: (Arti & Angelica) <br>
+<strong> APIS: (Arti & Angelica) </strong><br>
 For this project we will be utilizing attendify api
 npm libraries: 
 1. Attendify
@@ -61,23 +62,23 @@ https://developers.attendify.com/
 2. Four Square API: to get venue details
 https://developer.foursquare.com/
 
-NPM PACKAGES: (Brodie & Arti) <br>
+<strong> NPM PACKAGES: (Brodie & Arti)  </strong><br>
 1. Calendar API: https://www.npmjs.com/package/calendar-link
 2. Upload image: https://www.npmjs.com/package/file-upload-with-preview
 3. Date format: https://www.npmjs.com/package/date-format 
 
-ROUGH BREAKDOWN OF TASKS:
+<strong> ROUGH BREAKDOWN OF TASKS: </strong>
 1. Front- End UI: (Brandon / Angelica / Arti) <br>
 HTML , CSS, javascript, Bootstrap: (Brandon / Angelica) <br>
 Handlerbars:  (Angelica / Arti) <br>
-Session, cookies: Arti  <br>
+Session, cookies: (Arti)  <br>
 
 2. Back-END <br>
 create database: (Brodie)  <br> 
 creating routes: (Arti) <br> 
 SEED database - (Angelica / Arti) <br>
-Creating API - CRUD routes (GET, POST, PUT, DELETE) - Arti <br>
-connect db - env, sequilize, mysql, protect env - Angelica <br>
+Creating API - CRUD routes (GET, POST, PUT, DELETE) - (Arti) <br>
+connect db - env, sequilize, mysql, protect env - (Angelica) <br>
 
 3. Package: (Angelica)  <br>
 Install Express, Node, handlebars, npm packages (date, calendar, photo) <br>
@@ -91,9 +92,6 @@ Install Express, Node, handlebars, npm packages (date, calendar, photo) <br>
 7. Unit Testing - ALL <br>
 
 7. ReadME - <br>
-
-
-
 
 Table Structure:  <br>
 1. USER <br>
