@@ -1,0 +1,21 @@
+PROJECT TITLE: Event Planning 
+
+PROJECT DESCRIPTION:
+This app is an event planning app 
+
+USER STORY:
+We want users to create a login/ signup 
+We want the be able to create an event and add people to the event
+We want the user to be able to RSVP for the event and choose an item from the menu
+We want the user to be able to choose what gift they are bringing that is on the registery
+As a host I want to be able to add comments
+As a user I want to be able to add a picture for the event
+
+WIREFRAME SKETCH: - Brandon
+
+APIS: -Arti & Angelica
+
+NPM PACKAGES: - Brodie
+
+
+ROUGH BREAKDOWN OF TASKS:
