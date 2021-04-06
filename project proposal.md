@@ -54,12 +54,11 @@ I can upload Photo, Add comments <br>
 <strong> WIREFRAME SKETCH: </strong> Project 2 Wireframe.pdf (Brandon)
 
 <strong> APIS: <i>(Arti & Angelica)</i> </strong><br>
-For this project we will be utilizing attendify api
-npm libraries: 
+For this project we will be utilizing following apis <br>
 1. Attendify
 https://developers.attendify.com/
 
-2. Four Square API: to get venue details
+2. Four Square API: (to get venue details)
 https://developer.foursquare.com/
 
 <strong> NPM PACKAGES: <i>(Brodie & Arti)</i>  </strong><br>
@@ -93,7 +92,7 @@ Install Express, Node, handlebars, npm packages (date, calendar, photo) <br>
 
 7. ReadME - <br>
 
-Table Structure:  <br>
+<strong> Database Structure:</strong>  <br>
 1. USER <br>
 userID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
 userName: STRING, NOT NULL  <br>
