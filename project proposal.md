@@ -1,7 +1,14 @@
 PROJECT TITLE: Event Planning 
 
 PROJECT DESCRIPTION:
-This app is an event planning app 
+This app is an event planning app.
+We want users to create a login/ signup 
+We want the be able to create an event and add people to the event
+We want the user to be able to RSVP for the event and choose an item from the menu
+We want the user to be able to choose what gift they are bringing that is on the registery
+As a host I want to be able to add comments
+As a user I want to be able to add a picture for the event
+
 
 USER STORY: <br>
 Login As A Host: <br>
@@ -43,25 +50,16 @@ WHEN i clicked on PAST Events,  <br>
 I can upload Photo, Add comments <br>
 
 
+WIREFRAME SKETCH: Project 2 Wireframe.pdf (Brandon)
 
-
-
-
-
-
-We want users to create a login/ signup 
-We want the be able to create an event and add people to the event
-We want the user to be able to RSVP for the event and choose an item from the menu
-We want the user to be able to choose what gift they are bringing that is on the registery
-As a host I want to be able to add comments
-As a user I want to be able to add a picture for the event
-
-WIREFRAME SKETCH: - Brandon
-
-APIS: -Arti & Angelica
+APIS: - Arti & Angelica
 For this project we will be utilizing attendify api
 npm libraries: 
+1. Attendify
+https://developers.attendify.com/
 
+2. Four Square API: to get venue details
+https://developer.foursquare.com/
 
 NPM PACKAGES: - Brodie & Arti
 1. Calendar API: https://www.npmjs.com/package/calendar-link
@@ -69,6 +67,32 @@ NPM PACKAGES: - Brodie & Arti
 3. Date format: https://www.npmjs.com/package/date-format 
 
 ROUGH BREAKDOWN OF TASKS:
+1. Front- End UI: Brandon / Angelica / Arti 
+HTML , CSS, javascript
+Handlerbars:  Arti
+Session, cookies 
+
+2. Back-END
+create database: Brodie  
+creating routes: Arti 
+SEED database - Angelica / Arti
+Creating API - CRUD routes (GET, POST, PUT, DELETE)
+connect db - env, sequilize, mysql, protect env - Angelica
+
+3. Package: Angelica 
+Install Express, Node, handlebars, npm packages (date, calendar, photo)
+
+4. ESLINT - checking for errors - Brodie
+
+5. Tests ?? - If needed
+
+6. Upload Heroku: check for live version - Arti 
+
+7. Unit Testing - ALL
+
+7. ReadME -
+
+
 
 
 Table Structure: 
@@ -85,6 +109,7 @@ ProfileImage: STRING, ALLOW NULL <br>
 EventID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
 EventTitle: STRING, NOT NULL <br>
 EventDescription: STRING, NOT NULL <br>
+EventAddress: STRING, NOT NULL <br>
 EventImage: STRING, ALLOW NULL <br>
 EventDate: DATE, NOT NULL <br>
 TypeID: (Table: TYPE, KEY: TypeID)<br>
