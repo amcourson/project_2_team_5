@@ -4,6 +4,13 @@ PROJECT DESCRIPTION:
 This app is an event planning app 
 
 USER STORY:
+GIVEN a site
+WHEN I visit the site for the first time
+THEN I am presented with the login/sign-up page 
+
+
+
+
 We want users to create a login/ signup 
 We want the be able to create an event and add people to the event
 We want the user to be able to RSVP for the event and choose an item from the menu
