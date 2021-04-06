@@ -21,18 +21,22 @@ THEN ASK for username , password , submit button <br>
 WHEN entered usernamem, password and click on Submit button <br>
 THEN user is logged in and can view events for which user is invited along with Create New Event button <br>
 When I click on any event in 'View Event' <br>
-THEN Event page is open with Event Title, Date, Description, RSVP , comments <br>
+THEN Event page is open with Event Title, Date, Description, RSVP , Event type, Event Category, comments <br>
 WHEN I click on 'New Event' <br>
-THEN New Event page is open , it asks for Event Title, Date, Description, invite people (add guest email),add potluck items, add gift items, Event type, Event address <br>
-WHEN i click on Potluck,<br>
-THEN I can add Food items with head count <br>
-WHEN i click on Gift registry, <br>
-THEN I can add gift items, <br>
-WHEN I save event,  <br>
+THEN New Event page is open , it asks for Event Title, Date, Description, invite people (add guest email),add potluck items, add gift items, Event type, Event type, Event Category, Event address <br>
+IF I choose Event Type As POTLUCK
+THEN I can see 'Add Potluck item' button 
+WHEN i click on 'Add Potluck' <br>
+THEN I can add Food items, with needed quantitiy ie head count <br>
+IF I choose Event Type As GIFT
+THEN I can see 'Add Gift item' button 
+WHEN i click on 'Add Gift' <br>
+THEN I can save gift items in Gift registry with url <br>
+WHEN I click on 'Save event' <br>
 THEN gets Saved in 'My Events' and people get invited <br>
-WHEN Guest, RSVP with potluck item, <br>
-THEN items get updated accordingly <br>
-WHEN Guest, RSVP with gift registry, <br>
+WHEN Guest, reply with potluck item, <br>
+THEN potluck items get updated accordingly <br>
+WHEN Guest, reply with gift registry, <br>
 THEN gift items get updated accordingly <br>
 WHEN I click on any PAST Event, <br>
 I can send 'Thank You' Note to all Guests. <br>
