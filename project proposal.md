@@ -3,9 +3,10 @@
 <strong> PROJECT DESCRIPTION:</strong> <br>
 This app is an event planning app. <br>
 We want users to login/ signup for creating an event <br>
-We want the be able to create an event and add people to the event <br>
-We want the user to be able to RSVP for the event and choose an item from the menu <br>
-We want the user to be able to choose what gift they are bringing that is on the registery <br>
+We want the be able to create an event and add people to the event, add event type (either Potluck or Gift ) <br>
+We want the user to be able to RSVP for the event and choose an item from the menu (if Event type is selected as Potluck) <br>
+We want the user to be able to RSVP for the event and choose an gift from the list (if Event type is selected as Gift) <br>
+We want the user to be able to RSVP for the event and user can decline to Gift or Portluck item <br>
 As a host I want to be able to add comments <br>
 As a user I want to be able to add a picture for the event <br>
 
@@ -42,11 +43,12 @@ THEN My Profile shows - invitation list  <br>
 WHEN clicked on any event, <br>
 THEN
 1. Guest can add comments, RSVP with YES/No/May Be
-2. Guest can update Gift registry, potluck items and list gets updated accordingly
+2. If Event type is Potluck : Guest can update Potluck item  or decline to Potluck item. Potluck items gets updated accordingly <br>
+3. If Event type is Gift : Guest can update Gift registry or decline to gift registry. Gift items list gets updated accordingly  <br>, 
 <br>
 
 WHEN clicked on My Profile,  <br>
-Calendar shows Event scheduled with RSVP response <br>
+Calendar shows Event scheduled with RSVP response, item choosen <br>
 WHEN i clicked on PAST Events,  <br>
 I can upload Photo, Add comments <br>
 
@@ -130,7 +132,9 @@ UserID: FOREIGN KEY (Table: USER, KEY: USERID)<br>
 
 6. GUEST<br>
 GuestID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
-GuestName: STRING, NOT NULL <br> 
+GuestName: STRING, NOT NULL <br>
+PotluckID: FOREIGN KEY (Table: POTLUCK, KEY: PotluckID) ALLOW NULL <br> 
+GiftID: FOREIGN KEY (Table: GIFTREGISTRY, KEY: GiftID) ALLOW NULL <br> 
 UserId: FOREIGN KEY (Table: USER, KEY: USERID) <br>
 EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
 RSVP:  STRING, ALLOW NULL <br>
