@@ -157,17 +157,17 @@ GiftURL: STRING, NOT NULL  <br>
 EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
 UserID: FOREIGN KEY (Table: USER, KEY: USERID) <br>
 
-ASSOCIATION:
+ASSOCIATION: <br>
  `EVENT` belongs to `USER`, and `USER` has many `EVENT` models, 
- as a USER can have multiple EVENTS but a EVENT can only belong to one USER.
-`TYPE` belongs to `EVENT` as Event can have only one type
-`CATEGORY` belongs to `EVENT` as Event can have only one category
-`EVENT` has many `PHOTO` models as Event can have many photos.
-`EVENT` has many `COMMENT` models as Event can have many comments.
-`EVENT` has many `GIFT` models as Event can have many gift items.
-`EVENT` has many `POTLUCK` models as Event can have many POTLUCK items.
-`POTLUCK` belongs to `USER` as USER can have only one POTLUCK ITEM.
-`GIFT` belongs to `USER` as USER can have only one GIFT ITEM.
+ as a USER can have multiple EVENTS but a EVENT can only belong to one USER. <br>
+`TYPE` belongs to `EVENT` as Event can have only one type. <br>
+`CATEGORY` belongs to `EVENT` as Event can have only one category. <br>
+`EVENT` has many `PHOTO` models as Event can have many photos. <br>
+`EVENT` has many `COMMENT` models as Event can have many comments. <br>
+`EVENT` has many `GIFT` models as Event can have many gift items. <br>
+`EVENT` has many `POTLUCK` models as Event can have many POTLUCK items. <br>
+`POTLUCK` belongs to `USER` as USER can have only one POTLUCK ITEM. <br>
+`GIFT` belongs to `USER` as USER can have only one GIFT ITEM. <br>
 
 
 
