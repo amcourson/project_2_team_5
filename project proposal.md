@@ -17,19 +17,19 @@ WHEN I visit the site for the first time <br>
 THEN I am presented with the login/sign-up page  <br>
 WHEN I click on Login/Sign-up page <br>
 THEN ASK for username , password , submit button <br>
-WHEN I click on Submit button <br>
-THEN we can view events in which invited along with Create New Event button <br>
+WHEN entered usernamem, password and click on Submit button <br>
+THEN user is logged in and can view events for which user is invited along with Create New Event button <br>
 When I click on any event in 'View Event' <br>
 THEN Event page is open with Event Title, Date, Description, RSVP , comments <br>
 WHEN I click on 'New Event' <br>
-THEN New Event page is open ask for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address <br>
+THEN New Event page is open , it asks for Event Title, Date, Description, invite people  link, potluck, gift, registry, Event type, Event address <br>
 WHEN i click on Potluck,<br>
 THEN I can add Food items with head count <br>
 WHEN i click on Gift registry, <br>
 THEN I can add gift items, <br>
 WHEN I save event,  <br>
 THEN gets Saved in 'My Events' and people get invited <br>
-WHEN Guest, RSVP with potluck items, <br>
+WHEN Guest, RSVP with potluck item, <br>
 THEN items get updated accordingly <br>
 WHEN Guest, RSVP with gift registry, <br>
 THEN gift items get updated accordingly <br>
