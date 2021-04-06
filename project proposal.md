@@ -1,6 +1,6 @@
-PROJECT TITLE: Event Planning 
+<strong>PROJECT TITLE:</strong> Event Planning 
 
-PROJECT DESCRIPTION:
+<strong> PROJECT DESCRIPTION:</strong> <br>
 This app is an event planning app.
 We want users to create a login/ signup 
 We want the be able to create an event and add people to the event
@@ -53,7 +53,7 @@ I can upload Photo, Add comments <br>
 
 <strong> WIREFRAME SKETCH: </strong> Project 2 Wireframe.pdf (Brandon)
 
-<strong> APIS: (Arti & Angelica) </strong><br>
+<strong> APIS: <i>(Arti & Angelica)</i> </strong><br>
 For this project we will be utilizing attendify api
 npm libraries: 
 1. Attendify
@@ -62,32 +62,32 @@ https://developers.attendify.com/
 2. Four Square API: to get venue details
 https://developer.foursquare.com/
 
-<strong> NPM PACKAGES: (Brodie & Arti)  </strong><br>
+<strong> NPM PACKAGES: <i>(Brodie & Arti)</i>  </strong><br>
 1. Calendar API: https://www.npmjs.com/package/calendar-link
 2. Upload image: https://www.npmjs.com/package/file-upload-with-preview
 3. Date format: https://www.npmjs.com/package/date-format 
 
 <strong> ROUGH BREAKDOWN OF TASKS: </strong>
-1. Front- End UI: (Brandon / Angelica / Arti) <br>
-HTML , CSS, javascript, Bootstrap: (Brandon / Angelica) <br>
-Handlerbars:  (Angelica / Arti) <br>
-Session, cookies: (Arti)  <br>
+1. Front- End UI: <i>(Brandon / Angelica / Arti)</i> <br>
+HTML , CSS, javascript, Bootstrap: <i>(Brandon / Angelica) </i><br>
+Handlerbars:  <i>(Angelica / Arti)</i> <br>
+Session, cookies:<i> (Arti) </i> <br>
 
 2. Back-END <br>
-create database: (Brodie)  <br> 
-creating routes: (Arti) <br> 
-SEED database - (Angelica / Arti) <br>
-Creating API - CRUD routes (GET, POST, PUT, DELETE) - (Arti) <br>
-connect db - env, sequilize, mysql, protect env - (Angelica) <br>
+create database: <i>(Brodie)</i>  <br> 
+creating routes: <i>(Arti)</i> <br> 
+SEED database - <i>(Angelica / Arti)</i> <br>
+Creating API - CRUD routes (GET, POST, PUT, DELETE) - <i>(Arti)</i> <br>
+connect db - env, sequilize, mysql, protect env - <i>(Angelica)</i> <br>
 
-3. Package: (Angelica)  <br>
+3. Package: <i>(Angelica)</i>  <br>
 Install Express, Node, handlebars, npm packages (date, calendar, photo) <br>
 
-4. ESLINT - checking for errors - (Brodie) <br>
+4. ESLINT - checking for errors -<i> (Brodie)</i> <br>
 
 5. Tests ?? - If needed <br>
 
-6. Upload Heroku: check for live version - (Arti) <br>
+6. Upload Heroku: check for live version -<i> (Arti) </i><br>
 
 7. Unit Testing - ALL <br>
 
