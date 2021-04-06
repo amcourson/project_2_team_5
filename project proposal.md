@@ -40,15 +40,18 @@ WHEN Guest, reply with gift registry, <br>
 THEN gift items get updated accordingly <br>
 WHEN I click on any PAST Event, <br>
 I can send 'Thank You' Note to all Guests. <br>
+WHEN I click on any Future Event, <br>
+THEN I can see Guest response, items they will bring and their head-count along with days remaining <br>
 
 <strong> Login As a Guest User:</strong> <br>
 WHEN login as a guest user,  <br>
 THEN My Profile shows - invitation list  <br>
 WHEN clicked on any event, <br>
 THEN
-1. Guest can add comments, RSVP with YES/No/May Be
-2. If Event type is Potluck : Guest can update Potluck item  or decline to Potluck item. Potluck items gets updated accordingly <br>
-3. If Event type is Gift : Guest can update Gift registry or decline to gift registry. Gift items list gets updated accordingly  <br>, 
+1. Guest can add comments, RSVP with YES/No/May Be (adult + kids count) <br>
+2. If RSVP is YES then I can select Adult and Kids count. <br>
+3. If Event type is Potluck : Guest can update Potluck item  or decline to Potluck item. Potluck items gets updated accordingly <br>
+4. If Event type is Gift : Guest can update Gift registry or decline to gift registry. Gift items list gets updated accordingly  <br>
 <br>
 
 WHEN clicked on My Profile,  <br>
@@ -137,11 +140,13 @@ UserID: FOREIGN KEY (Table: USER, KEY: USERID)<br>
 6. GUEST<br>
 GuestID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT<br>
 GuestName: STRING, NOT NULL <br>
+RSVP:  STRING, ALLOW NULL <br>
+adultCount:  INT, ALLOW NULL <br>
+kidsCount:  INT, ALLOW NULL <br>
 PotluckID: FOREIGN KEY (Table: POTLUCK, KEY: PotluckID) ALLOW NULL <br> 
 GiftID: FOREIGN KEY (Table: GIFTREGISTRY, KEY: GiftID) ALLOW NULL <br> 
 UserId: FOREIGN KEY (Table: USER, KEY: USERID) <br>
 EventID: FOREIGN KEY (Table: EVENT, KEY: EVENTID) <br>
-RSVP:  STRING, ALLOW NULL <br>
 
 7. PHOTOS <br>
 PhotoID: Primary Key, INTEGER, NOT NULL, AUTO-INCREMENT <br>
