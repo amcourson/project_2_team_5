@@ -184,6 +184,15 @@ ASSOCIATION: <br>
 
 
 
+Update: 
+Using **multer** npm library for Photo uploading. <br>
+https://www.npmjs.com/package/multer
+
+using npm library, Photo will be saved to local directory and its url would be saved in mysql database. To avoid high volume of images , will restrict user to 
+upload upto 2 photo per user per event.
+
+Sample code base for uploading photo: https://github.com/arti-karnik/imageUploadWithNodeJS
+
 
 
 
