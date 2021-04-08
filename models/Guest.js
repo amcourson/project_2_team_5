@@ -27,22 +27,7 @@ Guest.init(
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    potluck_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'potluck',
-          key: 'id',
-        },
-    },
-    gift_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'gift',
-          key: 'id',
-        },
-    },
+    
     user_id: {
         type: DataTypes.INTEGER,
         references: {

@@ -26,7 +26,6 @@ Event.hasMany(Gift, {
   onDelete: 'CASCADE'
 });
 
-
 Event.hasMany(Guest, {
   foreignKey: 'event_id',
   onDelete: 'CASCADE'
@@ -44,6 +43,16 @@ Potluck.belongsTo(User, {
 Gift.belongsTo(User, {
   foreignKey: 'user_id'
 });
+
+
+
+
+
+
+
+
+
+
 
 
 

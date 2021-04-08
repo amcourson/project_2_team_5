@@ -16,8 +16,6 @@ const guestData = [
     RSVP: 'NO',
     adultCount: 1,
     kidsCount: 2,
-    potluck_id: 2,
-    gift_id: 0,
     user_id: 1,
     event_id: 1,
   },
@@ -26,13 +24,11 @@ const guestData = [
     RSVP: 'NO',
     adultCount: 1,
     kidsCount: 2,
-    potluck_id: 0,
-    gift_id: 1,
     user_id: 1,
     event_id: 2,
   },
 ];
 
-const seedUser = () => Gift.bulkCreate(giftData);
+const seedUser = () => Guest.bulkCreate(guestData);
 
 module.exports = seedUser;

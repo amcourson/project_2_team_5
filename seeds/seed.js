@@ -15,18 +15,10 @@ const seedAll = async () => {
   await seedType();
   await seedCategory();
   await seedEvent();
-  await seedGift();
   await seedPotluck();
   await seedComment();
-
-  //await seedGuest();
-  /*
-
-  
-  
-  */
-
-
+  await seedGuest();
+  await seedGift();
 
   process.exit(0);
 };
