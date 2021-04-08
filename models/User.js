@@ -51,11 +51,6 @@ User.init(
         len: [8],
       },
     },
-    profilePic: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: true,
-    },
   },
   {
     hooks: {
