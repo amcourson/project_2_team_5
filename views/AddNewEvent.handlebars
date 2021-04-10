@@ -1,11 +1,24 @@
 <div class="card">
-    <h3 class="card-header">Create New Post</h3>
+    <h3 class="card-header">Create New Event </h3>
     <form class="card-body form-new-blog" id="new-post-form">
         <label class="form-label">Title</label>
          <input type="text" id="blog-title" class="form-input blog-title" />
-        <label class="form-label" for="content">Content</label>
-        <textarea id="blog-content" rows="5" cols="10" class="form-control blog-content" minlength="6" required="required"> {{ post.content}} </textarea>
-        <button type="submit" class="button">Add New Blog</button>
+
+        <label class="form-label" for="content">Description</label>
+        <textarea id="blog-content" rows="2" cols="2" class="form-control blog-content" minlength="6" required="required"> {{ post.content}} </textarea>
+
+        <label class="form-label" for="content">Address</label>
+         <input type="text" id="blog-title" class="form-input blog-title" />
+         
+         <label class="form-label" for="content">Date</label>
+         <input type="text" id="blog-title" class="form-input blog-title" />
+        <label class="form-label" for="content">Event Type: </label>
+         <input type="text" id="blog-title" class="form-input blog-title" />
+        <label class="form-label" for="content">Event Category</label>
+         <input type="text" id="blog-title" class="form-input blog-title" />
+        <label class="form-label" for="content">Address</label>
+         <input type="text" id="blog-title" class="form-input blog-title" />
+        <button type="submit" class="button">Add New Event </button>
     </form>
 </div>
 <script src="/js/addPost.js"></script>

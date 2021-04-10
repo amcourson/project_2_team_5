@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  background-color: #d9ead4;
+  background-color: white;
 }
 a {
   color: white;
@@ -8,7 +8,7 @@ a {
 
 /******************* Navbar *******************/
 .navbar {
-    background-color: #231010;
+    background-color: orange;
     padding-top: 20px;
 }
 .navbar-title  {
