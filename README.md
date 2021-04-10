@@ -2,61 +2,70 @@
 
 <strong>PROJECT TITLE:</strong> Event Planning 
 
-<strong> PROJECT DESCRIPTION:</strong> <br>
-This app is an event planning app. <br>
-We want users to login/ signup for creating an event <br>
-We want the be able to create an event and add people to the event, add event type (either Potluck or Gift ) <br>
-We want the user to be able to RSVP for the event and choose an item from the menu (if Event type is selected as Potluck) <br>
-We want the user to be able to RSVP for the event and choose an gift from the list (if Event type is selected as Gift) <br>
-We want the user to be able to RSVP for the event and user can decline to Gift or Portluck item <br>
-As a host I want to be able to add comments <br>
-As a user I want to be able to add a picture for the event <br>
+<strong> MOTIVATION:</strong> <br>
+The motivation behind this project was to create an app that lets users create events and see what events they are attending. We wanted an app where people could host events, see what events they are attending and also add what they want to bring to the event if there is a potluck or a gift registery. Project creation is for the UT Austin Coding Bootcamp 2020/2021
 
 
-USER STORY: <br>
-<strong>Login As A Host: </strong><br>
-GIVEN a site <br>
-WHEN I visit the site for the first time <br>
-THEN I am presented with the login/sign-up page  <br>
-WHEN I click on Login/Sign-up page <br>
-THEN ASK for username , password , submit button <br>
-WHEN entered usernamem, password and click on Submit button <br>
-THEN user is logged in and can view events for which user is invited along with Create New Event button <br>
-When I click on any event in 'View Event' <br>
-THEN Event page is open with Event Title, Date, Description, RSVP , Event type, Event Category, comments <br>
-WHEN I click on 'New Event' <br>
-THEN New Event page is open , it asks for Event Title, Date, Description, invite people (add guest email),add potluck items, add gift items, Event type, Event type, Event Category, Event address <br>
-IF I choose Event Type As POTLUCK
-THEN I can see 'Add Potluck item' button 
-WHEN i click on 'Add Potluck' <br>
-THEN I can add Food items, with needed quantitiy ie head count <br>
-IF I choose Event Type As GIFT
-THEN I can see 'Add Gift item' button 
-WHEN i click on 'Add Gift' <br>
-THEN I can save gift items in Gift registry with url <br>
-WHEN I click on 'Save event' <br>
-THEN gets Saved in 'My Events' and people get invited <br>
-WHEN Guest, reply with potluck item, <br>
-THEN potluck items get updated accordingly <br>
-WHEN Guest, reply with gift registry, <br>
-THEN gift items get updated accordingly <br>
-WHEN I click on any PAST Event, <br>
-I can send 'Thank You' Note to all Guests. <br>
-WHEN I click on any Future Event, <br>
-THEN I can see Guest response, items they will bring and their head-count along with days remaining <br>
+<strong>Build Status: </strong><br>
+Currently in progress. <br>
 
-<strong> Login As a Guest User:</strong> <br>
-WHEN login as a guest user,  <br>
-THEN My Profile shows - invitation list  <br>
-WHEN clicked on any event, <br>
-THEN
-1. Guest can add comments, RSVP with YES/No/May Be (adult + kids count) <br>
-2. If RSVP is YES then I can select Adult and Kids count. <br>
-3. If Event type is Potluck : Guest can update Potluck item  or decline to Potluck item. Potluck items gets updated accordingly <br>
-4. If Event type is Gift : Guest can update Gift registry or decline to gift registry. Gift items list gets updated accordingly  <br>
-<br>
+<strong> Code Style </strong>
+Standard <br>
 
-WHEN clicked on My Profile,  <br>
-Calendar shows Event scheduled with RSVP response, item choosen <br>
-WHEN i clicked on PAST Events,  <br>
-I can upload Photo, Add comments <br>
+<strong> Screenshots:</strong> <br>
+
+
+<strong>Tech/Framework:</strong>
+NPM packages: <br>
+Node <br>
+Express <br>
+Handlebars <br>
+Sequelize <br>
+MySql2 <br>
+Eslint <br>
+
+New NPM Packages: <br>
+1. Calendar API: https://www.npmjs.com/package/calendar-link <br>
+2. Upload image: https://www.npmjs.com/package/file-upload-with-preview <br>
+3. Date format: https://www.npmjs.com/package/date-format <br>
+
+
+
+
+<strong>Features </strong>
+The difference between our app and other event planning apps is that we utlize the functions of allowing guests to have a potluck feature and gift registery feature to make the event more oragnized. <br>
+
+<strong>Installation</strong>
+1. Run npm init -y. <br>
+2. Install npm packages. <br>
+3. Work feature by feature to implement the framework. <br>
+4. Create server file. <br>
+5. Create and seed database. <br>
+6. Create models. <br>
+7. Deploy to Heroku. <br>
+8. Create homepage using api routes, handlebars, utils and helpers. <br>
+9. Create login page using api routes, handlebars, utils and helpers. <br>
+10. Create event page using api routes, handlebars, utils and helpers. <br>
+
+<strong>API Refernces: </strong>
+API Packages: <br>
+1. Attendify: https://developers.attendify.com/ <br>
+
+2. Four Square API: https://developer.foursquare.com/ <br>
+
+<strong>How to use</strong>
+This app uses the basic functionality of any common website but also allows users to create a login, create events, <br>
+see what events they are attending as well as add to the potluck and gift registery depending on event. <br>
+
+<strong>Contribute</strong>
+Please contact creators of the app. 
+
+<strong> Credits </strong>
+Github Repo: https://github.com/amcourson/project_2_team_5  <br>
+
+
+
+<strong> License </strong>
+MIT licenses
+
+© Angelica Courson, Arti Karnik, Brandon Andreae, Brodi Russell

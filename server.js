@@ -32,4 +32,5 @@ sequelize.sync({ force: false }).then(() => {
       } mode`
     );
   });
+  app.listen(PORT, () => console.log('Now listening'));
 });
