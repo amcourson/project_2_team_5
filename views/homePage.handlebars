@@ -1,0 +1,14 @@
+ {{#each blogs as |blog| }}
+ <div class="card blog-card" id={{id}}>
+            <div class="card-header" >
+                <h5 class="card-title">
+                  tile 
+                  <a class="blog-title" href="/event/{{id}}">{{title}} </a> </h5>
+            </div>
+            <div class="card-body">
+              <p class="card-text"> 
+                {{content}}
+            </div>
+      </div>
+{{/each}}
+

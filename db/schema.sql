@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS EventPlanner_db;
+CREATE DATABASE EventPlanner_db;
