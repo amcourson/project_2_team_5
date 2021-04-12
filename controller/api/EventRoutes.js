@@ -10,9 +10,13 @@ router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
 
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard');
+});
+
 // CREATE NEW EVENt
 router.post('/', (req, res) => {
-    console.log("CREATE NEW EVEBT ");
+    console.log("CREATE NEW EVENT ");
 
     Event.create({
         Title: req.body.title,
