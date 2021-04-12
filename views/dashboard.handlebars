@@ -1,18 +1,23 @@
 
+<p> Dashboard page added  </p>
+
+
+<div class="newPost">
+    <a href="/addNewEvent"><button class="button"> + New Event</button></a>
+</div>
+
+{{#if events.length}}
+<div class="container-dashboard">
+     {{#each events as |event|}}
+        {{> Eventinfo_LoggedUser event}}
 <div class="newPost">
     <a href="/addnewBlog"><button class="btn btn-primary"> + New Post</button></a>
 </div>
 <div class="viewcurrentPost">
     
 </div>
-{{#if blogs.length}}
-<div class="container-dashboard">
-     {{#each blogs as |blog|}}
-        {{> bloginfo_LoggedUser blog}} 
-    // create this//
-    {{/each}}
-</div>
-{{/if}}
+
+
 
  {{#if loggedIn}}
  <li class="nav-item">
