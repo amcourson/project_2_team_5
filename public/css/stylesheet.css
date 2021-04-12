@@ -9,6 +9,7 @@ a {
 /******************* Navbar *******************/
 .navbar {
     background-color: orange;
+    background-color: #f08787;
     padding-top: 20px;
 }
 .navbar-title  {
@@ -46,7 +47,7 @@ a {
     background-color: #3f3232;
     color : white;
     border-radius: 25px;
-    border: 2px solid #010002;
+    border: 10px solid #010002;
   }
   .navbar-nav > a:hover {
     color : white;
@@ -67,7 +68,7 @@ a {
     border: solid 3px black;
   }
   .card-header {
-    background-color: #231010;
+    background-color: #f08787;
     color: white;
     align-items: center;
   }
@@ -81,7 +82,7 @@ a {
   }
   /******************* Button *******************/
   .button  {
-    background-color: #231010;
+    background-color: #72c8f0;
     color: white;
     font-size: 20px;
     margin-top: 20px;
@@ -132,7 +133,7 @@ a {
   }
   #title {
     background-color: #ccdad1;
-    color: #201110;
+    color: #9dface;
     padding: 0 10px;
     font-size: 21px;
     border-radius: 10px;
