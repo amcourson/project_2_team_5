@@ -1,24 +1,37 @@
 
 const router = require('express').Router();
-const { Blog, User, Comment } = require('../../models');
+const { Event, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
 
+
+router.get('/addPotluck', (req, res) => {
+    res.render('AddPotluck');
+});
+
 // CREATE NEW EVENt
-router.post('/', withAuth, (req, res) => {
-    /*
-    Blog.create({
-        title: req.body.title,
-        content: req.body.content,
-        user_id: req.session.user_id,
-        create_date: req.body.create_date
+router.post('/', (req, res) => {
+    console.log("CREATE NEW EVEBT ");
+
+    Event.create({
+        Title: req.body.title,
+        description: req.body.description,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        address: req.body.address ,
+        city: req.body.city ,
+        state: req.body.state ,
+        virtualLink: req.body.virtualLink,
+        type_id: 1,
+        category_id: req.body.category,
+        user_id: 1,
     })
     .then(response => res.json(response))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });*/
+    });
 });
 
 // GET ALL EVENT

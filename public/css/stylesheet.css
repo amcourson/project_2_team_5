@@ -139,6 +139,23 @@ a {
     box-shadow: 5px 2px #a1a0a1;
     width: 200px;
   }
+  .autocomplete-container {
+    position: relative;
+}
+.breadcrumb a {
+  color: black;
+  font-family: 'Times New Roman';
+  font-size: 20px;
+}
+
+.breadcrumb a> :active {
+  color: black;
+  font-family: 'Times New Roman';
+  font-size: 20px;
+}
+tr > * + * {
+  padding-left: 4em;
+}
 
   
   
