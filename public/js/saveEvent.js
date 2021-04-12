@@ -1,13 +1,23 @@
     
-  
+  let status = "ACTIVE";
+
   $(document).ready(function() {
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
     
-    $( "#saveEvent" ).click(function() {
-      saveButtonClicked();
+   
+     $( "#save" ).on("click",function() {
+       alert("save button clicked ");
+       status = "ACTIVE";
+        saveButtonClicked();
     });
 
+    $( "#saveEventAsDraft" ).on("click",function() {
+      alert("draft button clicked ");
+
+      status = "DRAFT";
+      saveButtonClicked();
+  });
     $('#makeitVirtual').change(function() {
       if(this.checked) {
         addressEL.attr('hidden', true);
@@ -23,6 +33,9 @@
   });
 
   const saveButtonClicked = async (event) => {
+
+    alert(status);
+    
     let title = $('#event-title').val();
     let description = $('#event-description').val();
     let startDate = `${$('#startDate').val()} ${$('#startTime').val()}`;
@@ -35,14 +48,18 @@
     
     const response = await fetch('/api/events', {
       method: 'POST',
-      body: JSON.stringify({ title, description, startDate, endDate, address, city, state, virtualLink, category }),
+      body: JSON.stringify({ title, description, startDate, endDate, address, city, state, virtualLink, category, status }),
       headers: { 'Content-Type': 'application/json' },
     });
     if  (response.ok) {
+      alert("Event saved")
+
       showConfirm('Event Saved');
       document.location.replace('/dashboard');
     } 
     else if (response.status == 400 || response.status == 500) {
+      alert("Something went wrong, please try again!!")
+
       showConfirm('Something went wrong, please try again!!');
     }
   }
