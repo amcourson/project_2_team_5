@@ -17,6 +17,7 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+<<<<<<< HEAD
 // OPEN DASHBOARD PAGE
 router.get('/dashboard', withAuth, (req, res) => {
     Event.findAll({
@@ -30,6 +31,10 @@ router.get('/dashboard', withAuth, (req, res) => {
         .catch(err => {
             res.status(500).json(err);
         });
+=======
+router.get('/viewevents', (req, res) => {
+    res.render('viewevents');
+>>>>>>> f8fa34da052bf860a902c3197be05275a0f93c93
 });
 
 
