@@ -23,9 +23,10 @@ router.post('/', (req, res) => {
         city: req.body.city ,
         state: req.body.state ,
         virtualLink: req.body.virtualLink,
-        type_id: 1,
         category_id: req.body.category,
-        user_id: 1,
+        status: req.body.status,
+        type_id: 1,
+        user_id: 1
     })
     .then(response => res.json(response))
     .catch(err => {
