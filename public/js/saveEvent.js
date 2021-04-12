@@ -1,13 +1,18 @@
+
+
     
   let status = "ACTIVE";
+
+        var people = [];
+        var gift = [];
+        var items = [];
 
   $(document).ready(function() {
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
-    
-   
+
      $( "#save" ).on("click",function() {
-       alert("save button clicked ");
+       alert(people);
        status = "ACTIVE";
         saveButtonClicked();
     });
@@ -33,7 +38,6 @@
   });
 
   const saveButtonClicked = async (event) => {
-
     alert(status);
     
     let title = $('#event-title').val();
@@ -52,7 +56,8 @@
       headers: { 'Content-Type': 'application/json' },
     });
     if  (response.ok) {
-      alert("Event saved")
+      alert("Event saved");
+      alert(items);
 
       showConfirm('Event Saved');
       document.location.replace('/dashboard');
@@ -69,5 +74,103 @@
     mymodal.find('.modal-body').text(message);
     mymodal.modal('show');
   }
+
+  $(".add-row-people").click(function(){
+    var name = $("#people-name").val();
+    var email = $("#people-email").val();
+    var row = `<tr><td><input type='checkbox' name='check-people'></td><td>  ${name} </td><td> ${email} </td></tr>`;
+    $("#table-people tbody").append(row);
+});
+
+// Find and remove selected table rows
+$(".delete-row-people").click(function(){
+    alert("delete pople");
+    $("#table-people tbody").find('input[name="check-people"]').each(function(){
+        if($(this).is(":checked")){
+            $(this).parents("tr").remove();
+        }
+    });
+});
+
+$( "#savePeople" ).click(function() {
+    let name, email;
+
+    $("#table-people tbody tr").find('input[name="check-people"]').each(function(){
+      $(this).closest('tr').find('td:eq(1)').each(function() {
+            name = $(this).text();
+      });
+      $(this).closest('tr').find('td:eq(2)').each(function() {
+            email = $(this).text();
+      });
+      people.push({name: name, email: email});
+    });
+ 
+    console.log("people: " + people[0].email);
+  });
+
+
+  $(".add-row-potluck").click(function(){
+    var item = $("#item1").val();
+    var qty = $("#quantity").val();
+    var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${qty} </td></tr>`;
+    $("#table-potluck tbody").append(row);
+});
+
+// Find and remove selected table rows
+$(".delete-row-potluck").click(function(){
+    $("#table-potluck tbody").find('input[name="check-item"]').each(function(){
+        if($(this).is(":checked")){
+            $(this).parents("tr").remove();
+        }
+    });
+});
+
+$( "#savePotluck" ).click(function() {
+    let item,qty;
+    
+    $("#table-potluck tbody tr").find('input[name="check-item"]').each(function(){
+      $(this).closest('tr').find('td:eq(1)').each(function() {
+         item = $(this).text();
+      });
+      $(this).closest('tr').find('td:eq(2)').each(function() {
+        qty = $(this).text();
+      });
+      items.push({item: item, qty: qty});
+    });
+ 
+    console.log("items: "+ items);
+  });
   
+  $(".add-row-gift").click(function(){
+    var giftName = $("#gift-item").val();
+    var giftUrl = $("#gift-url").val();
+    var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
+    $("#table-gift tbody").append(row);
+});
+
+// Find and remove selected table rows
+$(".delete-row-gift").click(function(){
+    alert("delete gift");
+
+    $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
+        if($(this).is(":checked")){
+            $(this).parents("tr").remove();
+        }
+    });
+});
+
+$( "#saveGift" ).click(function() {
+    let giftname, url;
+
+    $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
+      $(this).closest('tr').find('td:eq(1)').each(function() {
+        giftname = $(this).text();
+      });
+      $(this).closest('tr').find('td:eq(2)').each(function() {
+        url = $(this).text();
+      });
+      gift.push({giftname: giftname, url: url});
+    });
+    console.log("gift: " + gift);
+  });
   

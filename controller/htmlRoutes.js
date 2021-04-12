@@ -21,7 +21,7 @@ router.get('/login', (req, res) => {
 router.get('/dashboard', (req, res) => {
     Event.findAll({
             where: { user_id: 1 },
-            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'start_date', 'end_date', 'category_id', 'virtual_link'  ],
+            attributes: [ 'id', 'Title', 'description', 'address', 'city', 'state', 'start_date', 'end_date', 'category_id', 'virtual_link'  ],
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));

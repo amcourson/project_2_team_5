@@ -1,2 +1,17 @@
 
-<p> Dashboard page </p>
+<p> Dashboard page added  </p>
+
+
+<div class="newPost">
+    <a href="/addNewEvent"><button class="button"> + New Event</button></a>
+</div>
+
+{{#if events.length}}
+<div class="container-dashboard">
+     {{#each events as |event|}}
+        {{> Eventinfo_LoggedUser event}}
+    {{/each}}
+</div>
+{{/if}}
+
+
