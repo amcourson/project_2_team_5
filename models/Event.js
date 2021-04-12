@@ -21,11 +21,27 @@ Event.init(
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
-    date: {
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    startDate: {
       type: DataTypes.DATE,
       allowNull: false,
+    },
+    endDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    virtualLink: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     type_id: {
       type: DataTypes.INTEGER,
@@ -33,6 +49,7 @@ Event.init(
         model: 'type',
         key: 'id',
       },
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
