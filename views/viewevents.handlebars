@@ -1,0 +1,18 @@
+<div class="newPost">
+    <a href="/addnewBlog"><button class="btn btn-primary"> + New Post</button></a>
+</div>
+<div class="viewcurrentPost">
+    
+</div>
+{{#if blogs.length}}
+<div class="container-dashboard">
+     {{#each blogs as |blog|}}
+        {{> bloginfo_LoggedUser blog}}
+    {{/each}}
+</div>
+{{/if}}
+
+ {{#if loggedIn}}
+ <li class="nav-item">
+  <a href="/Dashboard">Dashboard</a>
+ </li>

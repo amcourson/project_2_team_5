@@ -18,6 +18,10 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+router.get('/viewevents', (req, res) => {
+    res.render('viewevents');
+});
+
 
 // ADD NEW BLOG
 router.get('/addNewEvent', (req, res) => {
