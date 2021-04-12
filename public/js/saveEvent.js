@@ -1,12 +1,4 @@
-  let title = $('#event-title').val();
-  let description = $('#event-description').val();
-  let startDate = `${$('#startDate').val()} ${$('#startTime').val()}`;
-  let endDate = `${$('#startDate').val()} ${$('#endTime').val()}`;
-  let address  = $('#event-address').val();
-  let city = $('#event-city').val();
-  let state = $('#event-state').val();
-  let virtualLink = $('#virtualLinkEL').val();
-  let category = $('#event-category option:selected').attr("id");    
+    
   
   $(document).ready(function() {
     var addressEL = $('#address');
@@ -31,6 +23,16 @@
   });
 
   const saveButtonClicked = async (event) => {
+    let title = $('#event-title').val();
+    let description = $('#event-description').val();
+    let startDate = `${$('#startDate').val()} ${$('#startTime').val()}`;
+    let endDate = `${$('#startDate').val()} ${$('#endTime').val()}`;
+    let address  = $('#event-address').val();
+    let city = $('#event-city').val();
+    let state = $('#event-state').val();
+    let virtualLink = $('#virtualLinkEL').val();
+    let category = $('#event-category option:selected').attr("id");
+    
     const response = await fetch('/api/events', {
       method: 'POST',
       body: JSON.stringify({ title, description, startDate, endDate, address, city, state, virtualLink, category }),

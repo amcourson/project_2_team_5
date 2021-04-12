@@ -9,9 +9,8 @@ const sequelize = require("./config/connection");
 const session = require("express-session");
 
 
-const PORT = process.env.PORT||3006;
+const PORT = process.env.PORT||3008;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const PORT = process.env.PORT || 3014;
 
 const sess = {
     secret: 'Super secret secret',

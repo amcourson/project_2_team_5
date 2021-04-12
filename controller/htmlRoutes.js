@@ -17,9 +17,8 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
-<<<<<<< HEAD
 // OPEN DASHBOARD PAGE
-router.get('/dashboard', withAuth, (req, res) => {
+router.get('/dashboard', (req, res) => {
     Event.findAll({
             where: { user_id: 1 },
             attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'start_date', 'end_date', 'category_id', 'virtual_link'  ],
@@ -31,10 +30,10 @@ router.get('/dashboard', withAuth, (req, res) => {
         .catch(err => {
             res.status(500).json(err);
         });
-=======
+});
+
 router.get('/viewevents', (req, res) => {
     res.render('viewevents');
->>>>>>> f8fa34da052bf860a902c3197be05275a0f93c93
 });
 
 
