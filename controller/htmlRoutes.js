@@ -32,9 +32,7 @@ router.get('/dashboard', (req, res) => {
         });
 });
 
-router.get('/viewevents', (req, res) => {
-    res.render('viewevents');
-});
+
 
 
 // ADD NEW BLOG
