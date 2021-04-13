@@ -6,7 +6,7 @@ const logout = async () => {
   
     if (response.ok) {
         alert("You're Logout!!");
-        document.location.replace('/');
+        document.location.replace('/index');
     } else {
       alert("Something wrong happened, please try again!!");
     }

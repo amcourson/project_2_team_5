@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const { User } = require('../../models');
+const { User, Guest, Event } = require('../../models');
+const { response } = require('express');
 
 // CREATE NEW USER
 router.post('/', async (req, res) => {
@@ -27,36 +28,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// LOGIN WITH USER
-// LOGIN WITH USER
-/*router.post('/login', async (req, res) => {
-  User.findOne({
-    where: { username: req.body.username },
-    attributes: ['id' ],
-    })
-    .then(async dbUserData => { 
-      if (!dbUserData) {
-        res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
-      }
-      const validPassword = await dbUserData.checkPassword(req.body.password);
-      if (!validPassword) {
-        res.status(400).json({ message: 'Incorrect password. Please try again!' });
-      }
-      req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.loggedIn = true;
-        req.session.isLogin = true;
-        req.session.isDashboard = false;
-        req.session.isHome = false;
-  
-        res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome  });
-      });
-    })
-    .catch(err => {
-        res.status(500).json(err);
-    });
-   
-});*/
 
 router.post('/login', async (req, res) => {
   try {

@@ -8,6 +8,9 @@ router.get('/', (req, res) => {
     res.render('homePage');
 });
 
+router.get('/index', (req, res) => {
+    res.render('homePage');
+});
 // OPEN SIGN-UP PAGE
 router.get('/signUp', (req, res) => {
     res.render('signUpPage');
@@ -18,11 +21,12 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+
 // OPEN DASHBOARD PAGE
 router.get('/dashboard', (req, res) => {
     Event.findAll({
             where: { user_id: 1 },
-            attributes: [ 'id', 'Title', 'description', 'address', 'city', 'state', 'start_date', 'end_date', 'category_id', 'virtual_link'  ],
+            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtual_link'  ],
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));

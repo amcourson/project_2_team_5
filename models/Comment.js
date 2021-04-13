@@ -16,15 +16,15 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    commentText: {
+    commenttext: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    commentDate: {
+    commentdate: {
         type: DataTypes.DATE,
         allowNull: false,
     },
-    Event_id: {
+    event_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'Event',

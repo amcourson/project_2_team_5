@@ -35,11 +35,11 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    startDate: {
+    startdate: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    endDate: {
+    enddate: {
       type: DataTypes.DATE,
       allowNull: false,
     },
