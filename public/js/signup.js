@@ -1,9 +1,15 @@
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('.input-username-signup').value.trim();
-    const password = document.querySelector('.input-password-signup').value.trim();
-    const confirmPassword = document.querySelector('.input-confirm-password-signup').value.trim();
+    const username = $('.input-username-signup').val();
+    const password = $('.input-password-signup').val();
+    const confirmPassword = $('.input-confirm-password-signup').val();
+    const firstname = $('.input-fname-signup').val();
+    const lastname = $('.input-lname-signup').val();
+    const addresss = $('.input-address-signup').val();
+    const phone = $('.input-phone-signup').val();
+    const email = $('.input-email-signup').val();
+
 
     if (password != confirmPassword){
         alert("Password and Confirm password doesnot match!");
@@ -12,7 +18,7 @@ const signupFormHandler = async (event) => {
     if (username && password && confirmPassword) {
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, password, firstname, lastname, addresss, phone, email }),
             headers: { 'Content-Type': 'application/json' },
           });
           
@@ -20,7 +26,8 @@ const signupFormHandler = async (event) => {
             alert("You're able to successfully create an account");
             document.location.replace('/Dashboard');
           } else {
-            alert("Something wrong happened, please try again!!");
+
+            alert(response.statusText);
           }
     }
 };
