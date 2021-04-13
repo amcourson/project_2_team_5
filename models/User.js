@@ -28,11 +28,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Address: {
+    address: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    PhoneNo: {
+    phoneno: {
       type: DataTypes.STRING,
       allowNull: false,
     },
