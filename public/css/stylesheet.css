@@ -6,10 +6,16 @@ a {
   color: white;
 }
 
+/******************* header *******************/
+h1 {
+  background-color:white;
+
+
+
+}
 /******************* Navbar *******************/
 .navbar {
-    background-color: orange;
-    background-color: #f08787;
+    background-color: whitesmoke;
     padding-top: 20px;
 }
 .navbar-title  {
