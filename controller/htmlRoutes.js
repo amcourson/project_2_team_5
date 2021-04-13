@@ -49,7 +49,7 @@ router.get('/addNewEvent', (req, res) => {
     });
 });
 // LOGOUT 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
         res.status(204).end();
