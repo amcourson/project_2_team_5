@@ -11,6 +11,7 @@ const { google, outlook, office365, yahoo, ics } = require("calendar-link");
 
 
 const PORT = process.env.PORT|| 3018 ;
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const sess = {
@@ -31,7 +32,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(process.env.PORT || 3027 , function(){
+    app.listen(process.env.PORT || 3028 , function(){
         console.log(`Express server listening on port ${this.address().port} in ${app.settings.env} mode`);
       });
 });
