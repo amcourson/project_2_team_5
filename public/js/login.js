@@ -12,7 +12,9 @@ const loginButtonClicked = async (event) => {
                 
           console.log(response);
           if  (response.ok) {
-            document.location.replace('/Dashboard');
+            alert("event saved");
+
+           // document.location.replace('/Dashboard');
           } 
           else if (response.status == 400 || response.status == 500) {
             alert("Incorrect email or password. Please try again!");
