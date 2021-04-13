@@ -25,7 +25,7 @@ MySql2 <br>
 Eslint <br>
 
 New NPM Packages: <br>
-1. Calendar API: https://www.npmjs.com/package/calendar-link <br>
+1. Calendar: https://www.npmjs.com/package/calendar-link <br>
 2. Upload image: https://www.npmjs.com/package/file-upload-with-preview <br>
 3. Date format: https://www.npmjs.com/package/date-format <br>
 
@@ -49,9 +49,7 @@ The difference between our app and other event planning apps is that we utlize t
 
 <strong>API Refernces: </strong>
 API Packages: <br>
-1. Attendify: https://developers.attendify.com/ <br>
 
-2. Four Square API: https://developer.foursquare.com/ <br>
 
 <strong>How to use</strong>
 This app uses the basic functionality of any common website but also allows users to create a login, create events, <br>
