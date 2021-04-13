@@ -4,6 +4,7 @@ const { Event, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
+const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
 
 router.get('/addPotluck', (req, res) => {
@@ -37,6 +38,22 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+    
+
+// Set event as an object, dynamically insert personalize data
+const event = {
+  title: "My birthday party",
+  description: "Be there!",
+  start: "2019-12-29 18:00:00 +0100",
+  duration: [3, "hour"],
+};
+
+
+google(event); 
+outlook(event);
+office365(event); 
+yahoo(event); 
+ics(event); 
 });
 
 // GET BLOG BY ID: 
