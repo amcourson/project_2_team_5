@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+// const { eventNames } = require('node:process');
 const { User, Event, Comment, Category, Type } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -58,5 +59,7 @@ router.get('/logout', (req, res) => {
       res.status(404).end();
     }
   });
+
+
 
 module.exports = router;

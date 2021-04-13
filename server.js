@@ -7,6 +7,8 @@ const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });
 const sequelize = require("./config/connection");
 const session = require("express-session");
+const { google, outlook, office365, yahoo, ics } = require("calendar-link");
+
 
 const PORT = process.env.PORT|| 3017 ;
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
