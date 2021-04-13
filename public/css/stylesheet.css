@@ -8,6 +8,10 @@ a {
 
 /******************* Navbar *******************/
 .navbar {
+<<<<<<< HEAD
+    background-color: orange;
+=======
+>>>>>>> 1e911b61ed23e47bf88dc25b25c01fdf1b10ef33
     background-color: #f08787;
     padding-top: 20px;
 }
