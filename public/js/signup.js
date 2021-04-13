@@ -26,8 +26,7 @@ const signupFormHandler = async (event) => {
             alert("You're able to successfully create an account");
             document.location.replace('/Dashboard');
           } else {
-
-            alert(response.statusText);
+              alert(response.statusText);
           }
     }
 };

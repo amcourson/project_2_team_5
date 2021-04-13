@@ -12,6 +12,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const PORT = process.env.PORT|| 3018 ;
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const sess = {

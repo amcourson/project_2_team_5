@@ -24,8 +24,7 @@ router.post('/', async (req, res) => {
     });
 
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
@@ -39,10 +38,12 @@ router.post('/login', async (req, res) => {
     });    
     if (!dbUserData) {
       res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
+      return;
     }
     const validPassword = await dbUserData.checkPassword(req.body.password);
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password. Please try again!' });
+      return;
     }
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
@@ -51,31 +52,26 @@ router.post('/login', async (req, res) => {
       req.session.isDashboard = false;
       req.session.isHome = false;
 
-      res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome  });
+      res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, loggedIn: req.session.loggedIn,  isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome  });
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/invitations', (req, res) => {
-  Event.findAll({
-    attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
-    include: [{
-      model: Guest,
-      where: {user_id: 3}
-     }]
-  })
-  .then(response => {
-    const events = response.map(event => event.get({ plain: true }));
-    res.render('invitation', { events })
-   })
-  .catch(err => {
-      res.status(500).json(err);
-  });
+// LOGOUT 
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+     /* req.session.isLogin = false;
+      req.session.isDashboard = false;
+      req.session.isHome = true;*/
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
-
-
 
 
 module.exports = router;
