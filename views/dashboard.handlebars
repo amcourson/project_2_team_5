@@ -10,16 +10,15 @@
 <div class="container-dashboard">
      {{#each events as |event|}}
         {{> Eventinfo_LoggedUser event}}
+    {{/each}}
+{{/if}}
+
+
 <div class="newPost">
-    <a href="/addnewBlog"><button class="btn btn-primary"> + New Post</button></a>
+    <a href="/addnewBlog">
+    <button class="btn btn-primary"> + New Post</button>
+    </a>
 </div>
-<div class="viewcurrentPost">
-    
-</div>
 
 
 
- {{#if loggedIn}}
- <li class="nav-item">
-  <a href="/Dashboard">Dashboard</a>
- </li>
