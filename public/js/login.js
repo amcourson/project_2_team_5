@@ -4,15 +4,15 @@ const loginButtonClicked = async (event) => {
     const password = document.querySelector('.input-password-login').value;
 
     if (username && password) {
-        const response = await fetch('/api/users/login', {
+        const response = await fetch('/api/userRoutes/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
           });
                 
           console.log(response);
-          if  (response.ok) {
-            alert("event saved");
+          if (response.ok) {
+            alert("logged in");
 
            // document.location.replace('/Dashboard');
           } 
@@ -22,4 +22,6 @@ const loginButtonClicked = async (event) => {
     }
 };
 document.querySelector('.form-login').addEventListener('submit', loginButtonClicked);
+
+
 
