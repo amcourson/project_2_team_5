@@ -3,12 +3,12 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // CREATE NEW COMMENT
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Comment.create({
-        text: req.body.text,
-        blog_id: req.body.blog_id,
-        user_id: req.session.user_id,
-        date: req.body.currentdate
+        commenttext: req.body.text,
+        event_id: req.body.event_id,
+        user_id: 2,
+        commentdate: req.body.currentdate
     })
     .then(response => res.json(response))
     .catch(err => {

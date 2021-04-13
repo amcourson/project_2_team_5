@@ -1,0 +1,13 @@
+
+<p> Invitation page   </p>
+
+{{#if events.length}}
+<div class="container-dashboard">
+     {{#each events as |event|}}
+        {{> Eventinfo_Invitation event}}
+    {{/each}}
+{{/if}}
+
+
+
+

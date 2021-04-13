@@ -8,6 +8,7 @@ const hbs = exphbs.create({ helpers });
 const session = require('express-session');
 const app = express();
 const { google, outlook, office365, yahoo, ics } = require("calendar-link");
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const PORT = process.env.PORT|| 3018 ;
@@ -31,7 +32,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(process.env.PORT || 3027 , function(){
+    app.listen(process.env.PORT || 3033 , function(){
         console.log(`Express server listening on port ${this.address().port} in ${app.settings.env} mode`);
       });
 });

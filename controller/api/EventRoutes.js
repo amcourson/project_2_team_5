@@ -56,13 +56,24 @@ yahoo(event);
 ics(event); 
 });
 
+attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+
+
 // GET BLOG BY ID: 
 router.get('/:id', (req, res) => {
     Event.findOne({
         where: { id: req.params.id },
-        attributes: ['id', 'title', 'description', 'startDate', 'endDate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+        include: [{ model: User, attributes: ['username']},            
+        {   
+            model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
+            include: { model: User, attributes: ['username']}
+        }]
         })
+        
         .then(response => {
+            console.log(response);
+
             if (!response) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
@@ -109,5 +120,24 @@ router.put('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+
+//  DELETE EVENT BY ID 
+router.delete('/:id', withAuth, (req, res) => {
+    Event.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(response => {
+        if (!response) {
+        res.status(404).json({ message: 'No Event found with this id' });
+        return;
+    }
+    res.json(response);
+    })
+    .catch(err => {
+    res.status(500).json(err);
+    });
+});
 
 module.exports = router;

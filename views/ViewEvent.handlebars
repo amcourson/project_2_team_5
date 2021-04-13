@@ -1,0 +1,60 @@
+<div class="card">
+    <form class="form-horizontal form-new-event">
+
+    <h3 class="card-header">View Event details:  </h3>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="title">Event Title</label>
+      <div class="col-sm-10">
+        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value= {{events.title}}readonly= "true"/>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" maxlength="20" required="required" >Event Description: </label>
+      <div class="col-sm-10">
+        <textarea  placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50" readonly="true"> {{events.description}} </textarea>
+      </div>
+    </div>
+
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" maxlength="20" required="required" >Event Date : </label>
+      <div class="col-sm-10">
+        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value = '{{format_date events.startdate}}  {{format_time events.startdate}} TO {{format_time events.enddate}}' readonly= "true"/>
+      </div>
+    </div>
+    {{#if events.virtualLink}}
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" maxlength="20" required="required" >Virtual  : </label>
+      <div class="col-sm-10">
+        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value= {{events.virtualLink}} readonly= "true"/>
+      </div>
+    </div>
+    {{else}}
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="email"  required="required"minlength="6"  required="required" >Address  : </label>
+      <div class="col-sm-10">
+        <input name="Event Title" class="form-control" id="event-title"  required="required" value= {{events.address}}, {{events.city}} {{events.state}} readonly= "true"/>
+      </div>
+    </div>
+    {{/if}}
+    </form>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title"> Comments</h5>
+    </div>
+    <div class="card-body">
+        <form class="comment-form">
+            Add Your Comment 
+            <textarea rows="5" cols="10" class="form-control comment-text" name="comment" minlength="6" required="required"> </textarea>
+            <button class="button" type="submit"> Submit </button>
+        </form>
+        </div>
+</div>
+
+{{> comments events.comments}}
+ <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script src="/js/comment.js" type="text/javascript" ></script>
+

@@ -12,9 +12,15 @@ User.hasMany(Event, {
   onDelete: 'CASCADE'
 });
 
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
 Event.belongsTo(User, {
   foreignKey: 'user_id'
 });
+
 
 Event.hasMany(Comment, {
   foreignKey: 'event_id',
@@ -44,6 +50,29 @@ Gift.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: "cascade",
+  onUpdate: "cascade",
+});
+
+Comment.belongsTo(Event, {
+  foreignKey: 'event_id',
+  onDelete: "cascade",
+  onUpdate: "cascade",
+});
+
+Guest.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: "cascade",
+  onUpdate: "cascade",
+});
+
+Guest.belongsTo(Event, {
+  foreignKey: 'event_id',
+  onDelete: "cascade",
+  onUpdate: "cascade",
+});
 
 
 

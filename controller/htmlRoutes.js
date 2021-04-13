@@ -8,6 +8,9 @@ router.get('/', (req, res) => {
     res.render('homePage');
 });
 
+router.get('/index', (req, res) => {
+    res.render('homePage');
+});
 // OPEN SIGN-UP PAGE
 router.get('/signUp', (req, res) => {
     res.render('signUpPage');
@@ -17,6 +20,7 @@ router.get('/signUp', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('loginPage');
 });
+
 
 // OPEN DASHBOARD PAGE
 router.get('/dashboard', (req, res) => {

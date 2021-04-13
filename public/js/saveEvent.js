@@ -1,5 +1,3 @@
-
-
     
   let status = "ACTIVE";
 
@@ -174,3 +172,36 @@ $( "#saveGift" ).click(function() {
     console.log("gift: " + gift);
   });
   
+
+
+  const commentFormHandler = async (event) => {
+    alert("in comment");
+    event.preventDefault();
+    let currentdate = new Date().toLocaleDateString();
+
+    let text = $('.comment-text').value;
+    const event_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+
+    if (text) {
+        const response = await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({ event_id, text, currentdate }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.ok) {
+            alert("Comment added");
+            document.location.reload();
+        } else {
+            alert("Something wrong happened, please try again!!");
+            document.querySelector('#comment-form').style.display = "block";
+        }
+    }
+}
+
+
+
+$('.comment-form').addEventListener('submit', commentFormHandler);
