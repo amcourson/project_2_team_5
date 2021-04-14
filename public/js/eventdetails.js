@@ -1,5 +1,10 @@
 var guest = [];
-var event_id;
+var potluckItems = [];
+var event_id = window.location.toString().split('/')[
+  window.location.toString().split('/').length - 1
+];    
+event_id = event_id.replace('?','');
+ 
 
   $(document).ready(function() {  
     $(".add-row-people").click(function(){
@@ -14,17 +19,14 @@ var event_id;
         alert("delete pople");
         $("#table-people tbody").find('input[name="check-people"]').each(function(){
             if($(this).is(":checked")){
-                $(this).parents("tr").remove();
+               guest.splice($(this).parents("tr").index(), 1);
+                  $(this).parents("tr").remove();
             }
         });
     });
     $( "#savePeople" ).click(function() {
         let name, email;
-       event_id = window.location.toString().split('/')[
-          window.location.toString().split('/').length - 1
-        ];    
-        event_id = event_id.replace('?','');
-
+       
         $("#table-people tbody tr").find('input[name="check-people"]').each(function(){
           $(this).closest('tr').find('td:eq(1)').each(function() {
                 name = $(this).text();
@@ -37,17 +39,60 @@ var event_id;
         console.log("people: " + guest[0].email);
       });
 
-      $( "#saveEventAsActive" ).on("click",function() {
-        if (guest) {
-          alert(JSON.stringify(guest[0].event_id));
+    
+      $(".add-row-potluck").click(function(){
+        var item = $("#item1").val();
+        var qty = $("#quantity").val();
+        var description = $("#description").val();
+        var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td><td> ${qty} </td></tr>`;
+        $("#table-potluck tbody").append(row);
+    });
+    
+    // Find and remove selected table rows
+    $(".delete-row-potluck").click(function(){
+        $("#table-potluck tbody").find('input[name="check-item"]').each(function(){
+            if($(this).is(":checked")){
+              alert("deleting :" + $(this).parents("tr").index())
+                potluckItems.splice($(this).parents("tr").index(), 1);
+                $(this).parents("tr").remove();
+            }
+        });
+    });
+    
+    $( "#savePotluck" ).click(function() {
+        let name,description,headcount;
+        
+        $("#table-potluck tbody tr").find('input[name="check-item"]').each(function(){
+          $(this).closest('tr').find('td:eq(1)').each(function() {
+            name = $(this).text();
+          });
+          $(this).closest('tr').find('td:eq(2)').each(function() {
+            description = $(this).text();
+          });
+          $(this).closest('tr').find('td:eq(3)').each(function() {
+            headcount = $(this).text();
+          });
+          alert("event " + event_id);
+
+          potluckItems.push({name: name, description: description, headcount: headcount, event_id: event_id});
+        });
+        });
+    
+    $( "#saveEventAsActive" ).on("click",function() {
+        if (guest.length > 0) {
+          alert(guest);
+
           saveGuestList();
+        }
+        if (potluckItems.length > 0 ) {
+          alert(potluckItems[0].headcount);
+          savePotluckList();
         }
     })
 });
 
 async function saveGuestList (event) {
-
-  const response = await fetch('/guest', {
+  const response = await fetch('/api/guest', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -58,6 +103,25 @@ async function saveGuestList (event) {
 
   if (response.ok) {
     alert("Guest added");
+  } else {
+    alert("Something went wrong ,please try again!!");
+  }
+}
+
+async function savePotluckList (event) {
+  alert("in save potluck");
+
+  const response = await fetch('/api/potluck', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body:  JSON.stringify({potluckItems})
+  });
+
+  if (response.ok) {
+    alert("Potluck items added");
   } else {
     alert("Something went wrong ,please try again!!");
   }

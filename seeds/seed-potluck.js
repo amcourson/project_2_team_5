@@ -4,14 +4,14 @@ const potluckData = [
   {
     name: 'Chicken curry',
     description: 'medium curry',
-    headCount: 10,
+    headcount: 10,
     user_id: 1,
     event_id: 1,
   },
   {
     name: 'Roti',
     description: 'medium',
-    headCount: 20,
+    headcount: 20,
     user_id: 2,
     event_id: 1,
   },

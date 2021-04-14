@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#potluckModal">
   MAKE IT POTLUCK 
 </button>
@@ -14,6 +17,8 @@
       <div class="modal-body">
           <form>
         <input type="text" id="item1" placeholder="ENTER ITEM NAME">
+        <input type="text" id="description" placeholder="ENTER DESCRIPTION">
+
         <input type="text" id="quantity" placeholder="ENTER QUANTITY">
     	<input type="button" class="add-row-potluck" value="Add Row">
 </form>
@@ -22,6 +27,7 @@
             <tr>
                 <th>Select </th>
                 <th>Item-Name  </th>
+                <th>Description  </th>
                 <th>QUANTITY </th>
             </tr>
         </thead>
@@ -38,4 +44,5 @@
   </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 

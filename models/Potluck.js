@@ -19,9 +19,9 @@ Potluck.init(
       type: DataTypes.STRING,
       allowNull: true
     },
-    headCount: {
+    headcount: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     user_id: {
         type: DataTypes.INTEGER,
