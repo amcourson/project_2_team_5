@@ -1,0 +1,59 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rsvppotluckModal">
+  RSVP POTLUCK 
+</button>
+
+<div class="modal fade" id="rsvppotluckModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> VIEW Potluck items </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         
+<table id="table-potluck" class="modal-label"> 
+        <thead>
+            <tr>
+                <th>Select </th>
+                <th>Item  </th>
+                <th>description </th>
+                <th>Quantity </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {{#each potlucks as |potluck|}}
+                <tr>
+                <td>
+                  {{#if potluck.user_id}} 
+                    <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" disabled="true">
+                  {{else}}
+                    <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" >
+                  {{/if}}
+                </td>
+                <td>
+                    {{potluck.name}}
+                </td>
+                <td>
+                    {{potluck.description}}
+                </td>
+                 <td>
+                    {{potluck.headcount}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+</table>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-primary" id="saveRSVPpotluck" data-dismiss="modal">Save changes</button>
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+

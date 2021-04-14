@@ -122,16 +122,16 @@ event_id = event_id.replace('?','');
       })
 });
 
- async function saveEvent( event) {
+  function saveEvent( event) {
       if (guest.length > 0) {
-         await saveGuestList();
+        saveGuestList();
       }
       if (potluckItems.length > 0 ) {
-        alert(potluckItems[0].headcount);
-        await savePotluckList();
+        alert("saving potluck");
+         savePotluckList();
       }
       if (giftItems.length > 0) {
-        await saveGiftList();
+         saveGiftList();
       }
 }
 
@@ -158,7 +158,7 @@ async function saveGuestList (event) {
 }
 
 async function savePotluckList (event) {
-  alert("in save potluck");
+  alert("save potluck");
 
   const response = await fetch('/api/potluck', {
     method: 'POST',

@@ -15,17 +15,17 @@ router.get('/:id', (req, res) => {
                 model: User, attributes: ['username']
             },            
             {   
-                 model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
+                model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
                 include: { model: User, attributes: ['username']}
             }, 
             {
-                model: Gift, attributes: ['id', 'name', 'url']
+                model: Gift, attributes: ['id', 'name', 'url', 'user_id']
             },
             {
-                model: Guest, attributes: ['name', 'email', 'rsvp', 'adultcount', 'kidscount']
+                model: Guest, attributes: ['id', 'name', 'email', 'rsvp', 'adultcount', 'kidscount']
             },
             {
-                model: Potluck, attributes: ['name', 'description', 'headcount']
+                model: Potluck, attributes: ['id', 'name', 'description', 'headcount', 'user_id']
             }
         ]
         })
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
             const events = response.get({ plain: true });
             console.log(events);
             res.render('ViewEvent', { events, loggedIn: true, isGuest: true });
-            //res.json(response);
+        // res.json(response);
         })
         .catch(err => {
             res.status(500).json(err);

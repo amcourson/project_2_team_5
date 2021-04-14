@@ -25,7 +25,11 @@
             {{#each gifts as |gift|}}
                 <tr>
                 <td>
-                   <input type="radio" id="yes" value='{{gift.id}}' name="rsvpGift">
+                  {{#if gift.user_id}} 
+                    <input type="radio" value='{{gift.id}}' name="rsvpGift" disabled="true">
+                  {{else}}
+                    <input type="radio" value='{{gift.id}}' name="rsvpGift" >
+                  {{/if}}
                 </td>
                 <td colspan="2">
                     {{gift.name}}

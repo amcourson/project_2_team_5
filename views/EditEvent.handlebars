@@ -81,6 +81,19 @@
     </form>
 </div>
 
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title"> Comments</h5>
+    </div>
+    <div class="card-body">
+        <form class="comment-form">
+            Add Your Comment 
+            <textarea rows="5" cols="10" class="form-control comment-text" name="comment" minlength="6" required="required"> </textarea>
+            <button class="button" type="submit" id="add-comment"> Submit </button>
+        </form>
+        </div>
+</div>
+
 
 {{> comments comments=events.comments}}
 {{> modal}}

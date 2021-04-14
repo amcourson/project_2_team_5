@@ -80,13 +80,17 @@ router.get('/:id', (req, res) => {
                 include: { model: User, attributes: ['username']}
             }, 
             {
-                model: Gift, attributes: ['id', 'name', 'url']
+                model: Gift, attributes: ['id', 'name', 'url', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
+
             },
             {
                 model: Guest, attributes: ['name', 'email', 'rsvp', 'adultcount', 'kidscount']
             },
             {
-                model: Potluck, attributes: ['name', 'description', 'headcount']
+                model: Potluck, attributes: ['name', 'description', 'headcount', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
+
             }
         ]
         })
@@ -99,7 +103,7 @@ router.get('/:id', (req, res) => {
             }
             const events = response.get({ plain: true });
               console.log(events);
-            //res.json(events);
+           // res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });
         })

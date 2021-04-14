@@ -20,6 +20,7 @@
                 <th>Item  </th>
                 <th>description </th>
                 <th>Quantity </th>
+                <th>User </th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,9 @@
                 </td>
                  <td>
                     {{potluck.headcount}}
+                </td>
+                <td colspan="2">
+                  {{potluck.user.firstname}} {{potluck.user.lastname}}
                 </td>
             </tr>
             {{/each}}
