@@ -2,8 +2,8 @@ const { Guest } = require('../models');
 
 const guestData = [
   {
-    name: 'Guest 1',
-    email: 'Guest10@gmail.com',
+    name: 'arti',
+    email: 'arti@gmail.com',
     rsvp: 'YES',
     adultcount: 2,
     kidscount: 1,
@@ -12,24 +12,24 @@ const guestData = [
     event_id: 1,
   },
   {
-    name: 'Guest 2',
-    email: 'Guest10@gmail.com',
-    rsvp: 'NO',
-    adultcount: 1,
-    kidscount: 2,
-    event_id: 1,
-  },
-  {
-    name: 'Guest 3',
-    email: 'Guest10@gmail.com',
+    name: 'arti',
+    email: 'arti@gmail.com',
     rsvp: 'NO',
     adultcount: 1,
     kidscount: 2,
     event_id: 2,
   },
   {
-    name: 'Guest 4',
-    email: 'Guest10@gmail.com',
+    name: 'arti',
+    email: 'arti@gmail.com',
+    rsvp: 'NO',
+    adultcount: 1,
+    kidscount: 2,
+    event_id: 3,
+  },
+  {
+    name: 'kedar',
+    email: 'kedar@gmail.com',
     rsvp: 'YES',
     adultcount: 1,
     kidscount: 2,

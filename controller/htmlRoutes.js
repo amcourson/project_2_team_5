@@ -11,6 +11,23 @@ router.get('/', (req, res) => {
 router.get('/index', (req, res) => {
     res.render('homePage');
 });
+router.get('/myinvitations', (req, res) => {
+    Event.findAll({
+        attributes: [ 'id', 'title', 'description' ],
+        include: [{
+            model: Guest,
+            where: { email: req.session.email}
+        }]
+    })
+    .then(response => {
+        const events = response.map(blog => blog.get({ plain: true }));
+        console.log("events " + events);
+        res.render('invitation', {events});
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    });
+});
 // OPEN SIGN-UP PAGE
 router.get('/signUp', (req, res) => {
     res.render('signUpPage');
@@ -88,6 +105,38 @@ router.post('/guest', (req, res) => {
            res.json(error);
        })
 });
+
+
+// GET BLOG BY ID: 
+router.get('/invitations', (req, res) => {
+    console.log("in incitation");
+
+    Event.findAll({
+        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+        /*include: [{
+          model: Guest,
+          where: { email: 'arti@gmail.com'}
+         }]*/
+      })
+    .then(response => {
+
+            if (!response) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            console.log(response);
+
+            const events = response.get({ plain: true });
+            res.render('AddNewEvent', { events, loggedIn: true });
+
+           // res.render('ViewEvent', { events, loggedIn: true });
+            //res.json(response);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+});
+
 
 
 module.exports = router;
