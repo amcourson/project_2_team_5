@@ -83,7 +83,7 @@ router.get('/:id', (req, res) => {
                 model: Gift, attributes: ['id', 'name', 'url']
             },
             {
-                model: Guest, attributes: ['name', 'email']
+                model: Guest, attributes: ['name', 'email', 'rsvp', 'adultcount', 'kidscount']
             },
             {
                 model: Potluck, attributes: ['name', 'description', 'headcount']
@@ -98,7 +98,7 @@ router.get('/:id', (req, res) => {
                 return;
             }
             const events = response.get({ plain: true });
-             //  console.log(events);
+              console.log(events);
             //res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });

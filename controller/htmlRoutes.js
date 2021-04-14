@@ -12,13 +12,13 @@ router.get('/index', (req, res) => {
     res.render('homePage');
 });
 router.get('/myinvitations', (req, res) => {
+   
     Event.findAll({
-        attributes: [ 'id', 'title', 'description' ],
         include: [{
-            model: Guest,
-            where: { email: req.session.email}
-        }]
-    })
+          model: Guest,
+          where: {email : req.session.email}
+         }]
+      })
     .then(response => {
         const events = response.map(blog => blog.get({ plain: true }));
         console.log("events " + events);
@@ -46,7 +46,7 @@ router.get('/EventDetails/:id', (req, res) => {
 router.get('/dashboard', withAuth, (req, res) => {
     Event.findAll({
             where: { user_id: req.session.user_id },
-            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtual_link'  ],
+            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));
@@ -109,7 +109,7 @@ router.post('/guest', (req, res) => {
        })
 });
 
-
+/*
 // GET BLOG BY ID: 
 router.get('/invitations', (req, res) => {
     console.log("in incitation");
@@ -119,7 +119,7 @@ router.get('/invitations', (req, res) => {
         /*include: [{
           model: Guest,
           where: { email: 'arti@gmail.com'}
-         }]*/
+         }]
       })
     .then(response => {
 
@@ -127,7 +127,6 @@ router.get('/invitations', (req, res) => {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-            console.log(response);
 
             const events = response.get({ plain: true });
             res.render('AddNewEvent', { events, loggedIn: true });
@@ -140,6 +139,6 @@ router.get('/invitations', (req, res) => {
         });
 });
 
-
+*/
 
 module.exports = router;

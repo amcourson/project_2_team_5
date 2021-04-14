@@ -23,14 +23,14 @@ router.post('/', (req, res) => {
 
 //  EDIT RSVP BY ID 
 router.put('/:id', (req, res) => {
-    console.log("in update guest");
+    console.log("in update guest" + req.params.id + req.session.user_id);
     Guest.update({
         rsvp: req.body.rsvp,
         adultcount: req.body.adultcount,
         kidscount: req.body.kidscount,
     }, 
     {  where: { 
-        id: req.session.user_id,
+        email: req.session.email,
         event_id: req.params.id,
     }
     })

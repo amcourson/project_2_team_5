@@ -25,12 +25,13 @@
             {{#each gifts as |gift|}}
                 <tr>
                 <td>
+                   <input type="radio" id="yes" value='{{gift.id}}' name="rsvpGift">
                 </td>
                 <td colspan="2">
                     {{gift.name}}
                 </td>
                 <td colspan="2">
-                    {{url}}
+                    <a href={{gift.url}} target="_blank">Link </a>
                 </td>
             </tr>
             {{/each}}
@@ -39,6 +40,7 @@
 </table>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveGiftRSVP" data-dismiss="modal">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>

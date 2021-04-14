@@ -3,7 +3,12 @@
 
     <h3 class="card-header">View Event details:  
           {{> rsvp}}
-
+          {{#if events.potlucks}}
+            {{> rsvpPotluck potlucks=events.potlucks}}
+          {{/if}} 
+          {{#if events.gifts}}
+            {{> rsvpGift gifts=events.gifts}}
+          {{/if}}
     </h3>
     
     <div class="form-group">

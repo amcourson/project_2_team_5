@@ -18,18 +18,32 @@
             <tr>
                 <th>Name  </th>
                 <th>Email </th>
+                <th>RSVP </th>
+                <th>Adult count </th>
+                <th>Kids Count </th>
+
+
             </tr>
         </thead>
         <tbody>
             {{#each guests as |guest|}}
                 <tr>
-                
                 <td>
                     {{guest.name}}
                 </td>
                 <td>
                     {{guest.email}}
                 </td>
+                <td>
+                    {{guest.rsvp}}
+                </td>
+                <td>
+                    {{guest.adultcount}}
+                </td>
+                <td>
+                    {{guest.kidscount}}
+                </td>
+
             </tr>
             {{/each}}
         </tbody>

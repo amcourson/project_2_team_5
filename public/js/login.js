@@ -4,8 +4,8 @@ $(document).ready(function() {
   });
 });
 async function loginButtonClicked () {
-  const username = document.querySelector('.input-username-login').value;
-  const password = document.querySelector('.input-password-password').value;
+  const username = document.querySelector('.input-username-login').value.trim();
+  const password = document.querySelector('.input-password-password').value.trim();
 
   if (username && password) {
       const response = await fetch('/api/users/login', {
