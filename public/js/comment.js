@@ -1,17 +1,22 @@
-async function commentFormHandler(event) {
+$(document).ready(function() {
+    $( "#add-comment" ).on("click",function() {
+        alert("comment  button clicked ");
+        commentFormHandler();
+      })
+});
 
-    event.preventDefault();
-    let currentdate = new Date().toLocaleDateString();
-
-    let text = $('.comment-text').val();
+async function commentFormHandler() {
+    let commentdate = new Date().toLocaleDateString();
+    let commenttext = $('.comment-text').val();
     const event_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
+    alert(commenttext + event_id)
 
-    if (text) {
+    if (commenttext) {
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ event_id, text, currentdate }),
+            body: JSON.stringify({ event_id, commenttext, commentdate }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -25,4 +30,3 @@ async function commentFormHandler(event) {
         }
     }
 }
-$('.comment-form').addEventListener('submit', commentFormHandler);

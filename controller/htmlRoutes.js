@@ -21,12 +21,16 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+router.get('/EventDetails/:id', (req, res) => {
+    res.render('EventDetails');
+});
 
 // OPEN DASHBOARD PAGE
 router.get('/dashboard', (req, res) => {
+    console.log("in show dashboard");
     Event.findAll({
-            where: { user_id: 1 },
-            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtual_link'  ],
+            where: { user_id: req.session.user_id  },
+            attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));
@@ -57,7 +61,7 @@ router.get('/addNewEvent', (req, res) => {
 
 // OPEN OTHER USER'S BLOG BY ID
 router.get('/lastAdded',  (req, res) => {
-    console.log("in last ");
+   // console.log("in last ");
     Event.findAll({
         attributes: ['id'],
         limit: 1,

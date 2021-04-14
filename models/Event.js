@@ -43,7 +43,7 @@ Event.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    virtualLink: {
+    virtuallink: {
       type: DataTypes.STRING,
       allowNull: true,
     },
