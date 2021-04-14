@@ -21,11 +21,15 @@ router.get('/login', (req, res) => {
     res.render('loginPage');
 });
 
+router.get('/EventDetails/:id', (req, res) => {
+    res.render('EventDetails');
+});
 
 // OPEN DASHBOARD PAGE
 router.get('/dashboard', (req, res) => {
+    console.log("in show dashboard");
     Event.findAll({
-            where: { user_id: 1 },
+            where: { user_id: req.session.user_id  },
             attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtual_link'  ],
         })
         .then(response => {

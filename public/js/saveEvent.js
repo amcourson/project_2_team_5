@@ -77,7 +77,7 @@
       alert("id is:  "+ json);
 
       alert("Event saved");
-      document.location.replace(`api/events/EventDetails/${json}`);
+      document.location.replace(`/EventDetails/${json}`);
     } 
     else if (response.status == 400 || response.status == 500) {
       alert("Something went wrong, please try again!!")

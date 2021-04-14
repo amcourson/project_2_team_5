@@ -1,22 +1,18 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#giftModal">
-  ADD GIFT REGISTRY 
+  VIEW GIFT REGISTRY 
 </button>
 
 <div class="modal fade" id="giftModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"> Add Gift Registry</h5>
+        <h5 class="modal-title"> VIEW Gift Registry</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <form>
-        <input type="text" id="gift-item" placeholder="ENTER ITEM NAME">
-        <input type="text" id="gift-url" placeholder="ENTER URL">
-    	<input type="button" class="add-row-gift" value="Add Row">
-</form>
+         
 <table id="table-gift"> 
         <thead>
             <tr>
@@ -26,12 +22,24 @@
             </tr>
         </thead>
         <tbody>
+            {{#each gifts as |gift|}}
+                <tr>
+                <td>
+                </td>
+                <td>
+                    {{gift.name}}
+                </td>
+                <td>
+                    {{url}}
+                </td>
+            </tr>
+            {{/each}}
+
         </tbody>
 </table>
   <button type="button" class="delete-row-gift">Delete Row</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="saveGift" data-dismiss="modal">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
