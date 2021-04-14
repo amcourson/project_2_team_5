@@ -98,8 +98,8 @@ router.get('/:id', (req, res) => {
                 return;
             }
             const events = response.get({ plain: true });
-         //   console.log(events);
-           // res.json(events);
+             //  console.log(events);
+            //res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });
         })
@@ -111,25 +111,21 @@ router.get('/:id', (req, res) => {
 
 //  EDIT EVENT BY ID 
 router.put('/:id', (req, res) => {
-    console.log("IN UPDATE " + req.params.id);
-
     Event.update({
         title: req.body.title,
         description: req.body.description,
         address: req.body.address ,
-    }
-    , 
+    }, 
     {  
-       where: { id: req.body.id  }
+        where: {
+            id: req.params.id
+        }    
     })
     .then(response => {
         if (!response) {
             res.status(404).json({ message: 'No EVENT found with this id' });
             return;
         }
-        console.log("IN UPDATE ");
-
-        console.log(response);
         res.json(response);
     })
     .catch(err => {

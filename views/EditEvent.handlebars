@@ -4,9 +4,7 @@
     <h3 class="card-header">Edit Event </h3>
       <div class="row">
         <div class="col-sm-6">
-          <button class="button" type="submit" id="updateEvent">Update </button>
           <button class="button" type="submit" id="deleteEvent">Delete </button>
-
         </div>
         <div class="col-sm-6">
           <p> {{events.gifts}} </p>
@@ -80,14 +78,11 @@
     </div>
     </div>
     {{/if}}
-      
-    
-    
-
     </form>
 </div>
-{{> comments events.comments}}
 
+
+{{> comments comments=events.comments}}
 {{> modal}}
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/js/edit-event.js" type="text/javascript" ></script>
