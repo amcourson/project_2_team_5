@@ -71,15 +71,4 @@ Guest.belongsTo(Event, {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
 module.exports = { User, Event, Category, Comment, Gift, Potluck, Type, Guest };
