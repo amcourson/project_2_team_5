@@ -1,12 +1,20 @@
 <div class="card">
     <form class="form-horizontal form-new-event">
 
-    <h3 class="card-header">View Event details:  </h3>
+    <h3 class="card-header">View Event details:  
+          {{> rsvp}}
+          {{#if events.potlucks}}
+            {{> rsvpPotluck potlucks=events.potlucks}}
+          {{/if}} 
+          {{#if events.gifts}}
+            {{> rsvpGift gifts=events.gifts}}
+          {{/if}}
+    </h3>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value= {{events.title}}readonly= "true"/>
+        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value= {{events.title}} readonly= "true"/>
       </div>
     </div>
     
@@ -48,13 +56,15 @@
         <form class="comment-form">
             Add Your Comment 
             <textarea rows="5" cols="10" class="form-control comment-text" name="comment" minlength="6" required="required"> </textarea>
-            <button class="button" type="submit"> Submit </button>
+            <button class="button" type="submit" id="add-comment"> Submit </button>
         </form>
         </div>
 </div>
+ 
 
-{{> comments events.comments}}
+{{> comments comments=events.comments}}
  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="/js/view-event.js" type="text/javascript" ></script>
 
-<script src="/js/comment.js" type="text/javascript" ></script>
+<script src="./js/comment.js" type="text/javascript" ></script>
 

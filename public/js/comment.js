@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    alert("in ");
+    
     $( "#add-comment" ).on("click",function() {
         alert("comment  button clicked ");
         commentFormHandler();

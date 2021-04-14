@@ -31,10 +31,10 @@ event_id = event_id.replace('?','');
        
         $("#table-people tbody tr").find('input[name="check-people"]').each(function(){
           $(this).closest('tr').find('td:eq(1)').each(function() {
-                name = $(this).text();
+                name = $(this).text().trim();
           });
           $(this).closest('tr').find('td:eq(2)').each(function() {
-                email = $(this).text();
+                email = $(this).text().trim();
           });
           guest.push({name: name, email: email, event_id: event_id });
         });
@@ -66,13 +66,13 @@ event_id = event_id.replace('?','');
         
         $("#table-potluck tbody tr").find('input[name="check-item"]').each(function(){
           $(this).closest('tr').find('td:eq(1)').each(function() {
-            name = $(this).text();
+            name = $(this).text().trim();
           });
           $(this).closest('tr').find('td:eq(2)').each(function() {
-            description = $(this).text();
+            description = $(this).text().trim();
           });
           $(this).closest('tr').find('td:eq(3)').each(function() {
-            headcount = $(this).text();
+            headcount = $(this).text().trim();
           });
           alert("event " + event_id);
 
@@ -104,10 +104,10 @@ event_id = event_id.replace('?','');
       
           $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
             $(this).closest('tr').find('td:eq(1)').each(function() {
-              name = $(this).text();
+              name = $(this).text().trim();
             });
             $(this).closest('tr').find('td:eq(2)').each(function() {
-              url = $(this).text();
+              url = $(this).text().trim();
             });
             giftItems.push({name: name, url: url, event_id: event_id});
           });
@@ -122,16 +122,16 @@ event_id = event_id.replace('?','');
       })
 });
 
- async function saveEvent( event) {
+  function saveEvent( event) {
       if (guest.length > 0) {
-         await saveGuestList();
+        saveGuestList();
       }
       if (potluckItems.length > 0 ) {
-        alert(potluckItems[0].headcount);
-        await savePotluckList();
+        alert("saving potluck");
+         savePotluckList();
       }
       if (giftItems.length > 0) {
-        await saveGiftList();
+         saveGiftList();
       }
 }
 
@@ -158,7 +158,7 @@ async function saveGuestList (event) {
 }
 
 async function savePotluckList (event) {
-  alert("in save potluck");
+  alert("save potluck");
 
   const response = await fetch('/api/potluck', {
     method: 'POST',

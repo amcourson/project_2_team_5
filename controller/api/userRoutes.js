@@ -47,12 +47,13 @@ router.post('/login', async (req, res) => {
     }
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
+      req.session.email = dbUserData.email;
+      req.session.firstname = dbUserData.firstname;
       req.session.loggedIn = true;
       req.session.isLogin = true;
       req.session.isDashboard = false;
       req.session.isHome = false;
-
-      res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, loggedIn: req.session.loggedIn,  isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome  });
+      res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, loggedIn: req.session.loggedIn,  isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome });
     });
   } catch (err) {
     res.status(500).json(err);

@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
         calendar_link: google(event),
         status: req.body.status,
         type_id: 1,
-        user_id: 1
+        user_id: req.session.user_id
     })
     .then(x => {
         //const blogs = response.get({ plain: true });
@@ -80,13 +80,17 @@ router.get('/:id', (req, res) => {
                 include: { model: User, attributes: ['username']}
             }, 
             {
-                model: Gift, attributes: ['id', 'name', 'url']
+                model: Gift, attributes: ['id', 'name', 'url', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
+
             },
             {
-                model: Guest, attributes: ['name', 'email']
+                model: Guest, attributes: ['name', 'email', 'rsvp', 'adultcount', 'kidscount']
             },
             {
-                model: Potluck, attributes: ['name', 'description', 'headcount']
+                model: Potluck, attributes: ['name', 'description', 'headcount', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
+
             }
         ]
         })
@@ -98,8 +102,8 @@ router.get('/:id', (req, res) => {
                 return;
             }
             const events = response.get({ plain: true });
-             //  console.log(events);
-            //res.json(events);
+              console.log(events);
+           // res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });
         })
@@ -115,6 +119,13 @@ router.put('/:id', (req, res) => {
         title: req.body.title,
         description: req.body.description,
         address: req.body.address ,
+        city: req.body.city ,
+        state: req.body.state ,
+        virtualLink: req.body.virtualLink,
+        category_id: req.body.category,
+        status: req.body.status,
+        type_id: 1,
+        user_id: req.session.user_id
     }, 
     {  
         where: {

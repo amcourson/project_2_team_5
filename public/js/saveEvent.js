@@ -6,8 +6,6 @@
         var items = [];
 
   $(document).ready(function() {
-
-    alert("in read");
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
     $( "#saveEventAsDraft" ).on("click",function() {

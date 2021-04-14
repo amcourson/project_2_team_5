@@ -20,6 +20,7 @@
     <p id="slogan">All things events in one place.</p>
 </div>
 <body>
+
     <nav class="navbar navbar-dark navbar-expand-md justify-content-between">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
@@ -34,11 +35,14 @@
                 </ul>
                  <ul class="navbar-nav ml-auto">
                      {{#if loggedIn}}
+                    <li class="nav-item">
+                        <a href="/dashboard">Welcome, {{firstname}} </a>
+                    </li>
                      <li class="nav-item">
-                        <a href="/dashboard">Dashboard</a>
+                        <a href="/dashboard">My Events </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-0" href="/api/users/invitations">My Invitation  <span class="sr-only">Home</span></a>
+                        <a class="nav-link pl-0" href="/myinvitations">My Invitation  <span class="sr-only">Home</span></a>
                     </li> 
                      <li class="nav-item">
                         <a class="nav-link" id="logout" href="/logout">Logout</a>

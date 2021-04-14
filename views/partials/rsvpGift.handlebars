@@ -19,22 +19,23 @@
                 <th colspan="2">Select </th>
                 <th colspan="2">Name  </th>
                 <th colspan="2">URL </th>
-                <th colspan="2"> User </th>
             </tr>
         </thead>
         <tbody class="modal-label">
             {{#each gifts as |gift|}}
                 <tr>
                 <td>
+                  {{#if gift.user_id}} 
+                    <input type="radio" value='{{gift.id}}' name="rsvpGift" disabled="true">
+                  {{else}}
+                    <input type="radio" value='{{gift.id}}' name="rsvpGift" >
+                  {{/if}}
                 </td>
                 <td colspan="2">
                     {{gift.name}}
                 </td>
                 <td colspan="2">
-                    {{gift.url}}
-                </td>
-                <td colspan="2">
-                  {{gift.user.firstname}} {{gift.user.lastname}}
+                    <a href={{gift.url}} target="_blank">Link </a>
                 </td>
             </tr>
             {{/each}}
@@ -43,6 +44,7 @@
 </table>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="saveGiftRSVP" data-dismiss="modal">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
