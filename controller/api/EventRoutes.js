@@ -5,7 +5,6 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
-const { resolve } = require('path');
 
 
 
@@ -140,13 +139,15 @@ router.put('/:id', (req, res) => {
 
 
 //  DELETE EVENT BY ID 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Event.destroy({
         where: {
             id: req.params.id
         }
     })
     .then(response => {
+        console.log(response);
+        
         if (!response) {
         res.status(404).json({ message: 'No Event found with this id' });
         return;

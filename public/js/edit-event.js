@@ -5,6 +5,10 @@ $(document).ready(function() {
     alert("active  button clicked ");
     updateEvent();
   })
+  $( "#deleteEvent" ).on("click",function() {
+    alert("delete  button clicked ");
+    deletePost();
+  })
 
 });
 
@@ -43,17 +47,18 @@ async function updateEvent(event) {
       }
 
 }
-async function deletePost(event) {
-  event.preventDefault();
+async function deletePost() {
+  //event.preventDefault();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
-      
-      const response = await fetch(`/api/blog/${id}`, {
+      alert(id);
+
+      const response = await fetch(`/api/events/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({
-          blog_id: id
+          id: id
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -61,7 +66,7 @@ async function deletePost(event) {
       });
       
       if (response.ok) {
-        alert("Blog deleted..");
+        alert("Event deleted..");
         document.location.replace('/Dashboard/');
       } else {
         alert(response.statusText);

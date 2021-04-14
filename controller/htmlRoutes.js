@@ -61,7 +61,7 @@ router.get('/addNewEvent', (req, res) => {
 
 // OPEN OTHER USER'S BLOG BY ID
 router.get('/lastAdded',  (req, res) => {
-    console.log("in last ");
+   // console.log("in last ");
     Event.findAll({
         attributes: ['id'],
         limit: 1,
