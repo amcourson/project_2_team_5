@@ -1,5 +1,9 @@
-const loginButtonClicked = async (event) => {
-  event.preventDefault();
+$(document).ready(function() {
+  $( "#loginButton" ).on("click",function() {
+    loginButtonClicked();
+  });
+});
+async function loginButtonClicked () {
   const username = document.querySelector('.input-username-login').value;
   const password = document.querySelector('.input-password-password').value;
 
@@ -18,6 +22,4 @@ const loginButtonClicked = async (event) => {
           alert("Incorrect email or password. Please try again!");
         }
   }
-};
-document.querySelector('.form-login').addEventListener('submit', loginButtonClicked);
-
+}

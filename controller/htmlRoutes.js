@@ -40,14 +40,14 @@ router.get('/login', (req, res) => {
 
 
 // OPEN DASHBOARD PAGE
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', withAuth, (req, res) => {
     Event.findAll({
-            where: { user_id: 1 },
+            where: { user_id: req.session.user_id },
             attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtual_link'  ],
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));
-            res.render('dashboard', { events, loggedIn: req.session.loggedIn });
+            res.render('dashboard', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);

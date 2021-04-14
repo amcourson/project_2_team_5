@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     Comment.create({
         commenttext: req.body.text,
         event_id: req.body.event_id,
-        user_id: 2,
+        user_id: req.session.user_id,
         commentdate: req.body.currentdate
     })
     .then(response => res.json(response))

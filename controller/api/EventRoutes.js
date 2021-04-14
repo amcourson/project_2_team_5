@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         calendar_link: google(event),
         status: req.body.status,
         type_id: 1,
-        user_id: 1
+        user_id: req.session.user_id
     })
     .then(x => {
         //const blogs = response.get({ plain: true });
@@ -113,7 +113,7 @@ router.put('/edit/:id', withAuth, (req, res) => {
         category_id: req.body.category,
         status: req.body.status,
         type_id: 1,
-        user_id: 1
+        user_id: req.session.user_id
     }, 
     {  where: { id: req.params.id }
     })
