@@ -21,7 +21,12 @@ router.get('/dashboard', (req, res) => {
 // CREATE NEW EVENt
 router.post('/', (req, res) => {
     console.log("CREATE NEW EVENT ");
-
+    const event = {
+        title: "My birthday party",
+        description: "Be there!",
+        start: "2019-12-29 18:00:00 +0100",
+        duration: [3, "hour"],
+      };
     Event.create({
         Title: req.body.title,
         description: req.body.description,
@@ -33,6 +38,7 @@ router.post('/', (req, res) => {
         virtualLink: req.body.virtualLink,
         //category_id: req.body.category,
        category_id: 1,
+        calendar_link: google(event),
         status: req.body.status,
         type_id: 1,
         user_id: 1
@@ -49,19 +55,14 @@ router.post('/', (req, res) => {
     
 
 // Set event as an object, dynamically insert personalize data
-const event = {
-  title: "My birthday party",
-  description: "Be there!",
-  start: "2019-12-29 18:00:00 +0100",
-  duration: [3, "hour"],
-};
 
 
-google(event); 
-outlook(event);
-office365(event); 
-yahoo(event); 
-ics(event); 
+
+// google(event); 
+// outlook(event);
+// office365(event); 
+// yahoo(event); 
+// ics(event); 
 });
 
 attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
