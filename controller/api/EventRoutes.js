@@ -1,15 +1,13 @@
 
 const router = require('express').Router();
-const { Event, User, Comment } = require('../../models');
+const { Event, User, Comment, Gift, Potluck, Guest, Category } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
 
-router.get('/EventDetails/:id', (req, res) => {
-    res.render('EventDetails');
-});
+
 router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
@@ -65,33 +63,45 @@ router.post('/', (req, res) => {
 // ics(event); 
 });
 
-attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
 
 
 // GET BLOG BY ID: 
 router.get('/:id', (req, res) => {
     Event.findOne({
         where: { id: req.params.id },
-        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
-        include: [{ model: User, attributes: ['username']},            
-        {   
-            model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
-            include: { model: User, attributes: ['username']}
-        }]
+        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
+        include: [
+            { 
+                model: User, attributes: ['username']
+            },            
+            {   
+                 model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
+                include: { model: User, attributes: ['username']}
+            }, 
+            {
+                model: Gift, attributes: ['id', 'name', 'url']
+            },
+            {
+                model: Guest, attributes: ['name', 'email']
+            },
+            {
+                model: Potluck, attributes: ['name', 'description', 'headcount']
+            }
+        ]
         })
         
         .then(response => {
-            console.log(response);
 
             if (!response) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
             const events = response.get({ plain: true });
-            console.log(events);
+             //  console.log(events);
+            //res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });
-            //res.json(response);
         })
         .catch(err => {
             res.status(500).json(err);
@@ -100,12 +110,10 @@ router.get('/:id', (req, res) => {
 
 
 //  EDIT EVENT BY ID 
-router.put('/edit/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
     Event.update({
-        Title: req.body.title,
+        title: req.body.title,
         description: req.body.description,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
         address: req.body.address ,
         city: req.body.city ,
         state: req.body.state ,
@@ -115,7 +123,10 @@ router.put('/edit/:id', withAuth, (req, res) => {
         type_id: 1,
         user_id: req.session.user_id
     }, 
-    {  where: { id: req.params.id }
+    {  
+        where: {
+            id: req.params.id
+        }    
     })
     .then(response => {
         if (!response) {
@@ -131,13 +142,15 @@ router.put('/edit/:id', withAuth, (req, res) => {
 
 
 //  DELETE EVENT BY ID 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
     Event.destroy({
         where: {
             id: req.params.id
         }
     })
     .then(response => {
+        console.log(response);
+        
         if (!response) {
         res.status(404).json({ message: 'No Event found with this id' });
         return;

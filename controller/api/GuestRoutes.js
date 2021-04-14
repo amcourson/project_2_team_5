@@ -3,7 +3,6 @@ const { Guest } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // CREATE NEW GUEST
-// CREATE NEW GUEST
 router.post('/', (req, res) => {
     console.log("IN GUEST POST HTMl routes");
 

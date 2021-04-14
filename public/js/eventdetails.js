@@ -113,25 +113,33 @@ event_id = event_id.replace('?','');
           });
         });
         
-      
-      
-    
+          
     $( "#saveEventAsActive" ).on("click",function() {
-        if (guest.length > 0) {
-          alert(guest);
+      alert("in saev");
 
-          saveGuestList();
-        }
-        if (potluckItems.length > 0 ) {
-          alert(potluckItems[0].headcount);
-          savePotluckList();
-        }
-        if (giftItems.length > 0) {
-          saveGiftList();
-        }
-    })
+        document.location.replace('/dashboard');
+        saveEvent();
+      })
 });
 
+ async function saveEvent( event) {
+      if (guest.length > 0) {
+         await saveGuestList();
+      }
+      if (potluckItems.length > 0 ) {
+        alert(potluckItems[0].headcount);
+        await savePotluckList();
+      }
+      if (giftItems.length > 0) {
+        await saveGiftList();
+      }
+}
+
+function showDashboard() {
+  alert("redirect");
+  document.location.replace('/Dashboard');
+
+}
 async function saveGuestList (event) {
   const response = await fetch('/api/guest', {
     method: 'POST',

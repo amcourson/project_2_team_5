@@ -4,19 +4,20 @@ const eventData = [
   {
     Title: 'Birthday party',
     description: 'Its Sara Birthday',
-    address: 'Los Angels, CA',
     startdate: '09-01-2021 09:30:00 AM',
     enddate: '01-04-2019 10:30:00 AM',
     type_id: 1,
     category_id: 1,
     user_id: 1,
-    virtualLink: "google.com",
-    status: 'DRAFT'
+    virtuallink: "google.com",
+    status: 'ACTIVE'
   },
   {
     Title: 'Wedding party',
     description: 'Its test weds super-test Wedding',
-    address: 'Austin, TX',
+    address: '1234 Lincoln blvd, #345',
+    city: 'Austin, TX',
+    state: 'California',
     startdate: '09-01-2021 02:15:00 PM',
     enddate: '01-04-2019 06:30:00 PM',
     type_id: 2,
@@ -110,12 +111,15 @@ const eventData = [
     type_id: 2,
     category_id: 1,
     user_id: 1,
-    status: 'ACTIVE'
+    status: 'ACTIVE',
+    virtuallink: "www.google.com"
   },
   {
     Title: 'House  warming party',
     description: 'Its test weds super-test Wedding',
-    address: 'Austin, TX',
+    address: '1234 Lincoln blvd, #345',
+    city: 'Austin, TX',
+    state: 'California',
     startdate: '09-01-2021 02:15:00 PM',
     enddate: '01-04-2019 06:30:00 PM',
     type_id: 2,
