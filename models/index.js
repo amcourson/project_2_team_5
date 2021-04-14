@@ -62,11 +62,7 @@ Comment.belongsTo(Event, {
   onUpdate: "cascade",
 });
 
-Guest.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: "cascade",
-  onUpdate: "cascade",
-});
+
 
 Guest.belongsTo(Event, {
   foreignKey: 'event_id',

@@ -2,16 +2,16 @@ const { Category } = require('../models');
 
 const eventData = [
   {
-    categoryName: 'Pool party',
+    categoryname: 'Pool party',
  },
  {
-    categoryName: 'Occasion',
+    categoryname: 'Occasion',
  },
  {
-    categoryName: 'Celebration',
+    categoryname: 'Celebration',
  },
  {
-    categoryName: 'Farewell',
+    categoryname: 'Farewell',
  }
 ];
 

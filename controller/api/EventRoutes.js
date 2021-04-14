@@ -7,6 +7,9 @@ const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
 
+router.get('/EventDetails/:id', (req, res) => {
+    res.render('EventDetails');
+});
 router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
@@ -22,18 +25,23 @@ router.post('/', (req, res) => {
     Event.create({
         Title: req.body.title,
         description: req.body.description,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
+        startdate: req.body.startdate,
+        enddate: req.body.enddate,
         address: req.body.address ,
         city: req.body.city ,
         state: req.body.state ,
         virtualLink: req.body.virtualLink,
-        category_id: req.body.category,
+        //category_id: req.body.category,
+       category_id: 1,
         status: req.body.status,
         type_id: 1,
         user_id: 1
     })
-    .then(response => res.json(response))
+    .then(x => {
+        //const blogs = response.get({ plain: true });
+        res.json(x.get('id'));
+    })
+
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -139,5 +147,10 @@ router.delete('/:id', withAuth, (req, res) => {
     res.status(500).json(err);
     });
 });
+
+
+
+
+
 
 module.exports = router;

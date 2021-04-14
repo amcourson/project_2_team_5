@@ -15,26 +15,23 @@ Guest.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    RSVP: {
+    email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    adultCount: {
+    rsvp: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    adultcount: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
-    kidsCount: {
+    kidscount: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-    },
     event_id: {
       type: DataTypes.INTEGER,
       references: {
