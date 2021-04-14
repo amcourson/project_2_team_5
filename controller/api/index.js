@@ -7,7 +7,6 @@ const invitationRoutes = require('./invitationRoutes');
 const guestRoutes = require('./GuestRoutes');
 const potluckRoutes = require('./potluckRoutes');
 
-
 router.use('/users', userRoutes);
 router.use('/comments', commentRoutes);
 router.use('/events', eventRoutes);

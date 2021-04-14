@@ -4,29 +4,29 @@ var event_id = window.location.toString().split('/')[
   window.location.toString().split('/').length - 1
 ];    
 event_id = event_id.replace('?','');
-  $(document).ready(function() {
-    alert("in ");
+ 
 
+  $(document).ready(function() {  
     $(".add-row-people").click(function(){
         var name = $("#people-name").val();
         var email = $("#people-email").val();
         var row = `<tr><td><input type='checkbox' name='check-people'></td><td>  ${name} </td><td> ${email} </td></tr>`;
         $("#table-people tbody").append(row);
     });
+    
+    // Find and remove selected table rows
     $(".delete-row-people").click(function(){
         alert("delete pople");
         $("#table-people tbody").find('input[name="check-people"]').each(function(){
             if($(this).is(":checked")){
                guest.splice($(this).parents("tr").index(), 1);
-           
-                $(this).parents("tr").remove();
+                  $(this).parents("tr").remove();
             }
         });
     });
     $( "#savePeople" ).click(function() {
         let name, email;
        
-
         $("#table-people tbody tr").find('input[name="check-people"]').each(function(){
           $(this).closest('tr').find('td:eq(1)').each(function() {
                 name = $(this).text();

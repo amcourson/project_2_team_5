@@ -93,8 +93,7 @@
     mymodal.modal('show');
   }
 
-  
-
+ 
 
   
 $(".add-row-gift").click(function(){
