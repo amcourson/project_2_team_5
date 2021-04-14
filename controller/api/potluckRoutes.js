@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const { Guest } = require('../../models');
+const { Event, Potluck, User } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-// CREATE NEW GUEST
-router.post('/', (req, res) => {
-    console.log("IN GUEST POST HTMl routes");
-    console.log(req.body.guest);
 
-    Guest.bulkCreate(req.body.guest)
+router.post('/', (req, res) => {
+    console.log("IN POTLUCK POST HTMl routes");
+    console.log(req.body.potluckItems);
+
+    Potluck.bulkCreate(req.body.potluckItems)
     .then(function() {
-         return Guest.findAll()
+         return Potluck.findAll()
        })
        .then(function(response){
            console.log(response);
