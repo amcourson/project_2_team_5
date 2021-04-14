@@ -1,5 +1,7 @@
 var guest = [];
 var potluckItems = [];
+var giftItems = [];
+
 var event_id = window.location.toString().split('/')[
   window.location.toString().split('/').length - 1
 ];    
@@ -77,6 +79,42 @@ event_id = event_id.replace('?','');
           potluckItems.push({name: name, description: description, headcount: headcount, event_id: event_id});
         });
         });
+
+        $(".add-row-gift").click(function(){
+          var giftName = $("#gift-item").val();
+          var giftUrl = $("#gift-url").val();
+          var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
+          $("#table-gift tbody").append(row);
+      });
+      
+      // Find and remove selected table rows
+      $(".delete-row-gift").click(function(){
+          alert("delete gift");
+      
+          $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
+              if($(this).is(":checked")){
+                giftItems.splice($(this).parents("tr").index(), 1);
+                  $(this).parents("tr").remove();
+              }
+          });
+      });
+      
+      $( "#saveGift" ).click(function() {
+          let name, url;
+      
+          $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
+            $(this).closest('tr').find('td:eq(1)').each(function() {
+              name = $(this).text();
+            });
+            $(this).closest('tr').find('td:eq(2)').each(function() {
+              url = $(this).text();
+            });
+            giftItems.push({name: name, url: url, event_id: event_id});
+          });
+        });
+        
+      
+      
     
     $( "#saveEventAsActive" ).on("click",function() {
         if (guest.length > 0) {
@@ -87,6 +125,9 @@ event_id = event_id.replace('?','');
         if (potluckItems.length > 0 ) {
           alert(potluckItems[0].headcount);
           savePotluckList();
+        }
+        if (giftItems.length > 0) {
+          saveGiftList();
         }
     })
 });
@@ -122,6 +163,26 @@ async function savePotluckList (event) {
 
   if (response.ok) {
     alert("Potluck items added");
+  } else {
+    alert("Something went wrong ,please try again!!");
+  }
+}
+
+
+async function saveGiftList (event) {
+  alert(giftItems);
+
+  const response = await fetch('/api/gift', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body:  JSON.stringify({giftItems})
+  });
+
+  if (response.ok) {
+    alert("Gift items added");
   } else {
     alert("Something went wrong ,please try again!!");
   }

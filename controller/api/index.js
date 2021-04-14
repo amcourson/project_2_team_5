@@ -6,6 +6,7 @@ const category = require('./categoryRoutes');
 const invitationRoutes = require('./invitationRoutes');
 const guestRoutes = require('./GuestRoutes');
 const potluckRoutes = require('./potluckRoutes');
+const giftRoutes = require('./giftRoutes');
 
 router.use('/users', userRoutes);
 router.use('/comments', commentRoutes);
@@ -14,5 +15,6 @@ router.use('/category', category);
 router.use('/invitation', invitationRoutes);
 router.use('/guest', guestRoutes);
 router.use('/potluck', potluckRoutes);
+router.use('/gift', giftRoutes);
 
 module.exports = router;
