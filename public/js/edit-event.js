@@ -1,26 +1,42 @@
-async function editPost(event) {
-    event.preventDefault();
+$(document).ready(function() {
+  alert("in edit JS");
 
-    const title = document.querySelector('.blog-title').value;
-    const content = document.querySelector('.blog-content').value;
+  $( "#updateEvent" ).on("click",function() {
+    alert("active  button clicked ");
+    updateEvent();
+  })
+
+});
+
+
+async function updateEvent(event) {
+  alert("im update");
+
+    let title = $('#event-title').val();
+   /* let description = $('#event-description').val();
+    let address  = $('#event-address').val();
+    let city = $('#event-city').val();
+    let state = $('#event-state').val();
+    let virtualLink = $('#virtualLinkEL').val();
+    */
+
+
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
+    alert(title + id);
+
       
-      const response = await fetch(`/api/blog/${id}`, {
+      const response = await fetch(`/api/events/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({
-          blog_id: id,
-          title,
-          content
-        }),
+        body: JSON.stringify({id,  title }),
         headers: {
           'Content-Type': 'application/json'
         }
       });
       
       if (response.ok) {
-        alert("Blog Updated");
+        alert("Event Updated");
         document.location.replace('/dashboard/');
       } else {
         alert(response.statusText);
@@ -54,4 +70,4 @@ async function deletePost(event) {
 }
 
 //delete-post
-document.querySelector('.edit-post').addEventListener('click', editPost);
+//$('.edit-event').addEventListener('click', updateEvent);

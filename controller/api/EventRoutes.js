@@ -1,10 +1,11 @@
 
 const router = require('express').Router();
-const { Event, User, Comment, Gift, Potluck, Guest } = require('../../models');
+const { Event, User, Comment, Gift, Potluck, Guest, Category } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
+const { resolve } = require('path');
 
 
 
@@ -63,14 +64,14 @@ router.post('/', (req, res) => {
 // ics(event); 
 });
 
-attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
 
 
 // GET BLOG BY ID: 
 router.get('/:id', (req, res) => {
     Event.findOne({
         where: { id: req.params.id },
-        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
+        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
         include: [
             { 
                 model: User, attributes: ['username']
@@ -92,14 +93,13 @@ router.get('/:id', (req, res) => {
         })
         
         .then(response => {
-            console.log(response);
 
             if (!response) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
             const events = response.get({ plain: true });
-            console.log(events);
+         //   console.log(events);
            // res.json(events);
 
             res.render('EditEvent', { events, loggedIn: true });
@@ -111,28 +111,26 @@ router.get('/:id', (req, res) => {
 
 
 //  EDIT EVENT BY ID 
-router.put('/edit/:id', withAuth, (req, res) => {
+router.put('/:id', (req, res) => {
+    console.log("IN UPDATE " + req.params.id);
+
     Event.update({
-        Title: req.body.title,
+        title: req.body.title,
         description: req.body.description,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
         address: req.body.address ,
-        city: req.body.city ,
-        state: req.body.state ,
-        virtualLink: req.body.virtualLink,
-        category_id: req.body.category,
-        status: req.body.status,
-        type_id: 1,
-        user_id: 1
-    }, 
-    {  where: { id: req.params.id }
+    }
+    , 
+    {  
+       where: { id: req.body.id  }
     })
     .then(response => {
         if (!response) {
             res.status(404).json({ message: 'No EVENT found with this id' });
             return;
         }
+        console.log("IN UPDATE ");
+
+        console.log(response);
         res.json(response);
     })
     .catch(err => {
