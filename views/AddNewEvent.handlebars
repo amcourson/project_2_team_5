@@ -4,7 +4,7 @@
     <h3 class="card-header">Create New Event </h3>
     <div class="form-group">
       <div class="col-sm-10">
-          <button class="button" type="submit" id="save">Save </button>
+          <button class="button" type="submit"  id="saveEventAsActive"> Save</button>
           <button class="button" type="submit"  id="saveEventAsDraft"> Save as Draft</button>
           </div>
     </div>
@@ -12,7 +12,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required"/>
+        <input name="Event Title" value="this is invitation for you" class="form-control" id="event-title" minlength="6" required="required"/>
       </div>
     </div>
     <div class="form-group">
@@ -21,7 +21,7 @@
           <select name="cars" id="event-category">
             {{#if categories.length}}
               {{#each categories as |category|}}
-                <option id={{id}}>{{categoryName}}</option>
+                <option id={{id}}>{{categoryname}}</option>
               {{/each}}
             {{/if}}
             </select>
@@ -30,15 +30,15 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" maxlength="20" required="required" >Event Description: </label>
       <div class="col-sm-10">
-        <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50"></textarea>
+        <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50"> this is descriptino </textarea>
       </div>
     </div>
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">Date </label>
           <div class="col-sm-10">
-          <input type="date" id="startDate">
-          <input type="time" id="startTime"> TO 
-          <input type="time" id="endTime">
+          <input type="date" id="startDate" value="2021-06-01">
+          <input type="time" id="startTime" value="08:56"> TO 
+          <input type="time" id="endTime" value="09:56">
       </div>
       </div>
       <div class="form-group">
@@ -75,28 +75,9 @@
         <input name="Event Title" class="form-control" id="event-state" />
       </div>
     </div>
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Add Guest </label>
-      <div class="col-sm-10">
-           {{> AddPeople}} 
- 
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Add Gift registry</label>
-      <div class="col-sm-10">
-     {{> AddGiftRegistry}} 
-     </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Add what to bring</label>
-      <div class="col-sm-10">
-      {{> AddPotluck}} 
-      </div>
-    </div>
+     
     </form>
 </div>
 {{> modal}}
-    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="../js/saveEvent.js" type="text/javascript" ></script>

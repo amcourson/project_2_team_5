@@ -5,10 +5,22 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { response } = require('express');
 
+// GET ALL CATEGORIES
+router.get('/', (req, res) => {
+    Category.findAll({
+            attributes: ['categoryname']
+         })
+        .then(dbPostData => res.json(dbPostData.reverse()))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 router.get('/:categoryName',async (req, res) => {
 
     Category.findOne({ 
-        where: { category_name: req.params.categoryName },
+        where: { categoryname: req.params.categoryName },
         attributes: ['id'],
         })
         .then(response => {
