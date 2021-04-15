@@ -56,4 +56,12 @@ async function commentFormHandler() {
           $('#comment-form').style.display = "block";
       }
   }
-}
+};
+let transporter = nodemailer.createTransport(transport[ defaults])
+var message = {
+  from: "sender@server.com",
+  to: "receiver@sender.com",
+  subject: "Message title",
+  text: "Plaintext version of the message",
+  html: "<p>HTML version of the message</p>"
+};
