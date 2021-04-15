@@ -180,3 +180,7 @@ tr > * + * {
   color: black;
 }
 
+td {
+  border: 1px solid black;
+  font-family: 'Trebuchet MS';
+}

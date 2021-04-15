@@ -7,7 +7,6 @@
           <button class="button" type="submit" id="deleteEvent">Delete </button>
         </div>
         <div class="col-sm-6">
-          <p> {{events.gifts}} </p>
           {{#if events.potlucks}}
             {{> ViewPotluck potlucks=events.potlucks}}
           {{/if}} 
@@ -22,7 +21,7 @@
       <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" value= {{events.title}}  id="event-title" minlength="6" required="required"/>
+        <input name="Event Title" class="form-control" value= '{{events.title}}'  id="event-title" minlength="6" required="required"/>
       </div>
     </div>
     <div class="form-group">
@@ -54,7 +53,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Street Address</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-address" value={{events.address}} />
+        <input name="Event Title" class="form-control" id="event-address" value='{{events.address}}' />
       </div>
     </div>
     <div class="form-group">
@@ -66,14 +65,14 @@
      <div class="form-group">
       <label class="control-label col-sm-2" for="email">City</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-city" value="{{events.city}}" />
+        <input name="Event Title" class="form-control" id="event-city" value='{{events.city}}' />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">State</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-state" />
+        <input name="Event Title" class="form-control" id="event-state" value="{{events.state}}"/>
       </div>
     </div>
     </div>
