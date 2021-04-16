@@ -5,7 +5,6 @@
   var items = [];
   
   $(document).ready(function() { 
-    createCustomAlert();
 
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
@@ -37,9 +36,13 @@
     let json = await response.json();
 
     if (response.ok) {
-      alert(response);
+     // swal("Something wrong happened, please try again!!");
+
+      //alert(response);
     } else {
-      alert("Something went wrong, please try again!!");
+      swal("Something wrong happened, please try again!!");
+
+     // alert("Something went wrong, please try again!!");
     }
   }
  
@@ -66,7 +69,9 @@
       document.location.replace(`/EventDetails/${json}`);
     } 
     else if (response.status == 400 || response.status == 500) {
-      alert("Something went wrong, please try again!!")
+      swal("Something wrong happened, please try again!!");
+
+    //  alert("Something went wrong, please try again!!")
     }
   }
 

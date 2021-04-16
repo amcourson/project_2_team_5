@@ -30,10 +30,14 @@ async function updateRSVPPotluck() {
     });
     
     if (response.ok) {
-      alert("RSVP Updated");
+      swal("RSVP is updated");
+
+     // alert("RSVP Updated");
     //  document.location.replace('/dashboard/');
     } else {
-      alert(response.statusText);
+      swal("Something wrong happened, please try again!!");
+
+      //alert(response.statusText);
     }
 
 }
@@ -54,10 +58,14 @@ async function updateRSVPGift() {
     });
     
     if (response.ok) {
-      alert("RSVP gift Updated");
+      swal("RSVP Gift updated");
+
+    //  alert("RSVP gift Updated");
      // document.location.replace('/dashboard/');
     } else {
-      alert(response.statusText);
+      swal("Something wrong happened, please try again!!");
+
+     // alert(response.statusText);
     }
 
 }
@@ -81,10 +89,14 @@ async function updateRSVP() {
       });
       
       if (response.ok) {
-        alert("RSVP Updated");
+        swal("RSVP updated");
+
+       // alert("RSVP Updated");
        // document.location.replace('/dashboard/');
       } else {
-        alert(response.statusText);
+        swal("Something wrong happened, please try again!!");
+
+      //  alert(response.statusText);
       }
 
 }
@@ -104,10 +116,14 @@ async function commentFormHandler() {
           }
       });
       if (response.ok) {
-          alert("Comment added");
+          swal("Your comment is added");
+
+          //alert("Comment added");
           document.location.reload();
       } else {
-          alert("Something wrong happened, please try again!!");
+        swal("Something wrong happened, please try again!!");
+
+          //alert("Something wrong happened, please try again!!");
           $('#comment-form').style.display = "block";
       }
   }

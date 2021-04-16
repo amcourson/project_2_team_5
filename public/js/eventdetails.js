@@ -111,8 +111,23 @@ event_id = event_id.replace('?','');
       
           
     $( "#saveEventAsActive" ).on("click",function() {
-        document.location.replace('/dashboard');
-        saveEvent();
+      swal({
+        title: "Are you sure?",
+        text: "Once saved,you won't be able to Edit/Delete Potluck, Gift and Guest list. Are you sure you want to save this event ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            document.location.replace('/dashboard');
+            saveEvent();
+            swal("Event saved.");
+
+        } else {
+          swal("Event not saved.");
+        }
+      });
       })
 });
 

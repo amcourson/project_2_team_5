@@ -21,7 +21,8 @@ async function commentFormHandler() {
         if (response.ok) {
             document.location.reload();
         } else {
-            alert("Something wrong happened, please try again!!");
+            swal("Something wrong happened, please try again!!");
+      // alert("Something wrong happened, please try again!!");
             $('#comment-form').style.display = "block";
         }
     }

@@ -10,10 +10,14 @@ async function logout () {
   });
 
   if (response.ok) {
-      alert("You're Logout!!");
+      swal("You're logout");
+
+      //alert("You're Logout!!");
         document.location.replace('/index');
   } else {
-    alert("Something wrong happened, please try again!!");
+    swal("Something wrong happened, please try again!!");
+
+  //  alert("Something wrong happened, please try again!!");
   }
 
 }
