@@ -2,7 +2,7 @@
 {{#if events.length}}
 <div class="container-dashboard">
      {{#each events as |event|}}
-        {{> Eventinfo_home event}}
+        {{> Eventinfo_home event firstname=event.user.firstname lastname=event.user.lastname}}
     {{/each}}
 {{/if}}
 

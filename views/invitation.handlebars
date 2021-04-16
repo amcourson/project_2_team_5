@@ -4,7 +4,9 @@
 {{#if events.length}}
 <div class="container-dashboard">
      {{#each events as |event|}}
-        {{> Eventinfo_Invitation event}}
+         <p> {{event.user.firstname}}</p>
+
+        {{> Eventinfo_Invitation event firstname=event.user.firstname lastname=event.user.lastname}}
     {{/each}}
 {{/if}}
 

@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
     Event.findAll({
         where: { type_id: 2 },
         attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
+        include: [
+            { 
+                model: User, attributes: ['firstname', 'lastname']
+            }]
     })
     .then(response => {
         const events = response.map(blog => blog.get({ plain: true }));
@@ -24,6 +28,10 @@ router.get('/index', (req, res) => {
     Event.findAll({
         where: { type_id: 2 },
         attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
+        include: [
+            { 
+                model: User, attributes: ['firstname', 'lastname']
+            }]
     })
     .then(response => {
         const events = response.map(blog => blog.get({ plain: true }));
@@ -40,13 +48,15 @@ router.get('/myinvitations',withAuth, (req, res) => {
     Event.findAll({
         include: [{
           model: Guest,
-          where: { email : req.session.email }
-         }]
+          where: { email : req.session.email },
+         }],
+         include: [{ 
+            model: User, attributes: ['firstname', 'lastname']
+        }]
       })
     .then(response => {
         const events = response.map(blog => blog.get({ plain: true }));
-        console.log(req.session.loggedIn);
-
+       // res.json(events);
         res.render('invitation', {events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
     })
     .catch(err => {
@@ -72,6 +82,10 @@ router.get('/dashboard', withAuth, (req, res) => {
     Event.findAll({
             where: { user_id: req.session.user_id },
             attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
+            include: [
+                { 
+                    model: User, attributes: ['firstname', 'lastname']
+                }]
         })
         .then(response => {
             const events = response.map(blog => blog.get({ plain: true }));
@@ -81,9 +95,6 @@ router.get('/dashboard', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-
-
-
 
 // ADD NEW BLOG
 router.get('/addNewEvent', withAuth, (req, res) => {
@@ -171,7 +182,9 @@ router.get('/all/events/:id', (req, res) => {
             }
             const events = response.get({ plain: true });
               console.log(events);
-            res.render('ViewOnly', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
+              res.json("events" + eve);
+
+           // res.render('ViewOnly', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);
