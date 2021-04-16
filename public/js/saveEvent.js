@@ -53,14 +53,6 @@
     let virtualLink = $('#virtualLinkEL').val();
     let category = $('#event-category option:selected').attr("id");
     
-    validate(title,"title");
-    validate(description,"Description");
-    validate(title,"title");
-    validate(title,"title");
-    validate(title,"title");
-    validate(title,"title");
-    validate(title,"title");
-
     const response = await fetch('/api/events', {
       method: 'POST',
       body: JSON.stringify({ title, description, startdate, enddate, address, city, state, virtualLink, category, status }),
