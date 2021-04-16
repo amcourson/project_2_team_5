@@ -52,7 +52,9 @@
     let state = $('#event-state').val();
     let virtualLink = $('#virtualLinkEL').val();
     let category = $('#event-category option:selected').attr("id");
-    
+    alert(title + description + startdate + enddate + address);
+    alert(city + state + virtualLink + category);
+
     const response = await fetch('/api/events', {
       method: 'POST',
       body: JSON.stringify({ title, description, startdate, enddate, address, city, state, virtualLink, category, status }),
