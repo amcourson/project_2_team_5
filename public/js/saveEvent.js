@@ -1,10 +1,12 @@
 
   let status = "ACTIVE";
 
-        var gift = [];
-        var items = [];
+  var gift = [];
+  var items = [];
+  
+  $(document).ready(function() { 
+    createCustomAlert();
 
-  $(document).ready(function() {    
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
    
@@ -75,5 +77,4 @@ function validate(field, text) {
   }
 
  
-
   

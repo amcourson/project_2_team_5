@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   $( "#loginButton" ).on("click",function() {
     loginButtonClicked();
@@ -19,7 +21,8 @@ async function loginButtonClicked () {
             document.location.replace('/Dashboard');
         } 
         else if (response.status == 400 || response.status == 500) {
-          alert("Incorrect email or password. Please try again!");
+          swal("Incorrect email or password. Please try again!");
+         // alert("Incorrect email or password. Please try again!");
         }
   }
 }
