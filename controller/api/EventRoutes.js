@@ -16,12 +16,13 @@ router.get('/dashboard', (req, res) => {
 
 // CREATE NEW EVENt
 router.post('/', (req, res) => {
-    const event = {
+   /* const event = {
         title: "My birthday party",
         description: "Be there!",
         start: "2019-12-29 18:00:00 +0100",
         duration: [3, "hour"],
-      };
+      };*/
+
     Event.create({
         Title: req.body.title,
         description: req.body.description,
@@ -31,9 +32,7 @@ router.post('/', (req, res) => {
         city: req.body.city ,
         state: req.body.state ,
         virtualLink: req.body.virtualLink,
-        //category_id: req.body.category,
-       category_id: 1,
-        calendar_link: google(event),
+        category_id: req.body.category,
         status: req.body.status,
         type_id: 1,
         user_id: req.session.user_id
