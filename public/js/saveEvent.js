@@ -76,14 +76,7 @@
     }
   }
 
-  
-  function showConfirm(message) {
-    var mymodal = $('#confirm');
-    mymodal.find('.modal-body').text(message);
-    mymodal.modal('show');
-  }
-
-  function validate(field, text) {
+function validate(field, text) {
     if (text == null || text == "") {
       alert(`Please Enter field`);
     }
