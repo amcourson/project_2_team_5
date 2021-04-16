@@ -7,14 +7,11 @@
   $(document).ready(function() {    
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
-    $( "#saveEventAsDraft" ).on("click",function() {
-      status = "DRAFT";
-      saveButtonClicked();
-    })
+   
   $( "#saveEventAsActive" ).on("click",function() {
     status = "DRAFT";
     saveButtonClicked();
-})
+  })
     $('#makeitVirtual').change(function() {
       if(this.checked) {
         addressEL.attr('hidden', true);
@@ -56,6 +53,14 @@
     let virtualLink = $('#virtualLinkEL').val();
     let category = $('#event-category option:selected').attr("id");
     
+    validate(title,"title");
+    validate(description,"Description");
+    validate(title,"title");
+    validate(title,"title");
+    validate(title,"title");
+    validate(title,"title");
+    validate(title,"title");
+
     const response = await fetch('/api/events', {
       method: 'POST',
       body: JSON.stringify({ title, description, startdate, enddate, address, city, state, virtualLink, category, status }),
@@ -76,6 +81,12 @@
     var mymodal = $('#confirm');
     mymodal.find('.modal-body').text(message);
     mymodal.modal('show');
+  }
+
+  function validate(field, text) {
+    if (text == null || text == "") {
+      alert(`Please Enter field`);
+    }
   }
 
  

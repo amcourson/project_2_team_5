@@ -8,7 +8,9 @@ var event_id = window.location.toString().split('/')[
 event_id = event_id.replace('?','');
  
 
-  $(document).ready(function() {  
+  $(document).ready(function() { 
+   
+     
     $(".add-row-people").click(function(){
         var name = $("#people-name").val();
         var email = $("#people-email").val();
@@ -76,7 +78,7 @@ event_id = event_id.replace('?','');
         });
         });
 
-        $(".add-row-gift").click(function(){
+      $(".add-row-gift").click(function(){
           var giftName = $("#gift-item").val();
           var giftUrl = $("#gift-url").val();
           var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
@@ -106,7 +108,7 @@ event_id = event_id.replace('?','');
             giftItems.push({name: name, url: url, event_id: event_id});
           });
         });
-        
+      
           
     $( "#saveEventAsActive" ).on("click",function() {
         document.location.replace('/dashboard');

@@ -1,84 +1,81 @@
-<div class="card">
-    <form class="form-horizontal form-new-event">
-      <div class="card-header"> Create New Event</div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="title">Event Title</label>
-      <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" placeholder="Enter Event title"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="category">Event Category</label>
-      <div class="col-sm-10">
-          <select name="cars" id="event-category">
-            Select Category
-            {{#if categories.length}}
-              {{#each categories as |category|}}
-                <option id={{id}}>{{categoryname}}</option>
-              {{/each}}
-            {{/if}}
-            </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" required="required" >Event Description: </label>
-      <div class="col-sm-10">
-        <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50">  </textarea>
-      </div>
-    </div>
-      <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Date </label>
-          <div class="col-sm-10">
-          <input type="date" id="startDate" value="2021-06-01">
-          <input type="time" id="startTime" value="08:56"> TO 
-          <input type="time" id="endTime" value="09:56">
-      </div>
-      </div>
-      <div class="form-group">
-      <label class="control-label col-sm-2 text-center" for="virtual"> Make this a Virtual Event (Recommended) </label>
-      <div class="col-sm-10">
-        <input type="checkbox" name="virtual" id="makeitVirtual">
-        <input type="text" name="virtual-link" id="virtualLinkEL" hidden="true" placeholder="Enter your Video chat link">
-      </div>
-    </div>
-    
-    <div id="address">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Street Address</label>
-      <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-address" placeholder="Enter Address" />
-      </div>
-    </div>
-    
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">City</label>
-      <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-city" placeholder="Enter City"/>
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email" >State</label>
-      <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-state"placeholder="Enter State" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email" >Zip code</label>
-      <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title" placeholder="Enter Zip code"/>
-      </div>
-    </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-10" style="text-align: center;">
-          <button class="button btn-primary" type="submit"  id="saveEventAsActive"> Save And Continue </button>
-          </div>
-    </div>
 
+<div class="card">
+   <div class="card-header"> Create New Event</div>
+    <form class="form form-horizontal form-new-event">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="title">Event Title</label>
+          <div class="col-sm-10">
+            <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" placeholder="Enter Event title"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="category">Event Category</label>
+          <div class="col-sm-10">
+              <select  id="event-category">
+                Select Category
+                {{#if categories.length}}
+                  {{#each categories as |category|}}
+                    <option id={{id}}>{{categoryname}}</option>
+                  {{/each}}
+                {{/if}}
+                </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email"   required="required"minlength="6" required="required" >Event Description: </label>
+          <div class="col-sm-10">
+            <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50">  </textarea>
+          </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Date </label>
+            <div class="col-sm-10">
+            <input type="date" id="startDate" value="2021-06-01">
+            <input type="time" id="startTime" value="08:56"> TO 
+            <input type="time" id="endTime" value="09:56">
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-sm-2 text-center" for="virtual"> Make this a Virtual Event (Recommended) </label>
+        <div class="col-sm-10">
+          <input type="checkbox" name="virtual" id="makeitVirtual">
+          <input type="text" name="virtual-link" id="virtualLinkEL" hidden="true" placeholder="Enter your Video chat link">
+        </div>
+        </div>
+        <div class="form-group">
+        <div id="address">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Street Address</label>
+            <div class="col-sm-10">
+              <input name="Event Title" class="form-control" required="required" id="event-address" placeholder="Enter Address" />
+            </div>
+          </div>
+          <div class="form-group">
+          <label class="control-label col-sm-2" for="email">City</label>
+          <div class="col-sm-10">
+            <input name="Event Title" class="form-control" id="event-city" placeholder="Enter City"/>
+          </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email" >State</label>
+            <div class="col-sm-10">
+              <input name="Event Title" class="form-control" id="event-state"placeholder="Enter State" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email" >Zip code</label>
+            <div class="col-sm-10">
+              <input name="Event Title" class="form-control" id="event-title" placeholder="Enter Zip code"/>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10" style="text-align: center;">
+                <button class="button btn-primary" id="saveEventAsActive" type="submit"> Save And Continue </button>
+          </div>
+        </div>
     </form>
 </div>
-{{> modal}}
-
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="../js/saveEvent.js" type="text/javascript" ></script>

@@ -1,8 +1,16 @@
 $(document).ready(function() {
+
   $( "#loginButton" ).on("click",function() {
     loginButtonClicked();
   });
 });
+
+function showAlert(){
+  $.alert({
+    title: 'Alert!',
+    content: 'Simple alert!',
+});
+}
 async function loginButtonClicked () {
   const username = document.querySelector('.input-username-login').value.trim();
   const password = document.querySelector('.input-password-password').value.trim();
@@ -23,3 +31,4 @@ async function loginButtonClicked () {
         }
   }
 }
+
