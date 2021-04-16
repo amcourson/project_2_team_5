@@ -116,16 +116,13 @@ body {
     .navbar-toggler .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
-    .dropdown-menu {
-        background-color: red;
-    }
+   
     .dropdown-item {
         background-color: #3f3232;
         background-color: #794b4b;
-
         color : white;
         border-radius: 25px;
-        border: 10px solid #010002; 
+        border: 5px solid #010002; 
     }
     div.navbar-collapse.collapse  {
       display:flex !important;
@@ -209,8 +206,7 @@ body {
       border-radius: 15px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }  
-
-    
+  
     input[type=text], input[type=password]{
       width: 70%;
       padding: 12px 20px;
@@ -229,6 +225,16 @@ body {
       border: 1px solid #ccc;
       box-sizing: border-box;
       border-radius: 10px;
+    }
+    .form-signup  .form-input {
+      width: 100%;
+    }
+    .form-login  .form-input {
+      width: 100%;
+    }
+    .form-signup .form-group {
+      padding: 0px;
+      margin: 0px;
     }
     .form-rsvp{
         padding: 20px;
@@ -317,4 +323,8 @@ a {
  .form-group {
   margin-top: 10px;
   padding-top: 10px;
+}
+
+.form-login input {
+  text-align: center;
 }

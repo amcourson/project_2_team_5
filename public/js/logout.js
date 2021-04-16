@@ -1,6 +1,5 @@
 $(document).ready(function() {
   $( "#logout" ).on("click",function() {
-    alert("in logout")
     logout();
   });
 });

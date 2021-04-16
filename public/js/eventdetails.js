@@ -45,7 +45,7 @@ event_id = event_id.replace('?','');
         var item = $("#item1").val();
         var qty = $("#quantity").val();
         var description = $("#description").val();
-        var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td><td> ${qty} </td></tr>`;
+        var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td></tr>`;
         $("#table-potluck tbody").append(row);
     });
     

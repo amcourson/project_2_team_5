@@ -48,15 +48,15 @@ router.get('/myinvitations',withAuth, (req, res) => {
     Event.findAll({
         include: [{
           model: Guest,
-          where: { email : req.session.email },
-         }],
-         include: [{ 
+          where: { email : req.session.email }
+        },
+        { 
             model: User, attributes: ['firstname', 'lastname']
         }]
+        
       })
     .then(response => {
         const events = response.map(blog => blog.get({ plain: true }));
-       // res.json(events);
         res.render('invitation', {events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
     })
     .catch(err => {
@@ -70,7 +70,7 @@ router.get('/signUp', (req, res) => {
 
 // OPEN LOGIN PAGE
 router.get('/login', (req, res) => {
-    res.render('loginPage');
+    res.render('homePage');
 });
 
 router.get('/EventDetails/:id', (req, res) => {
