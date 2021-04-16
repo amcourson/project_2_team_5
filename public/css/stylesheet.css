@@ -47,15 +47,16 @@ body {
 
   .navbar {
       background-color: #f08787;
-      background-color: #5b4141;
-
+      background-color: #482c67;
       padding-top: 20px;
   }
-  
+  .title {
+    color: white;
+    font-size: 30px;
+  }
   .navbar-title  {
       text-align:center;
       color: whitesmoke;
-      color: black;
       font-style: italic;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       text-align: center;
@@ -86,13 +87,16 @@ body {
     }
     .navbar-nav .nav-item  {
       background-color: #794b4b;
-      background-color: #3f3232;
+      background-color: #9c6295;
       margin-left: 20px;
       margin-bottom: 10px;
-
       color : white;
       border-radius: 15px;
       border: 1px solid #010002;
+      background-color: rgb(156, 97, 151);
+      color : white;
+      border-radius: 25px;
+      border: 2px solid #010002;
     }
   .navbar-nav > a:hover {
       color : white;
@@ -137,10 +141,21 @@ body {
     .card-header {
       background-color: #f08787;
       background-color: #c78888;
+      background-color: rgb(215, 147, 173);
+      background-color: #efe7f9;
+      border-bottom: 2px solid lightgray;
       color: white;
       align-items: center;
       border-radius: 20px;
       border: 1px solid gray;
+      text-align: left;
+      border-bottom: 2px solid lightgray;
+      font-size: 18px;
+      background-color: #efe7f9;
+      padding: 10px;
+      color: black;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .card-header a {
       color: black;
@@ -153,13 +168,12 @@ body {
     }
     .card-title {
       float: left;
-      color: white;
+      color: black;
       font-family: 'Lucida Sans';
       margin: 0px;
       border-radius: 20px;
     }
-    .card-posted-date {
-    }
+    
     /****************** Button ****************/
     .button  {
       background-color: #72c8f0;
@@ -198,13 +212,14 @@ body {
 
     
     input[type=text], input[type=password]{
-      width: 100%;
+      width: 70%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
       border: 1px solid #ccc;
       box-sizing: border-box;
       border-radius: 10px;
+      margin-right: 20px;
     }
     input[type=number]{
       width: 70%;
@@ -252,9 +267,7 @@ body {
     color: black;
     font-family: cursive;
   }
-  .title {
-    font-size: 25px;
-  }
+  
   /* DEMO example styles for logo image */
   
   
@@ -295,4 +308,13 @@ a {
   color: black;
   text-decoration: none;
   font-family: sans-serif;
+}
+.page-title {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+ .form-group {
+  margin-top: 10px;
+  padding-top: 10px;
 }

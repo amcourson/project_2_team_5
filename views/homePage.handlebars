@@ -1,9 +1,10 @@
 
 {{#if events.length}}
 <div class="container-dashboard">
-     {{#each events as |event|}}
+    <h1 class="page-title"> Open Invitations </h1>
+         {{#each events as |event|}}
         {{> Eventinfo_home event firstname=event.user.firstname lastname=event.user.lastname}}
-    {{/each}}
+        {{/each}}
 {{/if}}
 
 
