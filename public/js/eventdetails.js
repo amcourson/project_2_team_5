@@ -158,7 +158,9 @@ async function saveGuestList (event) {
 
   if (response.ok) {
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
+
+   // alert("Something went wrong ,please try again!!");
   }
 }
 
@@ -174,7 +176,9 @@ async function savePotluckList (event) {
 
   if (response.ok) {
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
+
+    //alert("Something went wrong ,please try again!!");
   }
 }
 
@@ -191,6 +195,8 @@ async function saveGiftList (event) {
 
   if (response.ok) {
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
+
+    //alert("Something went wrong ,please try again!!");
   }
 }
