@@ -6,6 +6,64 @@ body {
     color: black;
     text-decoration: none;
     background-color: transparent;
+  font-family: sans-serif;
+  background-color: rgb(10, 10, 10);
+}
+
+
+/******************* header *******************/
+h1 {
+  background-color:rgb(25, 220, 100);
+
+
+
+}
+/******************* Navbar *******************/
+.navbar {
+    background-color: rgb(167, 40, 216);
+    padding-top: 20px;
+}
+.navbar-title  {
+    text-align:center;
+    color: rgb(64, 203, 36);
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    font: x-large;
+    text-align: center;
+    font-size: 20px;
+  }
+  .navbar-nav  a, select {
+    float: left;
+    color: #4388c9;
+    font-size: 17px;
+    text-align: right;
+    font-style: italic;
+    text-decoration: none;
+  }
+  .navbar-title  {
+    background-color: #050804;
+    border-color: #44f534;
+    border-width: 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 5px 5px;
+    color: hsl(206, 78%, 38%);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    color: red;
+  }
+  .navbar-nav .nav-item  {
+    background-color: #3f3232;
+    color : white;
+    border-radius: 25px;
+    border: 10px solid #010002;
+  }
+  select {
+    background-color: #3f3232;
+    color : white;
+    border-radius: 25px;
+    border: 10px solid #010002;
   }
   
   /******************* header *******************/
