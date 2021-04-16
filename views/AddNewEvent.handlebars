@@ -4,21 +4,21 @@
     <h3 class="card-header">Create New Event </h3>
     <div class="form-group">
       <div class="col-sm-10">
-          <button class="button" type="submit"  id="saveEventAsActive"> Save</button>
-          <button class="button" type="submit"  id="saveEventAsDraft"> Save as Draft</button>
+          <button class="button btn-primary" type="submit"  id="saveEventAsActive"> Save And Continue </button>
           </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
-        <input name="Event Title" value="this is invitation for you" class="form-control" id="event-title" minlength="6" required="required"/>
+        <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" placeholder="Enter Event title"/>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="category">Event Category</label>
       <div class="col-sm-10">
           <select name="cars" id="event-category">
+            Select Category
             {{#if categories.length}}
               {{#each categories as |category|}}
                 <option id={{id}}>{{categoryname}}</option>
@@ -28,9 +28,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" maxlength="20" required="required" >Event Description: </label>
+      <label class="control-label col-sm-2" for="email" minlength="6"  required="required"minlength="6" required="required" >Event Description: </label>
       <div class="col-sm-10">
-        <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50"> this is descriptino </textarea>
+        <textarea placeholder="enter description" id="event-description"  minlength="6" required="required" rows="4" cols="50">  </textarea>
       </div>
     </div>
       <div class="form-group">
@@ -53,29 +53,27 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Street Address</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="my-input-id-or-class-name" />
-
-        <input name="Event Title" class="form-control" id="event-address" />
+        <input name="Event Title" class="form-control" id="event-address" placeholder="Enter Address" />
       </div>
     </div>
     
      <div class="form-group">
       <label class="control-label col-sm-2" for="email">City</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-city" />
+        <input name="Event Title" class="form-control" id="event-city" placeholder="Enter City"/>
       </div>
     </div>
     
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">State</label>
+      <label class="control-label col-sm-2" for="email" >State</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-state" />
+        <input name="Event Title" class="form-control" id="event-state"placeholder="Enter State" />
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Zip code</label>
+      <label class="control-label col-sm-2" for="email" >Zip code</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title" />
+        <input name="Event Title" class="form-control" id="event-title" placeholder="Enter Zip code"/>
       </div>
     </div>
     </form>

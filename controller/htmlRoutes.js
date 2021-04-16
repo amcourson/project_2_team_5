@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // const { eventNames } = require('node:process');
-const { User, Event, Comment, Category, Type, Guest } = require('../models');
+const { User, Event, Comment, Category, Type, Guest,Gift,Potluck } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
@@ -134,37 +134,51 @@ router.post('/guest', (req, res) => {
        })
 });
 
-/*
 // GET BLOG BY ID: 
-router.get('/invitations', (req, res) => {
-    console.log("in incitation");
+router.get('/all/events/:id', (req, res) => {
+    Event.findOne({
+        where: { id: req.params.id },
+        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
+        include: [
+            { 
+                model: User, attributes: ['username']
+            },            
+            {   
+                 model: Comment, attributes: ['id', 'commenttext', 'event_id', 'user_id', 'commentdate'],
+                include: { model: User, attributes: ['username']}
+            }, 
+            {
+                model: Gift, attributes: ['id', 'name', 'url', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
 
-    Event.findAll({
-        attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtualLink', 'category_id' ],
-        /*include: [{
-          model: Guest,
-          where: { email: 'arti@gmail.com'}
-         }]
-      })
-    .then(response => {
+            },
+            {
+                model: Guest, attributes: ['name', 'email', 'rsvp', 'adultcount', 'kidscount']
+            },
+            {
+                model: Potluck, attributes: ['name', 'description', 'headcount', 'user_id'],
+                include: { model: User, attributes: ['username', 'firstname', 'lastname']}
+
+            }
+        ]
+        })
+        
+        .then(response => {
 
             if (!response) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-
             const events = response.get({ plain: true });
-            res.render('AddNewEvent', { events, loggedIn: true });
-
-           // res.render('ViewEvent', { events, loggedIn: true });
-            //res.json(response);
+              console.log(events);
+            res.render('ViewOnly', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);
         });
 });
 
-*/
+
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {

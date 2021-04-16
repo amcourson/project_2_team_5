@@ -18,7 +18,6 @@ event_id = event_id.replace('?','');
     
     // Find and remove selected table rows
     $(".delete-row-people").click(function(){
-        alert("delete pople");
         $("#table-people tbody").find('input[name="check-people"]').each(function(){
             if($(this).is(":checked")){
                guest.splice($(this).parents("tr").index(), 1);
@@ -86,8 +85,6 @@ event_id = event_id.replace('?','');
       
       // Find and remove selected table rows
       $(".delete-row-gift").click(function(){
-          alert("delete gift");
-      
           $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
               if($(this).is(":checked")){
                 giftItems.splice($(this).parents("tr").index(), 1);
@@ -143,7 +140,6 @@ async function saveGuestList (event) {
   });
 
   if (response.ok) {
-    alert("Guest added");
   } else {
     alert("Something went wrong ,please try again!!");
   }
@@ -160,7 +156,6 @@ async function savePotluckList (event) {
   });
 
   if (response.ok) {
-    alert("Potluck items added");
   } else {
     alert("Something went wrong ,please try again!!");
   }
@@ -178,7 +173,6 @@ async function saveGiftList (event) {
   });
 
   if (response.ok) {
-    alert("Gift items added");
   } else {
     alert("Something went wrong ,please try again!!");
   }

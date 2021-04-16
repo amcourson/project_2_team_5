@@ -4,7 +4,7 @@
         var gift = [];
         var items = [];
 
-  $(document).ready(function() {
+  $(document).ready(function() {    
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
     $( "#saveEventAsDraft" ).on("click",function() {
@@ -12,8 +12,6 @@
       saveButtonClicked();
     })
   $( "#saveEventAsActive" ).on("click",function() {
-    alert("active  button clicked ");
-
     status = "DRAFT";
     saveButtonClicked();
 })
@@ -40,10 +38,9 @@
     let json = await response.json();
 
     if (response.ok) {
-      alert("response" + response);
+      alert(response);
     } else {
-      alert("NO Event found1");
-
+      alert("Something went wrong, please try again!!");
     }
   }
  
@@ -67,13 +64,10 @@
 
     if (response.ok) {
       let json = await response.json();
-      alert("Event saved");
       document.location.replace(`/EventDetails/${json}`);
     } 
     else if (response.status == 400 || response.status == 500) {
       alert("Something went wrong, please try again!!")
-
-      showConfirm('Something went wrong, please try again!!');
     }
   }
 

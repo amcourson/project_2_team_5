@@ -6,8 +6,6 @@ const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
-
-
 router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
@@ -18,7 +16,6 @@ router.get('/dashboard', (req, res) => {
 
 // CREATE NEW EVENt
 router.post('/', (req, res) => {
-    console.log("CREATE NEW EVENT ");
     const event = {
         title: "My birthday party",
         description: "Be there!",
@@ -42,29 +39,13 @@ router.post('/', (req, res) => {
         user_id: req.session.user_id
     })
     .then(x => {
-        //const blogs = response.get({ plain: true });
         res.json(x.get('id'));
     })
-
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-    
-
-// Set event as an object, dynamically insert personalize data
-
-
-
-// google(event); 
-// outlook(event);
-// office365(event); 
-// yahoo(event); 
-// ics(event); 
 });
-
-attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
-
 
 // GET BLOG BY ID: 
 router.get('/:id', (req, res) => {
@@ -90,11 +71,9 @@ router.get('/:id', (req, res) => {
             {
                 model: Potluck, attributes: ['name', 'description', 'headcount', 'user_id'],
                 include: { model: User, attributes: ['username', 'firstname', 'lastname']}
-
             }
         ]
         })
-        
         .then(response => {
 
             if (!response) {
@@ -102,9 +81,8 @@ router.get('/:id', (req, res) => {
                 return;
             }
             const events = response.get({ plain: true });
-              console.log(events);
-           // res.json(events);
-                //{loggedIn: req.session.loggedIn, firstname: req.session.firstname }
+              console.log("response:" + events);
+             // res.json(events);
             res.render('EditEvent', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
