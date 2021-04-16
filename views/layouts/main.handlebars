@@ -13,15 +13,49 @@
    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <script src="scripts/jquery.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  
   <body>
 <header role="banner" id="top">
 <div id="header-text">
-    <h1><center><strong> Event Planner</center></strong></h1>
-    <p id="slogan">All things events in one place.</p>
-</div>
+    </div>
 <body>
-
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+            <span class="title">Event Planner</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            {{#if loggedIn}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome, {{firstname}}
+                </a>
+                <div class="dropdown-menu bg-transparent" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/myinvitations">My Invitation  <span class="sr-only">Home</span></a>
+                    <a class="dropdown-item" href="/dashboard">My Events </a>
+                    <a class="dropdown-item" id="logout">Logout</a>
+                </div>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+                </li>
+            {{/if}}
+            </ul>
+        </div>
+    </nav>
+    <!--
     <nav class="navbar navbar-dark navbar-expand-md justify-content-between">
+        <h1><center><strong> Event Planner</center></strong></h1>
+
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
                 <span class="navbar-toggler-icon"></span>
@@ -35,17 +69,19 @@
                 </ul>
                  <ul class="navbar-nav ml-auto">
                      {{#if loggedIn}}
+                     <li>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                     </li>
                     <li class="nav-item">
                         <a href="/dashboard">Welcome, {{firstname}} </a>
-                    </li>
-                     <li class="nav-item">
-                        <a href="/dashboard">My Events </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-0" href="/myinvitations">My Invitation  <span class="sr-only">Home</span></a>
-                    </li> 
-                     <li class="nav-item">
-                        <a class="nav-link" id="logout" href="/logout">Logout</a>
                     </li>
                     {{else}}
                      <li class="nav-item">
@@ -56,18 +92,17 @@
             </div>
 
                 </ul>
-            </div>
         </div>
     </nav>
+    -->
     <main>
     {{{ body }}}
     </main>
-   
 </body>
+<script src="bootstrap.min.js"/>
 
-{{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-
-{{/if}}
-
+ <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    {{#if loggedIn}}
+        <script src="./js/logout.js"></script>
+    {{/if}}
 </html>

@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#giftModal">
-  VIEW GIFT REGISTRY 
+  View GIFT REGISTRY 
 </button>
 
 <div class="modal fade" id="giftModal" tabindex="-1" class="modal-label" role="dialog" aria-hidden="true">
@@ -12,35 +12,32 @@
         </button>
       </div>
       <div class="modal-body">
-         
-<table id="table-gift" class="modal-label" > 
-        <thead>
-            <tr>
-                <th colspan="2">Select </th>
-                <th colspan="2">Name  </th>
-                <th colspan="2">URL </th>
-                <th colspan="2"> User </th>
-            </tr>
-        </thead>
-        <tbody class="modal-label">
-            {{#each gifts as |gift|}}
-                <tr>
-                <td>
-                </td>
-                <td colspan="2">
-                    {{gift.name}}
-                </td>
-                <td colspan="2">
-                    {{gift.url}}
-                </td>
-                <td colspan="2">
-                  {{gift.user.firstname}} {{gift.user.lastname}}
-                </td>
-            </tr>
-            {{/each}}
+      <table id="table-gift" style="width:100%"> 
+              <thead>
+                  <tr>
+                      <th >Name  </th>
+                      <th >URL </th>
+                      <th > User </th>
+                  </tr>
+              </thead>
+              <tbody class="modal-label">
+                  {{#each gifts as |gift|}}
+                      <tr>
+                      
+                      <td >
+                          {{gift.name}}
+                      </td>
+                      <td >
+                          {{gift.url}}
+                      </td>
+                      <td >
+                        {{gift.user.firstname}} {{gift.user.lastname}}
+                      </td>
+                  </tr>
+                  {{/each}}
 
-        </tbody>
-</table>
+              </tbody>
+      </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

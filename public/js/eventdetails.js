@@ -54,7 +54,6 @@ event_id = event_id.replace('?','');
     $(".delete-row-potluck").click(function(){
         $("#table-potluck tbody").find('input[name="check-item"]').each(function(){
             if($(this).is(":checked")){
-              alert("deleting :" + $(this).parents("tr").index())
                 potluckItems.splice($(this).parents("tr").index(), 1);
                 $(this).parents("tr").remove();
             }
@@ -74,8 +73,6 @@ event_id = event_id.replace('?','');
           $(this).closest('tr').find('td:eq(3)').each(function() {
             headcount = $(this).text().trim();
           });
-          alert("event " + event_id);
-
           potluckItems.push({name: name, description: description, headcount: headcount, event_id: event_id});
         });
         });
@@ -115,8 +112,6 @@ event_id = event_id.replace('?','');
         
           
     $( "#saveEventAsActive" ).on("click",function() {
-      alert("in saev");
-
         document.location.replace('/dashboard');
         saveEvent();
       })
@@ -127,7 +122,6 @@ event_id = event_id.replace('?','');
         saveGuestList();
       }
       if (potluckItems.length > 0 ) {
-        alert("saving potluck");
          savePotluckList();
       }
       if (giftItems.length > 0) {
@@ -136,9 +130,7 @@ event_id = event_id.replace('?','');
 }
 
 function showDashboard() {
-  alert("redirect");
   document.location.replace('/Dashboard');
-
 }
 async function saveGuestList (event) {
   const response = await fetch('/api/guest', {
@@ -158,8 +150,6 @@ async function saveGuestList (event) {
 }
 
 async function savePotluckList (event) {
-  alert("save potluck");
-
   const response = await fetch('/api/potluck', {
     method: 'POST',
     headers: {
@@ -178,8 +168,6 @@ async function savePotluckList (event) {
 
 
 async function saveGiftList (event) {
-  alert(giftItems);
-
   const response = await fetch('/api/gift', {
     method: 'POST',
     headers: {

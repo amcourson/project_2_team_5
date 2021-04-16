@@ -1,8 +1,5 @@
 $(document).ready(function() {
-    alert("in ");
-    
     $( "#add-comment" ).on("click",function() {
-        alert("comment  button clicked ");
         commentFormHandler();
       })
 });
@@ -13,8 +10,6 @@ async function commentFormHandler() {
     const event_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
-    alert(commenttext + event_id)
-
     if (commenttext) {
         const response = await fetch('/api/comments', {
             method: 'POST',

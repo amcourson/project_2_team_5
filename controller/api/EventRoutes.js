@@ -13,7 +13,7 @@ router.get('/addPotluck', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-    res.render('dashboard');
+    res.render('dashboard', {loggedIn: req.session.loggedIn});
 });
 
 // CREATE NEW EVENt
@@ -104,8 +104,8 @@ router.get('/:id', (req, res) => {
             const events = response.get({ plain: true });
               console.log(events);
            // res.json(events);
-
-            res.render('EditEvent', { events, loggedIn: true });
+                //{loggedIn: req.session.loggedIn, firstname: req.session.firstname }
+            res.render('EditEvent', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);

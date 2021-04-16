@@ -25,7 +25,6 @@ async function deletePost() {
       });
       
       if (response.ok) {
-        alert("Event deleted..");
         document.location.replace('/Dashboard/');
       } else {
         alert(response.statusText);
@@ -38,7 +37,6 @@ async function commentFormHandler() {
   const event_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
   ];
-  alert(commenttext + event_id)
 
   if (commenttext) {
       const response = await fetch('/api/comments', {
@@ -56,4 +54,18 @@ async function commentFormHandler() {
           $('#comment-form').style.display = "block";
       }
   }
+}
+
+function mai() {
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.MAIL_USERNAME,
+      pass: process.env.MAIL_PASSWORD,
+      clientId: process.env.OAUTH_CLIENTID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN
+    }
+  });
 }
