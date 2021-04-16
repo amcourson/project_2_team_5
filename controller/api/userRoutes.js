@@ -50,9 +50,10 @@ router.post('/login', async (req, res) => {
       req.session.email = dbUserData.email;
       req.session.firstname = dbUserData.firstname;
       req.session.loggedIn = true;
-      req.session.isLogin = true;
+     /* req.session.isLogin = true;
       req.session.isDashboard = false;
-      req.session.isHome = false;
+      req.session.isHome = false;*/
+
       res.status(200).json({ user: dbUserData, message: `You are now logged in! ${dbUserData.id}`, loggedIn: req.session.loggedIn,  isLogin: req.session.isLogin, isDashboard:req.session.isDashboard, isHome: req.session.isHome });
     });
   } catch (err) {
@@ -61,18 +62,7 @@ router.post('/login', async (req, res) => {
 });
 
 // LOGOUT 
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      req.session.isLogin = false;
-      req.session.isDashboard = false;
-      req.session.isHome = true;
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+
 
 
 module.exports = router;

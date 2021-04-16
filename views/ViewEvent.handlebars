@@ -1,6 +1,5 @@
 <div class="card">
     <form class="form-horizontal form-new-event">
-
     <h3 class="card-header">View Event details:  
           {{> rsvp}}
           {{#if events.potlucks}}
@@ -10,8 +9,9 @@
             {{> rsvpGift gifts=events.gifts}}
           {{/if}}
     </h3>
-    
-    <div class="form-group">
+    <div class="row">
+      <div class="col-sm-8">
+         <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
         <input name="Event Title" class="form-control" id="event-title" minlength="6" required="required" value= {{events.title}} readonly= "true"/>
@@ -42,10 +42,16 @@
      <div class="form-group">
       <label class="control-label col-sm-2" for="email"  required="required"minlength="6"  required="required" >Address  : </label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-title"  required="required" value= {{events.address}}, {{events.city}} {{events.state}} readonly= "true"/>
+        <input name="Event Title" class="form-control" id="event-title"  required="required" value= '{{events.address}}, {{events.city}} {{events.state}}' readonly= "true"/>
       </div>
     </div>
     {{/if}}
+   
+      </div>
+      <div class="col-sm-4">
+              <iframe src='https://www.google.com/maps?q="{{events.city}}"&output=embed'></iframe>
+      </div>
+    </div>
     </form>
 </div>
 <div class="card">
@@ -65,6 +71,5 @@
 {{> comments comments=events.comments}}
  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/js/view-event.js" type="text/javascript" ></script>
-
 <script src="./js/comment.js" type="text/javascript" ></script>
 

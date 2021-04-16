@@ -25,7 +25,6 @@ async function deletePost() {
       });
       
       if (response.ok) {
-        alert("Event deleted..");
         document.location.replace('/Dashboard/');
       } else {
         alert(response.statusText);
@@ -38,7 +37,6 @@ async function commentFormHandler() {
   const event_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
   ];
-  alert(commenttext + event_id)
 
   if (commenttext) {
       const response = await fetch('/api/comments', {
@@ -56,12 +54,7 @@ async function commentFormHandler() {
           $('#comment-form').style.display = "block";
       }
   }
-};
-let transporter = nodemailer.createTransport(transport[ defaults])
-var message = {
-  from: "sender@server.com",
-  to: "receiver@sender.com",
-  subject: "Message title",
-  text: "Plaintext version of the message",
-  html: "<p>HTML version of the message</p>"
-};
+}
+
+
+

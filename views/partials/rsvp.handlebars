@@ -11,19 +11,20 @@
       </div>
       <div class="modal-body">
           <form id="form-rsvp">
-            <input type="radio" id="yes" value="YES" name="rsvp">
-            <label class="modal-label">YES</label><br>
-            <input type="radio" id="no" value="NO" name="rsvp">
-            <label class="modal-label">NO</label><br>
-            <input type="radio" id="maybe" value="MAY BE" name="rsvp">
-            <label class="modal-label">MAY BE</label> <br/>
-            <label class="modal-label">Adult count: </label>
-            <input class="modal-label" type="number" id="adult-count" min="1" max="5"> <br/>
+            <div class="form-group">                
+                Would you be joining ?
+                <input type="radio" id="yes" value="YES" name="rsvp"> YES
+                <input type="radio" id="no" value="NO" name="rsvp"> NO
+                <input type="radio" id="maybe" value="MAY BE" name="rsvp">May Be
+            </div>
 
-        <label class="modal-label">Kids count: </label>
-        <input class="modal-label" id="kids-count" type="number" min="1" max="5">
+            <div class="form-group">
+              <strong>Adult count </strong>
+                <input class="modal-label" type="number" id="adult-count" min="1" max="5"> <br/>
+               <strong>Kids </strong>
+             <input class="modal-label" id="kids-count" type="number" min="1" max="5">
+            </div>
         </form>
-       
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="saveRSVP" data-dismiss="modal">Save changes</button>

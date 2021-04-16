@@ -16,7 +16,7 @@ async function loginButtonClicked () {
               
         console.log(response);
         if  (response.ok) {
-          document.location.replace('/Dashboard');
+            document.location.replace('/Dashboard');
         } 
         else if (response.status == 400 || response.status == 500) {
           alert("Incorrect email or password. Please try again!");

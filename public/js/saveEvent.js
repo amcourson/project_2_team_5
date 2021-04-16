@@ -1,5 +1,4 @@
 
-   
   let status = "ACTIVE";
 
         var gift = [];
@@ -9,8 +8,6 @@
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
     $( "#saveEventAsDraft" ).on("click",function() {
-      alert("draft button clicked ");
-
       status = "DRAFT";
       saveButtonClicked();
     })
@@ -35,8 +32,6 @@
   });
 
   const saveGuestList = async (event) => {
-    alert("in save guest ");
-
     const response = await fetch('/lastAdded', {
       method: 'POST',
       body: JSON.stringify({ name, email, startdate, event_id}),
@@ -72,8 +67,6 @@
 
     if (response.ok) {
       let json = await response.json();
-      alert("id is:  "+ json);
-
       alert("Event saved");
       document.location.replace(`/EventDetails/${json}`);
     } 

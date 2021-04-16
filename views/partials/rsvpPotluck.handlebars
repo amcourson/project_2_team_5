@@ -12,40 +12,40 @@
         </button>
       </div>
       <div class="modal-body">
-         
-<table id="table-potluck" class="modal-label"> 
-        <thead>
-            <tr>
-                <th>Select </th>
-                <th>Item  </th>
-                <th>description </th>
-                <th>Quantity </th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {{#each potlucks as |potluck|}}
+     
+
+    <table id="table-potluck" style="width:100%"> 
+            <thead>
                 <tr>
-                <td>
-                  {{#if potluck.user_id}} 
-                    <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" disabled="true">
-                  {{else}}
-                    <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" >
-                  {{/if}}
-                </td>
-                <td>
-                    {{potluck.name}}
-                </td>
-                <td>
-                    {{potluck.description}}
-                </td>
-                 <td>
-                    {{potluck.headcount}}
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-</table>
+                    <th>Select </th>
+                    <th>Item  </th>
+                    <th>description </th>
+                    <th>Quantity </th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each potlucks as |potluck|}}
+                <tr>
+                    <td>
+                      {{#if potluck.user_id}} 
+                        <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" disabled="true">
+                      {{else}}
+                        <input type="radio" value='{{potluck.id}}' name="rsvpPotluck" >
+                      {{/if}}
+                    </td>
+                    <td>
+                        {{potluck.name}}
+                    </td>
+                    <td>
+                        {{potluck.description}}
+                    </td>
+                    <td>
+                        {{potluck.headcount}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+    </table>
       </div>
       <div class="modal-footer">
        <button type="button" class="btn btn-primary" id="saveRSVPpotluck" data-dismiss="modal">Save changes</button>
