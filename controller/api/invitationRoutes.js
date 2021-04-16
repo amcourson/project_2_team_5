@@ -37,8 +37,7 @@ router.get('/:id', (req, res) => {
             }
             const events = response.get({ plain: true });
             console.log(events);
-            res.render('ViewEvent', { events, loggedIn: true, isGuest: true });
-        // res.json(response);
+            res.render('ViewEvent', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);

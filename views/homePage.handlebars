@@ -1,4 +1,13 @@
 
-<p> home pgae </p>
+{{#if events.length}}
+<div class="container-dashboard">
+     {{#each events as |event|}}
+        {{> Eventinfo_home event}}
+    {{/each}}
+{{/if}}
+
+
+
+
 
 
