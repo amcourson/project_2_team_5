@@ -28,8 +28,6 @@ async function deletePost() {
         document.location.replace('/Dashboard/');
       } else {
         swal("Something wrong happened, please try again!!");
-
-       // alert(response.statusText);
       }
 }
 

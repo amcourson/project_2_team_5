@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
-    $( "#logoutButton" ).on("click",function() {
-      //signupFormHandler();
+    $( "#create-account" ).on("click",function() {
+      signUpButtonClicked();
     });
   });
 
