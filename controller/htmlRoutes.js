@@ -1,50 +1,18 @@
 const router = require('express').Router();
-
-// const { eventNames } = require('node:process');
 const { User, Event, Comment, Category, Type, Guest,Gift,Potluck } = require('../models');
 const withAuth = require('../utils/auth');
 
+// GET HOME PAGE
 router.get('/', (req, res) => {
-    Event.findAll({
-        where: { type_id: 2 },
-        attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
-        include: [
-            { 
-                model: User, attributes: ['firstname', 'lastname']
-            }]
-    })
-    .then(response => {
-        const events = response.map(blog => blog.get({ plain: true }));
-        console.log(events);
-
-        res.render('homePage', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
-    })
-    .catch(err => {
-        res.status(500).json(err);
-    });
+    res.render('homePage', { loggedIn: false} );
 });
 
 router.get('/index', (req, res) => {
-    Event.findAll({
-        where: { type_id: 2 },
-        attributes: [ 'id', 'title', 'description', 'address', 'city', 'state', 'startdate', 'enddate', 'category_id', 'virtuallink'  ],
-        include: [
-            { 
-                model: User, attributes: ['firstname', 'lastname']
-            }]
-    })
-    .then(response => {
-        const events = response.map(blog => blog.get({ plain: true }));
-        console.log(events);
-
-        res.render('homePage', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
-    })
-    .catch(err => {
-        res.status(500).json(err);
-    });
+    res.render('homePage', { loggedIn: false} );
 });
+
+// GET MY INVITATIONS
 router.get('/myinvitations',withAuth, (req, res) => {
-   
     Event.findAll({
         include: [{
           model: Guest,
@@ -63,6 +31,7 @@ router.get('/myinvitations',withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
 // OPEN SIGN-UP PAGE
 router.get('/signUp', (req, res) => {
     res.render('signUpPage');
@@ -103,13 +72,12 @@ router.get('/addNewEvent', withAuth, (req, res) => {
     })
     .then(categroyData => {
        const categories = categroyData.map(category => category.get({ plain: true }));
-       res.render('AddNewEvent', {categories, loggedIn: req.session.loggedIn});
+       res.render('AddNewEvent', {categories, loggedIn: req.session.loggedIn, firstname: req.session.firstname});
     })
     .catch(err => {
         res.status(500).json(err);
     });
 });
-
 
 // OPEN OTHER USER'S BLOG BY ID
 router.get('/lastAdded',  (req, res) => {

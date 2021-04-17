@@ -5,9 +5,10 @@ $(document).ready(function() {
     loginButtonClicked();
   });
 });
+
 async function loginButtonClicked () {
-  const username = document.querySelector('.input-username-login').value.trim();
-  const password = document.querySelector('.input-password-password').value.trim();
+  const username = $('.input-username-login').val().trim();
+  const password = $('.input-password-password').val().trim();
 
   if (username && password) {
       const response = await fetch('/api/users/login', {
@@ -22,7 +23,6 @@ async function loginButtonClicked () {
         } 
         else if (response.status == 400 || response.status == 500) {
           swal("Incorrect email or password. Please try again!");
-         // alert("Incorrect email or password. Please try again!");
         }
   }
 }

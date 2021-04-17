@@ -9,7 +9,6 @@ event_id = event_id.replace('?','');
  
 
   $(document).ready(function() { 
-   
      
     $(".add-row-people").click(function(){
         var name = $("#people-name").val();
@@ -17,8 +16,6 @@ event_id = event_id.replace('?','');
         var row = `<tr><td><input type='checkbox' name='check-people'></td><td>  ${name} </td><td> ${email} </td></tr>`;
         $("#table-people tbody").append(row);
     });
-    
-    // Find and remove selected table rows
     $(".delete-row-people").click(function(){
         $("#table-people tbody").find('input[name="check-people"]').each(function(){
             if($(this).is(":checked")){
@@ -43,15 +40,13 @@ event_id = event_id.replace('?','');
       });
 
     
-      $(".add-row-potluck").click(function(){
+    $(".add-row-potluck").click(function(){
         var item = $("#item1").val();
         var qty = $("#quantity").val();
         var description = $("#description").val();
         var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td></tr>`;
         $("#table-potluck tbody").append(row);
     });
-    
-    // Find and remove selected table rows
     $(".delete-row-potluck").click(function(){
         $("#table-potluck tbody").find('input[name="check-item"]').each(function(){
             if($(this).is(":checked")){
@@ -60,7 +55,6 @@ event_id = event_id.replace('?','');
             }
         });
     });
-    
     $( "#savePotluck" ).click(function() {
         let name,description,headcount;
         
@@ -78,38 +72,34 @@ event_id = event_id.replace('?','');
         });
         });
 
-      $(".add-row-gift").click(function(){
-          var giftName = $("#gift-item").val();
-          var giftUrl = $("#gift-url").val();
-          var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
-          $("#table-gift tbody").append(row);
-      });
-      
-      // Find and remove selected table rows
-      $(".delete-row-gift").click(function(){
-          $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
-              if($(this).is(":checked")){
-                giftItems.splice($(this).parents("tr").index(), 1);
-                  $(this).parents("tr").remove();
-              }
-          });
-      });
-      
-      $( "#saveGift" ).click(function() {
-          let name, url;
-      
-          $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
-            $(this).closest('tr').find('td:eq(1)').each(function() {
-              name = $(this).text().trim();
-            });
-            $(this).closest('tr').find('td:eq(2)').each(function() {
-              url = $(this).text().trim();
-            });
-            giftItems.push({name: name, url: url, event_id: event_id});
-          });
+    $(".add-row-gift").click(function(){
+        var giftName = $("#gift-item").val();
+        var giftUrl = $("#gift-url").val();
+        var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
+        $("#table-gift tbody").append(row);
+    });
+    $(".delete-row-gift").click(function(){
+        $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
+            if($(this).is(":checked")){
+              giftItems.splice($(this).parents("tr").index(), 1);
+                $(this).parents("tr").remove();
+            }
         });
-      
-          
+    });
+    $( "#saveGift" ).click(function() {
+        let name, url;
+    
+        $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
+          $(this).closest('tr').find('td:eq(1)').each(function() {
+            name = $(this).text().trim();
+          });
+          $(this).closest('tr').find('td:eq(2)').each(function() {
+            url = $(this).text().trim();
+          });
+          giftItems.push({name: name, url: url, event_id: event_id});
+        });
+      });
+        
     $( "#saveEventAsActive" ).on("click",function() {
       swal({
         title: "Are you sure?",
@@ -122,8 +112,6 @@ event_id = event_id.replace('?','');
         if (willDelete) {
             document.location.replace('/dashboard');
             saveEvent();
-            swal("Event saved.");
-
         } else {
           swal("Event not saved.");
         }
@@ -159,8 +147,6 @@ async function saveGuestList (event) {
   if (response.ok) {
   } else {
     swal("Something wrong happened, please try again!!");
-
-   // alert("Something went wrong ,please try again!!");
   }
 }
 
@@ -177,11 +163,8 @@ async function savePotluckList (event) {
   if (response.ok) {
   } else {
     swal("Something wrong happened, please try again!!");
-
-    //alert("Something went wrong ,please try again!!");
   }
 }
-
 
 async function saveGiftList (event) {
   const response = await fetch('/api/gift', {
@@ -196,7 +179,5 @@ async function saveGiftList (event) {
   if (response.ok) {
   } else {
     swal("Something wrong happened, please try again!!");
-
-    //alert("Something went wrong ,please try again!!");
   }
 }

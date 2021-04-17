@@ -29,6 +29,8 @@ router.post('/', async (req, res) => {
     res.status(500).json(err.message);
   }
 });
+
+// LOGIN 
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -60,9 +62,5 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// LOGOUT 
-
-
 
 module.exports = router;

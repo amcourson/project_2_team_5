@@ -10,19 +10,13 @@ router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
 
+// SHOW DASHBOARD
 router.get('/dashboard', (req, res) => {
     res.render('dashboard', {loggedIn: req.session.loggedIn});
 });
 
-// CREATE NEW EVENt
+// CREATE NEW EVENT
 router.post('/', (req, res) => {
-   /* const event = {
-        title: "My birthday party",
-        description: "Be there!",
-        start: "2019-12-29 18:00:00 +0100",
-        duration: [3, "hour"],
-      };*/
-
     Event.create({
         Title: req.body.title,
         description: req.body.description,
@@ -89,7 +83,6 @@ router.get('/:id', (req, res) => {
         });
 });
 
-
 //  EDIT EVENT BY ID 
 router.put('/:id', (req, res) => {
     Event.update({
@@ -121,7 +114,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-
 //  DELETE EVENT BY ID 
 router.delete('/:id', (req, res) => {
     Event.destroy({
@@ -142,10 +134,5 @@ router.delete('/:id', (req, res) => {
     res.status(500).json(err);
     });
 });
-
-
-
-
-
 
 module.exports = router;

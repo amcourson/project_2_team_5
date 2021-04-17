@@ -1,5 +1,11 @@
-const signupFormHandler = async (event) => {
-    event.preventDefault();
+
+$(document).ready(function() {
+    $( "#logoutButton" ).on("click",function() {
+      //signupFormHandler();
+    });
+  });
+
+  async function signUpButtonClicked () {
 
     const username = $('.input-username-signup').val();
     const password = $('.input-password-signup').val();
@@ -13,8 +19,6 @@ const signupFormHandler = async (event) => {
 
     if (password != confirmPassword){
         swal("Password and Confirm password doesnot match");
-
-        //alert("Password and Confirm password doesnot match!");
         return;
     } 
     if (username && password && confirmPassword) {

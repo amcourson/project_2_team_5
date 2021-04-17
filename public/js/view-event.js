@@ -31,13 +31,8 @@ async function updateRSVPPotluck() {
     
     if (response.ok) {
       swal("RSVP is updated");
-
-     // alert("RSVP Updated");
-    //  document.location.replace('/dashboard/');
     } else {
       swal("Something wrong happened, please try again!!");
-
-      //alert(response.statusText);
     }
 
 }
@@ -59,13 +54,8 @@ async function updateRSVPGift() {
     
     if (response.ok) {
       swal("RSVP Gift updated");
-
-    //  alert("RSVP gift Updated");
-     // document.location.replace('/dashboard/');
     } else {
       swal("Something wrong happened, please try again!!");
-
-     // alert(response.statusText);
     }
 
 }
@@ -90,15 +80,9 @@ async function updateRSVP() {
       
       if (response.ok) {
         swal("RSVP updated");
-
-       // alert("RSVP Updated");
-       // document.location.replace('/dashboard/');
       } else {
         swal("Something wrong happened, please try again!!");
-
-      //  alert(response.statusText);
       }
-
 }
 
 async function commentFormHandler() {
@@ -117,13 +101,9 @@ async function commentFormHandler() {
       });
       if (response.ok) {
           swal("Your comment is added");
-
-          //alert("Comment added");
           document.location.reload();
       } else {
         swal("Something wrong happened, please try again!!");
-
-          //alert("Something wrong happened, please try again!!");
           $('#comment-form').style.display = "block";
       }
   }

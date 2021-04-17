@@ -1,6 +1,5 @@
 
   let status = "ACTIVE";
-
   var gift = [];
   var items = [];
   
@@ -9,10 +8,10 @@
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
    
-  $( "#saveEventAsActive" ).on("click",function() {
-    status = "DRAFT";
-    saveButtonClicked();
-  })
+    $( "#saveEventAsActive" ).on("click",function() {
+      status = "DRAFT";
+      saveButtonClicked();
+    })
     $('#makeitVirtual').change(function() {
       if(this.checked) {
         addressEL.attr('hidden', true);
@@ -36,13 +35,8 @@
     let json = await response.json();
 
     if (response.ok) {
-     // swal("Something wrong happened, please try again!!");
-
-      //alert(response);
     } else {
       swal("Something wrong happened, please try again!!");
-
-     // alert("Something went wrong, please try again!!");
     }
   }
  
@@ -70,8 +64,6 @@
     } 
     else if (response.status == 400 || response.status == 500) {
       swal("Something wrong happened, please try again!!");
-
-    //  alert("Something went wrong, please try again!!")
     }
   }
 
