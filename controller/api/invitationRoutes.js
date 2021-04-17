@@ -6,7 +6,6 @@ const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
-// GET INVITATIONS BY ID
 router.get('/:id', (req, res) => {
     Event.findOne({
         where: { id: req.params.id },
@@ -44,5 +43,7 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+
 
 module.exports = router;

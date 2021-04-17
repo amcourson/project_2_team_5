@@ -1,38 +1,32 @@
 
 
+
 <div class="card">
     <form class="form-horizontal form-new-event">
        <div class="form-group">
       <div class="col-sm-10">
-          <a class="create-account-button button btn-primary" id="saveEventAsActive">Save Event </a>
+          <a class="create-account-button button" id="saveEventAsActive" href="/dashboard">Save Event </a>
           </div>
     </div>
-     
       <div class="form-group">
-        <label class="control-label col-sm-2" style="text-align: center;" > Do you want to add Gift Registry</label>
+            <label class="control-label col-sm-2" for="email">Add Guest </label>
+            <div class="col-sm-10">
+                {{> AddPeople}} 
+            </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Add Gift registry</label>
         <div class="col-sm-10">
         {{> AddGiftRegistry}} 
         </div>
       </div>
       <div class="form-group">
-      <label class="control-label col-sm-2" style="text-align: center;"> Do you want to add Potluck items</label>
+      <label class="control-label col-sm-2" for="email">Add what to bring</label>
       <div class="col-sm-10">
       {{> AddPotluck}} 
       </div>
       </div>
-
-       <div class="form-group">
-            <label class="control-label col-sm-2" style="text-align: center;">Add Guest </label>
-            <div class="col-sm-10">
-                {{> AddPeople}} 
-            </div>
-      </div>
 </form>
 </div>
-
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<!--
-  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
--->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="/js/eventdetails.js" type="text/javascript" ></script>

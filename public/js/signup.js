@@ -1,11 +1,5 @@
-
-$(document).ready(function() {
-    $( "#create-account" ).on("click",function() {
-      signUpButtonClicked();
-    });
-  });
-
-  async function signUpButtonClicked () {
+const signupFormHandler = async (event) => {
+    event.preventDefault();
 
     const username = $('.input-username-signup').val();
     const password = $('.input-password-signup').val();
@@ -18,7 +12,7 @@ $(document).ready(function() {
 
 
     if (password != confirmPassword){
-        swal("Password and Confirm password doesnot match");
+        alert("Password and Confirm password doesnot match!");
         return;
     } 
     if (username && password && confirmPassword) {
@@ -29,9 +23,12 @@ $(document).ready(function() {
           });
           
           if (response.ok) {
+            alert("You're able to successfully create an account");
             document.location.replace('/Dashboard');
           } else {
-            swal("Looks like username / email already in use, please try different");
+              alert(response.statusText);
           }
     }
 };
+
+document.querySelector('.form-signup').addEventListener('submit', signupFormHandler);

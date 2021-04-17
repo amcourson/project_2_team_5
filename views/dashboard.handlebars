@@ -1,15 +1,12 @@
+<a href="/addNewEvent"><button class="button"> + New Event</button></a>
 
-<div class="container-dashboard">
-    <a href="/addNewEvent">
-<button class="button btn-primary"> Add New Event</button></a>
 {{#if events.length}}
-
+<div class="container-dashboard">
      {{#each events as |event|}}
         {{> Eventinfo_LoggedUser event}}
     {{/each}}
 {{/if}}
 
-</div>
 
 
 
