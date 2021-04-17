@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 });
 
 
-//  EDIT GUEST RSVP BY ID 
+//  EDIT RSVP BY ID 
 router.put('/:id', (req, res) => {
     console.log("in update guest" + req.params.id + req.session.user_id);
     Guest.update({
@@ -48,5 +48,6 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
 
 module.exports = router;

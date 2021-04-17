@@ -1,17 +1,22 @@
 
   let status = "ACTIVE";
-  var gift = [];
-  var items = [];
-  
-  $(document).ready(function() { 
 
+        var gift = [];
+        var items = [];
+
+  $(document).ready(function() {
     var addressEL = $('#address');
     var virtualLinkEL = $('#virtualLinkEL');
-   
-    $( "#saveEventAsActive" ).on("click",function() {
+    $( "#saveEventAsDraft" ).on("click",function() {
       status = "DRAFT";
       saveButtonClicked();
     })
+  $( "#saveEventAsActive" ).on("click",function() {
+    alert("active  button clicked ");
+
+    status = "DRAFT";
+    saveButtonClicked();
+})
     $('#makeitVirtual').change(function() {
       if(this.checked) {
         addressEL.attr('hidden', true);
@@ -35,8 +40,10 @@
     let json = await response.json();
 
     if (response.ok) {
+      alert("response" + response);
     } else {
-      swal("Something wrong happened, please try again!!");
+      alert("NO Event found1");
+
     }
   }
  
@@ -60,18 +67,23 @@
 
     if (response.ok) {
       let json = await response.json();
+      alert("Event saved");
       document.location.replace(`/EventDetails/${json}`);
     } 
     else if (response.status == 400 || response.status == 500) {
-      swal("Something wrong happened, please try again!!");
+      alert("Something went wrong, please try again!!")
+
+      showConfirm('Something went wrong, please try again!!');
     }
   }
 
-function validate(field, text) {
-    if (text == null || text == "") {
-      alert(`Please Enter field`);
-    }
+  
+  function showConfirm(message) {
+    var mymodal = $('#confirm');
+    mymodal.find('.modal-body').text(message);
+    mymodal.modal('show');
   }
 
  
+
   

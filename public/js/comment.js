@@ -19,9 +19,10 @@ async function commentFormHandler() {
             }
         });
         if (response.ok) {
+            alert("Comment added");
             document.location.reload();
         } else {
-            swal("Something wrong happened, please try again!!");
+            alert("Something wrong happened, please try again!!");
             $('#comment-form').style.display = "block";
         }
     }

@@ -9,36 +9,44 @@
                             <h3 class="mb-0">Create An Account </h3>
                         </div>
                         <div class="card-body">
-                            <form class="form form-signup" onsubmit="return false">
+                            <form class="form form-signup">
                                 <div class="form-group">
-                                    <input class="form-input input-username-signup" type="text" minlength="6" maxlength="20" required="required" placeholder="Enter Username"/>
+                                    <label for="email-login">Username: </label>
+                                    <input class="form-input input-username-signup" type="text" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-email-signup" type="text" minlength="6"  required="required" placeholder="Enter Email"/>
+                                    <label for="email-login">Email: </label>
+                                    <input class="form-input input-email-signup" type="email" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-fname-signup" type="text"  required="required" placeholder="Enter First Name"/>
+                                    <label for="email-login">First Name: </label>
+                                    <input class="form-input input-fname-signup" type="text" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-lname-signup" type="text"  required="required" placeholder="Enter Last Name"/>
+                                    <label for="email-login">Last Name : </label>
+                                    <input class="form-input input-lname-signup" type="text" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-address-signup" type="text" required="required" placeholder="Enter Address"/>
+                                    <label for="email-login">Address: </label>
+                                    <input class="form-input input-address-signup" type="text" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-phone-signup" type="text" required="required" placeholder="Enter Phone no"/>
+                                    <label for="email-login">Phone No: </label>
+                                    <input class="form-input input-phone-signup" type="text" minlength="6" maxlength="20" required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-password-signup" type="password" minlength="8"  required="required" placeholder="Enter Password"/>
+                                    <label for="password-login">Password: </label>
+                                    <input class="form-input input-password-signup" type="password" minlength="8"  required="required"/>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-input input-confirm-password-signup" type="password" minlength="8" required="required" placeholder="Enter Confirm Password"/>
+                                    <label for="password-login"> Confirm Password: </label>
+                                    <input class="form-input input-confirm-password-signup" type="password" minlength="8" required="required"/>
                                 </div>
                                 <div class="form-group">
                                     
-                                    <button class="button btn-primary" type="submit" id="create-account">SignUp</button>
-                                    <button class="button btn-primary">
-                                        <a class="already-have-account-button button btn-primary" href="/login">Already have an
+                                    <button class="button" type="submit">SignUp</button>
+                                    <button class="button">
+                                        <a class="already-have-account-button button" href="/login">Already have an
                                             account</a>
                                     </button>
                                 </div>
@@ -50,6 +58,4 @@
         </div>
     </div>
 </div>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="../js/signup.js" type="text/javascript"></script>
