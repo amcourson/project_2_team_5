@@ -35,5 +35,3 @@ $(document).ready(function() {
           }
     }
 };
-
-document.querySelector('.form-signup').addEventListener('submit', signupFormHandler);
