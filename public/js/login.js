@@ -24,5 +24,8 @@ async function loginButtonClicked () {
         else if (response.status == 400 || response.status == 500) {
           swal("Incorrect email or password. Please try again!");
         }
+  } else {
+     swal("Please Enter username and password");
+
   }
 }
