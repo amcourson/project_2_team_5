@@ -6,25 +6,17 @@ const withAuth = require('../../utils/auth');
 const { response } = require('express');
 const { google, outlook, office365, yahoo, ics } = require ("calendar-link");
 
-
-
 router.get('/addPotluck', (req, res) => {
     res.render('AddPotluck');
 });
 
+// SHOW DASHBOARD
 router.get('/dashboard', (req, res) => {
     res.render('dashboard', {loggedIn: req.session.loggedIn});
 });
 
-// CREATE NEW EVENt
+// CREATE NEW EVENT
 router.post('/', (req, res) => {
-    console.log("CREATE NEW EVENT ");
-    const event = {
-        title: "My birthday party",
-        description: "Be there!",
-        start: "2019-12-29 18:00:00 +0100",
-        duration: [3, "hour"],
-      };
     Event.create({
         Title: req.body.title,
         description: req.body.description,
@@ -34,37 +26,19 @@ router.post('/', (req, res) => {
         city: req.body.city ,
         state: req.body.state ,
         virtualLink: req.body.virtualLink,
-        //category_id: req.body.category,
-       category_id: 1,
-        calendar_link: google(event),
+        category_id: req.body.category,
         status: req.body.status,
         type_id: 1,
         user_id: req.session.user_id
     })
     .then(x => {
-        //const blogs = response.get({ plain: true });
         res.json(x.get('id'));
     })
-
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-    
-
-// Set event as an object, dynamically insert personalize data
-
-
-
-// google(event); 
-// outlook(event);
-// office365(event); 
-// yahoo(event); 
-// ics(event); 
 });
-
-attributes: ['id', 'title', 'description', 'startdate', 'enddate', 'address', 'city', 'state', 'virtuallink', 'category_id' ],
-
 
 // GET BLOG BY ID: 
 router.get('/:id', (req, res) => {
@@ -90,11 +64,9 @@ router.get('/:id', (req, res) => {
             {
                 model: Potluck, attributes: ['name', 'description', 'headcount', 'user_id'],
                 include: { model: User, attributes: ['username', 'firstname', 'lastname']}
-
             }
         ]
         })
-        
         .then(response => {
 
             if (!response) {
@@ -102,16 +74,14 @@ router.get('/:id', (req, res) => {
                 return;
             }
             const events = response.get({ plain: true });
-              console.log(events);
-           // res.json(events);
-                //{loggedIn: req.session.loggedIn, firstname: req.session.firstname }
+              console.log("response:" + events);
+             // res.json(events);
             res.render('EditEvent', { events, loggedIn: req.session.loggedIn, firstname: req.session.firstname });
         })
         .catch(err => {
             res.status(500).json(err);
         });
 });
-
 
 //  EDIT EVENT BY ID 
 router.put('/:id', (req, res) => {
@@ -144,7 +114,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-
 //  DELETE EVENT BY ID 
 router.delete('/:id', (req, res) => {
     Event.destroy({
@@ -165,10 +134,5 @@ router.delete('/:id', (req, res) => {
     res.status(500).json(err);
     });
 });
-
-
-
-
-
 
 module.exports = router;

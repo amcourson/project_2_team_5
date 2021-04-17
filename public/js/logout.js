@@ -10,10 +10,9 @@ async function logout () {
   });
 
   if (response.ok) {
-      alert("You're Logout!!");
         document.location.replace('/index');
   } else {
-    alert("Something wrong happened, please try again!!");
+    swal("Something wrong happened, please try again!!");
   }
 
 }

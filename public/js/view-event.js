@@ -21,8 +21,6 @@ async function updateRSVPPotluck() {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-
-  alert(checkedValue + id);
     const response = await fetch(`/api/potluck/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ id: checkedValue, event_id: id }),
@@ -32,10 +30,9 @@ async function updateRSVPPotluck() {
     });
     
     if (response.ok) {
-      alert("RSVP Updated");
-      document.location.replace('/dashboard/');
+      swal("RSVP is updated");
     } else {
-      alert(response.statusText);
+      swal("Something wrong happened, please try again!!");
     }
 
 }
@@ -47,8 +44,6 @@ async function updateRSVPGift() {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-
-  alert(checkedValue + id);
     const response = await fetch(`/api/gift/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ id: checkedValue, event_id: id }),
@@ -58,10 +53,9 @@ async function updateRSVPGift() {
     });
     
     if (response.ok) {
-      alert("RSVP gift Updated");
-      document.location.replace('/dashboard/');
+      swal("RSVP Gift updated");
     } else {
-      alert(response.statusText);
+      swal("Something wrong happened, please try again!!");
     }
 
 }
@@ -71,8 +65,6 @@ async function updateRSVP() {
     var rsvp = $("input[name='rsvp']:checked").val();
     var adultcount = $("#adult-count").val();
     var kidscount = $("#kids-count").val();
-    alert(rsvp + adultcount + kidscount);
-
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
@@ -87,12 +79,10 @@ async function updateRSVP() {
       });
       
       if (response.ok) {
-        alert("RSVP Updated");
-        document.location.replace('/dashboard/');
+        swal("RSVP updated");
       } else {
-        alert(response.statusText);
+        swal("Something wrong happened, please try again!!");
       }
-
 }
 
 async function commentFormHandler() {
@@ -101,8 +91,6 @@ async function commentFormHandler() {
   const event_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
   ];
-  alert(commenttext + event_id)
-
   if (commenttext) {
       const response = await fetch('/api/comments', {
           method: 'POST',
@@ -112,10 +100,10 @@ async function commentFormHandler() {
           }
       });
       if (response.ok) {
-          alert("Comment added");
+          swal("Your comment is added");
           document.location.reload();
       } else {
-          alert("Something wrong happened, please try again!!");
+        swal("Something wrong happened, please try again!!");
           $('#comment-form').style.display = "block";
       }
   }

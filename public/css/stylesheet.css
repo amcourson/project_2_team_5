@@ -1,31 +1,10 @@
 body {
     font-family: sans-serif;
     background-color: white;
-  }
-  a {
-    color: black;
-    text-decoration: none;
-    background-color: transparent;
-  font-family: sans-serif;
-  background-color: rgb(10, 10, 10);
-}
-
-
-/******************* header *******************/
-h1 {
-  background-color:rgb(25, 220, 100);
-
-
-
 }
 /******************* Navbar *******************/
-.navbar {
-    background-color: rgb(167, 40, 216);
-    padding-top: 20px;
-}
 .navbar-title  {
     text-align:center;
-    color: rgb(64, 203, 36);
     font-style: italic;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
@@ -33,7 +12,7 @@ h1 {
     text-align: center;
     font-size: 20px;
   }
-  .navbar-nav  a, select {
+  .navbar-nav  a {
     float: left;
     color: #4388c9;
     font-size: 17px;
@@ -43,7 +22,7 @@ h1 {
   }
   .navbar-title  {
     background-color: #050804;
-    border-color: #44f534;
+    border-color: #000000;
     border-width: 10px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 5px 5px 5px;
@@ -59,27 +38,18 @@ h1 {
     border-radius: 25px;
     border: 10px solid #010002;
   }
-  select {
-    background-color: #3f3232;
-    color : white;
-    border-radius: 25px;
-    border: 10px solid #010002;
-  }
-  
-  /******************* header *******************/
-  
-  /******************* Navbar *******************/
-
   .navbar {
       background-color: #f08787;
-
+      background-color: #482c67;
       padding-top: 20px;
   }
-  
+  .title {
+    color: white;
+    font-size: 30px;
+  }
   .navbar-title  {
       text-align:center;
       color: whitesmoke;
-      color: black;
       font-style: italic;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       text-align: center;
@@ -109,12 +79,17 @@ h1 {
       color: red;
     }
     .navbar-nav .nav-item  {
-      background-color: #3f3232;
       background-color: #794b4b;
-
+      background-color: #9c6295;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      color : white;
+      border-radius: 15px;
+      border: 1px solid #010002;
+      background-color: rgb(156, 97, 151);
       color : white;
       border-radius: 25px;
-      border: 10px solid #010002;
+      border: 2px solid #010002;
     }
   .navbar-nav > a:hover {
       color : white;
@@ -130,20 +105,15 @@ h1 {
       text-align: center;
       width: 100%;
   }
-  .navbar-brand {float:none;}
-    .navbar-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-    .dropdown-menu {
-        background-color: red;
-    }
+   
     .dropdown-item {
         background-color: #3f3232;
         background-color: #794b4b;
+        background-color: rgb(156, 97, 151);
 
         color : white;
         border-radius: 25px;
-        border: 10px solid #010002; 
+        border: 5px solid #010002; 
     }
     div.navbar-collapse.collapse  {
       display:flex !important;
@@ -155,28 +125,46 @@ h1 {
     .card {
       background-color: transparent;
       margin: 20px;
-      border: solid 3px black;
     }
     .card-header {
       background-color: #f08787;
+      background-color: #c78888;
+      background-color: rgb(215, 147, 173);
+      background-color: #efe7f9;
+      border-bottom: 2px solid lightgray;
       color: white;
       align-items: center;
-      border-bottom: 1px black solid;
-
+      border-radius: 20px;
+      border: 1px solid gray;
+      text-align: left;
+      border-bottom: 2px solid lightgray;
+      font-size: 18px;
+      background-color: #efe7f9;
+      padding: 10px;
+      color: black;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card-header a {
+      color: black;
+    }
+    .card-header .display-date {
+      color: darkslategray;
+      font-family: Verdana;
+      font-size: 15px;
+      font-style: italic;
     }
     .card-title {
       float: left;
-      color: white;
+      color: black;
       font-family: 'Lucida Sans';
       margin: 0px;
+      border-radius: 20px;
     }
-    .card-posted-date {
-      float: right;
-    }
+    
     /****************** Button ****************/
     .button  {
       background-color: #72c8f0;
-      background-color: #f08787;
       color: black;
       font-size: 20px;
       margin-top: 20px;
@@ -208,16 +196,38 @@ h1 {
       border-radius: 15px;
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }  
-
-    
-    input[type=text], input[type=password],input[type=number]{
-      width: 100%;
+  
+    input[type=text], input[type=password]{
+      width: 70%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
       border: 1px solid #ccc;
       box-sizing: border-box;
       border-radius: 10px;
+      margin-right: 20px;
+    }
+    input[type=number]{
+      width: 70%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
+    .form-signup  .form-input {
+      width: 100%;
+    }
+    .form-login  .form-input {
+      width: 100%;
+    }
+    .form-signup .form-group {
+      padding: 0px;
+      margin: 0px;
+    }
+    .form-rsvp{
+        padding: 20px;
     }
     .comment-user {
         float: right;
@@ -251,12 +261,6 @@ h1 {
     color: black;
     font-family: cursive;
   }
-  .title {
-    font-size: 25px;
-  }
-  /* DEMO example styles for logo image */
-  
-  
   .link{
     text-decoration: none;
     color: blue;
@@ -285,4 +289,26 @@ th {
   font-family: Arial;
   color: black;
   font-size: 15px;
+}
+td {
+  border: 1px solid black;
+  font-family: 'Trebuchet MS';
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.page-title {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+ .form-group {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.form-login input {
+  text-align: center;
 }

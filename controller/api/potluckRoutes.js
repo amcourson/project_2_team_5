@@ -3,11 +3,8 @@ const { Event, Potluck, User } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-
+// CREATE NEW POTLUCK ITEM
 router.post('/', (req, res) => {
-    console.log("IN POTLUCK POST HTMl routes");
-    console.log(req.body.potluckItems);
-
     Potluck.bulkCreate(req.body.potluckItems)
     .then(function() {
          return Potluck.findAll()
@@ -22,10 +19,8 @@ router.post('/', (req, res) => {
        })
 });
 
-
-//  EDIT RSVP BY ID 
+//  EDIT POTLUCK RSVP BY ID 
 router.put('/:id', (req, res) => {
-    console.log("in update potluc" + req.params.id + req.session.user_id);
     Potluck.update({
         user_id: req.session.user_id,
     }, 
@@ -39,15 +34,11 @@ router.put('/:id', (req, res) => {
             res.status(404).json({ message: 'No EVENT found with this id' });
             return;
         }
-        console.log("in update guest");
-        console.log(response);
-
         res.json(response);
     })
     .catch(err => {
         res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

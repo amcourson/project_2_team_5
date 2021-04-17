@@ -11,18 +11,18 @@
       </div>
       <div class="modal-body">
           <form id="form-rsvp">
-            <div class="form-group">                
-                Would you be joining ?
-                <input type="radio" id="yes" value="YES" name="rsvp"> YES
-                <input type="radio" id="no" value="NO" name="rsvp"> NO
-                <input type="radio" id="maybe" value="MAY BE" name="rsvp">May Be
+            <div class="form-rsvp form-group">                
+                Would you be joining ?<br/>
+                <input type="radio" id="yes" value="YES" name="rsvp" class="rsvp-option" checked="true"> YES <br/>
+                <input type="radio" id="no" value="NO" name="rsvp" class="rsvp-option"> NO<br/>
+                <input type="radio" id="maybe" value="MAY BE" name="rsvp" class="rsvp-option">May Be<br/>
             </div>
 
             <div class="form-group">
               <strong>Adult count </strong>
-                <input class="modal-label" type="number" id="adult-count" min="1" max="5"> <br/>
-               <strong>Kids </strong>
-             <input class="modal-label" id="kids-count" type="number" min="1" max="5">
+                <input class="modal-label" type="number" id="adult-count" min="1" max="5" value="2"> <br/>
+               <strong>Kids count </strong>
+             <input class="modal-label" id="kids-count" type="number" min="1" max="5" value="0">
             </div>
         </form>
     </div>

@@ -2,10 +2,8 @@ const router = require('express').Router();
 const { Gift } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// CREATE NEW GIFt
+// CREATE NEW GIFT
 router.post('/', (req, res) => {
-    console.log("IN GIFT POST route");
-
     Gift.bulkCreate(req.body.giftItems)
     .then(function() {
          return Gift.findAll()
@@ -20,7 +18,7 @@ router.post('/', (req, res) => {
        })
 });
 
-//  EDIT RSVP BY ID 
+//  EDIT GIFT RSVP BY ID 
 router.put('/:id', (req, res) => {
     console.log("in update guest");
     Gift.update({
@@ -45,6 +43,5 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
 
 module.exports = router;
