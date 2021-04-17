@@ -66,7 +66,7 @@ Add env file: <br>
 Go to Folder, add new file name it as .env <br>
 DB_USER='<your mysql username>' <br>
 DB_PASSWORD='<your mysql password>' <br>
-DB_NAME='blogDB' <br>
+DB_NAME='EventPlanner_db' <br>
 
 Installing Database: <br>
 1. Via Terminal: <br>
