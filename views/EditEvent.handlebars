@@ -23,7 +23,7 @@
          <div class="form-group">
       <label class="control-label col-sm-2" for="title">Event Title</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" value= {{events.title}}  id="event-title" minlength="6" required="required" disabled/>
+        <input name="Event Title" class="form-control" value= "{{events.title}}"  id="event-title" minlength="6" required="required" disabled/>
       </div>
     </div>
     <div class="form-group">
@@ -37,12 +37,11 @@
           <div class="col-sm-10">
             <p> 
               <span class="startdate"> {{format_date events.startdate}} </span>
-               <span class="starttime">   {{format_time events.startdate}} </span>
+               <span class="starttime">  Time: {{format_time events.startdate}} </span>
               <span class="endtime">{{format_time events.enddate}}</span>
             </p>
       </div>
       </div>
-      <p><a id="node.mailer" class="btn btn-primary">Create email</a></p>
       {{#if events.virtuallink}}
       <div class="form-group">
       <label class="control-label col-sm-2 text-center" for="virtual" > Make this a Virtual Event (Recommended) </label>
@@ -56,7 +55,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Street Address</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-address" value={{events.address}} />
+        <input name="Event Title" class="form-control" id="event-address" value='{{events.address}}' />
       </div>
     </div>
     <div class="form-group">
@@ -68,14 +67,14 @@
      <div class="form-group">
       <label class="control-label col-sm-2" for="email">City</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-city" value="{{events.city}}" />
+        <input name="Event Title" class="form-control" id="event-city" value='{{events.city}}' />
       </div>
     </div>
     
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">State</label>
       <div class="col-sm-10">
-        <input name="Event Title" class="form-control" id="event-state" />
+        <input name="Event Title" class="form-control" id="event-state" value="{{events.state}}"/>
       </div>
     </div>
     </div>
@@ -105,5 +104,5 @@
 
 {{> comments comments=events.comments}}
 {{> modal}}
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="/js/edit-event.js" type="text/javascript" ></script>

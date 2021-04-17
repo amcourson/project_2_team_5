@@ -8,17 +8,15 @@ var event_id = window.location.toString().split('/')[
 event_id = event_id.replace('?','');
  
 
-  $(document).ready(function() {  
+  $(document).ready(function() { 
+     
     $(".add-row-people").click(function(){
         var name = $("#people-name").val();
         var email = $("#people-email").val();
         var row = `<tr><td><input type='checkbox' name='check-people'></td><td>  ${name} </td><td> ${email} </td></tr>`;
         $("#table-people tbody").append(row);
     });
-    
-    // Find and remove selected table rows
     $(".delete-row-people").click(function(){
-        alert("delete pople");
         $("#table-people tbody").find('input[name="check-people"]').each(function(){
             if($(this).is(":checked")){
                guest.splice($(this).parents("tr").index(), 1);
@@ -42,15 +40,13 @@ event_id = event_id.replace('?','');
       });
 
     
-      $(".add-row-potluck").click(function(){
+    $(".add-row-potluck").click(function(){
         var item = $("#item1").val();
         var qty = $("#quantity").val();
         var description = $("#description").val();
-        var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td><td> ${qty} </td></tr>`;
+        var row = `<tr><td><input type='checkbox' name='check-item'></td><td>  ${item} </td><td> ${description} </td><td> ${qty} </td></tr>`;
         $("#table-potluck tbody").append(row);
     });
-    
-    // Find and remove selected table rows
     $(".delete-row-potluck").click(function(){
         $("#table-potluck tbody").find('input[name="check-item"]').each(function(){
             if($(this).is(":checked")){
@@ -59,7 +55,6 @@ event_id = event_id.replace('?','');
             }
         });
     });
-    
     $( "#savePotluck" ).click(function() {
         let name,description,headcount;
         
@@ -77,43 +72,50 @@ event_id = event_id.replace('?','');
         });
         });
 
-        $(".add-row-gift").click(function(){
-          var giftName = $("#gift-item").val();
-          var giftUrl = $("#gift-url").val();
-          var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
-          $("#table-gift tbody").append(row);
-      });
-      
-      // Find and remove selected table rows
-      $(".delete-row-gift").click(function(){
-          alert("delete gift");
-      
-          $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
-              if($(this).is(":checked")){
-                giftItems.splice($(this).parents("tr").index(), 1);
-                  $(this).parents("tr").remove();
-              }
-          });
-      });
-      
-      $( "#saveGift" ).click(function() {
-          let name, url;
-      
-          $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
-            $(this).closest('tr').find('td:eq(1)').each(function() {
-              name = $(this).text().trim();
-            });
-            $(this).closest('tr').find('td:eq(2)').each(function() {
-              url = $(this).text().trim();
-            });
-            giftItems.push({name: name, url: url, event_id: event_id});
-          });
+    $(".add-row-gift").click(function(){
+        var giftName = $("#gift-item").val();
+        var giftUrl = $("#gift-url").val();
+        var row = `<tr><td> <input type="checkbox" name="check-gift"></td><td> ${giftName} </td><td> ${giftUrl} </td></tr>`;
+        $("#table-gift tbody").append(row);
+    });
+    $(".delete-row-gift").click(function(){
+        $("#table-gift tbody").find('input[name="check-gift"]').each(function(){
+            if($(this).is(":checked")){
+              giftItems.splice($(this).parents("tr").index(), 1);
+                $(this).parents("tr").remove();
+            }
         });
+    });
+    $( "#saveGift" ).click(function() {
+        let name, url;
+    
+        $("#table-gift tbody tr").find('input[name="check-gift"]').each(function(){
+          $(this).closest('tr').find('td:eq(1)').each(function() {
+            name = $(this).text().trim();
+          });
+          $(this).closest('tr').find('td:eq(2)').each(function() {
+            url = $(this).text().trim();
+          });
+          giftItems.push({name: name, url: url, event_id: event_id});
+        });
+      });
         
-          
     $( "#saveEventAsActive" ).on("click",function() {
-        document.location.replace('/dashboard');
-        saveEvent();
+      swal({
+        title: "Are you sure?",
+        text: "Once saved,you won't be able to Edit/Delete Potluck, Gift and Guest list. Are you sure you want to save this event ?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            document.location.replace('/dashboard');
+            saveEvent();
+        } else {
+          swal("Event not saved.");
+        }
+      });
       })
 });
 
@@ -143,9 +145,8 @@ async function saveGuestList (event) {
   });
 
   if (response.ok) {
-    alert("Guest added");
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
   }
 }
 
@@ -160,12 +161,10 @@ async function savePotluckList (event) {
   });
 
   if (response.ok) {
-    alert("Potluck items added");
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
   }
 }
-
 
 async function saveGiftList (event) {
   const response = await fetch('/api/gift', {
@@ -178,8 +177,7 @@ async function saveGiftList (event) {
   });
 
   if (response.ok) {
-    alert("Gift items added");
   } else {
-    alert("Something went wrong ,please try again!!");
+    swal("Something wrong happened, please try again!!");
   }
 }

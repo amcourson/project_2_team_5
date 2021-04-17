@@ -69,9 +69,6 @@ Event.init(
         key: 'id',
       },
     },
-    calendar_link: {
-      type: DataTypes.STRING,
-    }, 
   },
   {
     sequelize,
