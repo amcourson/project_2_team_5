@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
         });
 });
 
+// GET CATEGORY ID BY NAME
 router.get('/:categoryName',async (req, res) => {
 
     Category.findOne({ 

@@ -1,5 +1,11 @@
-const signupFormHandler = async (event) => {
-    event.preventDefault();
+
+$(document).ready(function() {
+    $( "#create-account" ).on("click",function() {
+      signUpButtonClicked();
+    });
+  });
+
+  async function signUpButtonClicked () {
 
     const username = $('.input-username-signup').val();
     const password = $('.input-password-signup').val();
@@ -12,7 +18,7 @@ const signupFormHandler = async (event) => {
 
 
     if (password != confirmPassword){
-        alert("Password and Confirm password doesnot match!");
+        swal("Password and Confirm password doesnot match");
         return;
     } 
     if (username && password && confirmPassword) {
@@ -23,12 +29,9 @@ const signupFormHandler = async (event) => {
           });
           
           if (response.ok) {
-            alert("You're able to successfully create an account");
             document.location.replace('/Dashboard');
           } else {
-              alert(response.statusText);
+            swal("Looks like username / email already in use, please try different");
           }
     }
 };
-
-document.querySelector('.form-signup').addEventListener('submit', signupFormHandler);
